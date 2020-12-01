@@ -63,7 +63,7 @@ main {
   flex-direction: column;
 }
 /* ----- pagina 1 ----- */
-.user-page, .principal-page, .search-calendary-page/*.calendary-page*/ {
+.user-page, .principal-page, .search-calendary-page, .calendary-page {
   display: none;
 }
 
