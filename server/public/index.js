@@ -8,6 +8,8 @@ let page4 = document.getElementById('page-4')
 /*
 Traer elementos del DOM para insertar datos del backend
 */
+let userDateDb
+let nameUser = document.getElementsByClassName('name-user')
 
 buttonLogin.addEventListener('click', () => {
   if (valueLegajo.value === '') {
@@ -27,9 +29,16 @@ buttonLogin.addEventListener('click', () => {
         } else {
           page1.classList.add('ocultar')
           page2.classList.remove('ocultar')
-          userDate = data
+          userDateDb = data
+          imprimirDatosUser(userDateDb)
         }
       })
       .catch((err) => console.log(err))
   }
 })
+
+const imprimirDatosUser = (data) => {
+  let name = data.body.name
+  nameUser[0].insertAdjacentHTML('beforeend', name)
+  nameUser[1].insertAdjacentHTML('beforebegin', name)
+}
