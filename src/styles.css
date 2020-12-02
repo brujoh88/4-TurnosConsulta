@@ -34,7 +34,6 @@ header img {
   height: 43px;
 }
 
-
 header h1 {
   color: var(--honeydew);
 }
@@ -63,7 +62,7 @@ main {
   flex-direction: column;
 }
 /* ----- pagina 1 ----- */
-.user-page, .principal-page, .search-calendary-page, .calendary-page {
+.ocultar {
   display: none;
 }
 
@@ -80,7 +79,6 @@ div span {
 }
 
 .form-container--legajo {
-  
 }
 
 .form-container--text {
@@ -89,7 +87,6 @@ div span {
   margin-bottom: 10px;
   font-size: 2.4rem;
   font-weight: 1rem;
-  
 }
 
 .form-container--date {
@@ -117,7 +114,8 @@ button {
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.6);
 }
 /* --------- pagina 2 ---------- */
-.user-page p, span {
+.user-page p,
+span {
   font-size: 2.4rem;
   font-weight: 1rem;
   text-align: center;
@@ -144,15 +142,15 @@ button {
   margin-bottom: 20px;
 }
 
-.search-calendary--form span, input {
+.search-calendary--form span,
+input {
   vertical-align: middle;
 }
 .search-calendary--form button {
   margin-top: 80px;
 }
- /* ----------- pagina 4 -------- */
+/* ----------- pagina 4 -------- */
 .calendary-page {
-
 }
 
 /* -------- footer -------- */
@@ -171,5 +169,4 @@ footer {
 footer p {
   color: var(--honeydew);
   font-size: 1.2rem;
-
 }
