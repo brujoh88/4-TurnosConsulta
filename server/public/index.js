@@ -11,6 +11,11 @@ Traer elementos del DOM para insertar datos del backend
 let userDateDb
 let nameUser = document.getElementsByClassName('name-user')
 
+/*
+========================
+ Logica para pag 1
+========================
+*/
 buttonLogin.addEventListener('click', () => {
   if (valueLegajo.value === '') {
     alert('Ingresa un valor')
@@ -36,6 +41,12 @@ buttonLogin.addEventListener('click', () => {
       .catch((err) => console.log(err))
   }
 })
+
+/*
+========================
+ Logica para pag 2
+========================
+*/
 
 const imprimirDatosUser = (data) => {
   let name = data.body.name
