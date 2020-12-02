@@ -43,13 +43,12 @@ buttonLogin.addEventListener('click', () => {
 })
 
 /*
-========================
  Logica para pag 2
 ========================
 */
 
 const imprimirDatosUser = (data) => {
   let name = data.body.name
-  nameUser[0].insertAdjacentHTML('beforeend', name)
+  nameUser[0].insertAdjacentHTML('beforebegin', name)
   nameUser[1].insertAdjacentHTML('beforebegin', name)
 }
