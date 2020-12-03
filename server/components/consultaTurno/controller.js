@@ -80,6 +80,7 @@ const listByMonthAllTurnos = (mesQuery, anioQuery, turnoQuery) => {
     if (!mesQuery && !anioQuery) {
       dato = {
         date: new Date(),
+        turnoOfUser: turnoQuery,
         inDayWork: queryTurnoByDay(
           turnoQuery,
           new Date(anioNow, mesNow, diaNow)
@@ -95,6 +96,7 @@ const listByMonthAllTurnos = (mesQuery, anioQuery, turnoQuery) => {
     } else {
       dato = {
         date: new Date(),
+        turnoOfUser: turnoQuery,
         listAllTurnos: {
           maniana: getListTurnoByMesForGroup('Mañana', mesQuery, anioQuery),
           tarde: getListTurnoByMesForGroup('Tarde', mesQuery, anioQuery),

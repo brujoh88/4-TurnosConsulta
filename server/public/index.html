@@ -30,9 +30,9 @@
         Bienvenido <span class="name-user" ></span> , hoy <span id="print-fecha"></span>, estás de <span class="day-in-work"></span>.        
       </p>
       <p class="second-p">Días para el franco <span class="day-in-work"></span></p> 
-      <button >Consultar Calendario</button>
+      <button id="to-page3">Consultar Calendario</button>
       <div class="table-container">
-          <table id="tabla">
+          <table class="tabla">
               <tr class="text-tabla">
                 <th>Dia</th>
                 <th>Mañana</th>
@@ -44,22 +44,30 @@
       </div>
     </div>
     <div id="page-3" class="div-main ocultar">
-      <form class="search-calendary--form" action="">
-        <label for="Desde">
-          <span>Desde: </span>
-          <input type="date" id="Desde">
+      <div class="search-calendary--form">
+        <label for="mes">
+          <span>Tiempo: </span>
+          <input type="month" name="mes" id="value-mes-year">
         </label>
-        <label for="Hasta">
-          <span>Hasta: </span>
-          <input type="date" id="Hasta">
-        </label>
-        <button>Buscar</button>
-      </form>
-      <button>Volver</button>
+        <button id="query-button">Buscar</button>
+      </div>
+      <button id="back-page3">Volver</button>
     </div>
     <div id="page-4" class="div-main ocultar">
-      <div></div>
-      <button>Volver</button>
+      <div>
+        <div class="table-container">
+          <table class="tabla">
+              <tr class="text-tabla">
+                <th>Dia</th>
+                <th>Mañana</th>
+                <th>Tarde</th>
+                <th>Noche</th>
+                <th>Franco</th>
+              </tr>
+          </table>
+      </div>
+      </div>
+      <button id="back-page4">Volver</button>
       <button>Salir</button>
     </div>
     </main>
