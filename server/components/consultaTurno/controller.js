@@ -1,56 +1,41 @@
 const store = require('./store')
-const getDateNow = () => {
-  let fecha = new Date()
-  fecha =
-    fecha.getDate() + '/' + (fecha.getMonth() + 1) + '/' + fecha.getFullYear()
-  return fecha
-}
+const diaNow = new Date().getDate()
+const mesNow = new Date().getMonth()
+const anioNow = new Date().getFullYear()
 
+const getDateNow = () => {
+  return diaNow + '/' + (mesNow + 1) + '/' + anioNow
+}
 const getDiaEnElMes = (mes, anio) => {
   return new Date(anio, mes, 0).getDate()
 }
 
-const getListTurnoByMesForGroup = (turnoOnDay) => {
+const getListTurnoByMesForGroup = (turnoOnDay, mes, anio) => {
   let listPlanillaTurnos = []
-  listPlanillaTurnos.length = getDiaEnElMes(
-    new Date().getMonth() + 1,
-    new Date().getFullYear()
-  )
+  listPlanillaTurnos.length = getDiaEnElMes(mes, anio)
   let listRotacionByGroupA,
     listRotacionByGroupB,
     listRotacionByGroupC,
     listRotacionByGroupD
-  const dayOnDayByMes = (contador) => {
-    return new Date(
-      new Date().getFullYear(),
-      new Date().getMonth(),
-      contador + 1
-    )
+  const dayOnDayByMes = (contador, mes, anio) => {
+    return new Date(anio, mes, contador + 1)
   }
   for (let i = 0; i < listPlanillaTurnos.length; i++) {
-    listRotacionByGroupA = queryTurnoByDay('A', dayOnDayByMes(i))
-    listRotacionByGroupB = queryTurnoByDay('B', dayOnDayByMes(i))
-    listRotacionByGroupC = queryTurnoByDay('C', dayOnDayByMes(i))
-    listRotacionByGroupD = queryTurnoByDay('D', dayOnDayByMes(i))
+    listRotacionByGroupA = queryTurnoByDay('A', dayOnDayByMes(i, mes, anio))
+    listRotacionByGroupB = queryTurnoByDay('B', dayOnDayByMes(i, mes, anio))
+    listRotacionByGroupC = queryTurnoByDay('C', dayOnDayByMes(i, mes, anio))
+    listRotacionByGroupD = queryTurnoByDay('D', dayOnDayByMes(i, mes, anio))
     if (listRotacionByGroupA.turno == turnoOnDay) {
-      listPlanillaTurnos[i] = {
-        grup: 'A',
-      }
+      listPlanillaTurnos[i] = 'A'
     }
     if (listRotacionByGroupB.turno == turnoOnDay) {
-      listPlanillaTurnos[i] = {
-        grup: 'B',
-      }
+      listPlanillaTurnos[i] = 'B'
     }
     if (listRotacionByGroupC.turno == turnoOnDay) {
-      listPlanillaTurnos[i] = {
-        grup: 'C',
-      }
+      listPlanillaTurnos[i] = 'C'
     }
     if (listRotacionByGroupD.turno == turnoOnDay) {
-      listPlanillaTurnos[i] = {
-        grup: 'D',
-      }
+      listPlanillaTurnos[i] = 'D'
     }
   }
   return listPlanillaTurnos
@@ -85,21 +70,29 @@ const queryTurnoByDay = (turno, day) => {
   return allTurnos[referenciaTurno]
 }
 
-const listByMonthAllTurnos = (mes, anio) => {
+const listByMonthAllTurnos = (mesQuery, anioQuery) => {
   return new Promise((resolve, reject) => {
     let dato
-    if (!mes && !anio) {
-      /* return reject('No envio ningun mes') */
+    if (!mesQuery && !anioQuery) {
       dato = {
         date: getDateNow(),
         listAllTurnos: {
-          maniana: getListTurnoByMesForGroup('Mañana'),
-          tarde: getListTurnoByMesForGroup('Tarde'),
-          noche: getListTurnoByMesForGroup('Noche'),
-          franco: getListTurnoByMesForGroup('Franco'),
+          maniana: getListTurnoByMesForGroup('Mañana', mesNow, anioNow),
+          tarde: getListTurnoByMesForGroup('Tarde', mesNow, anioNow),
+          noche: getListTurnoByMesForGroup('Noche', mesNow, anioNow),
+          franco: getListTurnoByMesForGroup('Franco', mesNow, anioNow),
         },
       }
     } else {
+      dato = {
+        date: getDateNow(),
+        listAllTurnos: {
+          maniana: getListTurnoByMesForGroup('Mañana', mesQuery, anioQuery),
+          tarde: getListTurnoByMesForGroup('Tarde', mesQuery, anioQuery),
+          noche: getListTurnoByMesForGroup('Noche', mesQuery, anioQuery),
+          franco: getListTurnoByMesForGroup('Franco', mesQuery, anioQuery),
+        },
+      }
     }
     resolve(dato)
   })

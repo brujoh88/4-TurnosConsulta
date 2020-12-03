@@ -4,8 +4,9 @@ const response = require('../../network/response')
 const controller = require('./controller')
 
 router.get('/', (req, res) => {
+  let dato = req.body
   controller
-    .listByMonthAllTurnos(req.body.mes, req.body.anio)
+    .listByMonthAllTurnos(dato.mes, dato.anio)
     .then((element) => response.success(req, res, element, 200))
     .catch((err) => response.error(req, res, err, 400, 'Peticion incorrecta'))
 })

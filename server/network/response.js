@@ -1,7 +1,7 @@
 const chalk = require('chalk')
 
 const success = (req, res, message, status) => {
-  console.log(message)
+  /* console.log(message) */
 
   res.status(status || 200).send({
     error: '',
