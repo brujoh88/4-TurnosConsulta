@@ -8,7 +8,8 @@ let page4 = document.getElementById('page-4')
 /*
 Traer elementos del DOM para insertar datos del backend
 */
-let userDateDb
+let userDb
+let dataDB
 let nameUser = document.getElementsByClassName('name-user')
 
 /*
@@ -34,8 +35,13 @@ buttonLogin.addEventListener('click', () => {
         } else {
           page1.classList.add('ocultar')
           page2.classList.remove('ocultar')
-          userDateDb = data
-          imprimirDatosUser(userDateDb)
+          userDb = data
+          fetch('http://127.0.0.1:3000/getDate')
+            .then((response) => response.json())
+            .then((data) => {
+              dataDB = data
+            })
+          imprimirDatosUser(userDb)
         }
       })
       .catch((err) => console.log(err))
@@ -43,12 +49,14 @@ buttonLogin.addEventListener('click', () => {
 })
 
 /*
+========================
  Logica para pag 2
 ========================
 */
 
 const imprimirDatosUser = (data) => {
   let name = data.body.name
-  nameUser[0].insertAdjacentHTML('beforebegin', name)
-  nameUser[1].insertAdjacentHTML('beforebegin', name)
+  let legajo = data.body.legajo
+  nameUser[0].insertAdjacentHTML('beforeend', `${name} - ${legajo}`)
+  nameUser[1].insertAdjacentHTML('beforeend', name)
 }
