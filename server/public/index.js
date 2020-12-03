@@ -27,6 +27,7 @@ let dateDB
 
 let nameUser = document.getElementsByClassName('name-user')
 let fechaNow = document.getElementById('print-fecha')
+let dayInWork = document.getElementById('day-in-work')
 
 /*
 ========================
@@ -92,4 +93,6 @@ const imprimirDatosDate = (date) => {
   mes = fecha.getMonth()
   mes = listMesNombre[mes]
   fechaNow.insertAdjacentHTML('beforeend', `${day} de ${mes}`)
+  comoTrabajo = date.body.inDayWork.turno
+  dayInWork.insertAdjacentHTML('beforeend', `${comoTrabajo}`)
 }
