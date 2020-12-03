@@ -23,7 +23,11 @@ const listMesNombre = [
 Traer elementos del DOM para insertar datos del backend
 */
 let userDb
+<<<<<<< HEAD
 let dateDB
+=======
+let dataDB
+>>>>>>> 544105268d16407fb84bdb92f3b67ed419920698
 let nameUser = document.getElementsByClassName('name-user')
 let fechaNow = document.getElementById('print-fecha')
 
