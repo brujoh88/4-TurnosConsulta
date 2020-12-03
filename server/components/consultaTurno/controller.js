@@ -2,10 +2,6 @@ const store = require('./store')
 const diaNow = new Date().getDate()
 const mesNow = new Date().getMonth()
 const anioNow = new Date().getFullYear()
-
-const getDateNow = () => {
-  return diaNow + '/' + (mesNow + 1) + '/' + anioNow
-}
 const getDiaEnElMes = (mes, anio) => {
   return new Date(anio, mes, 0).getDate()
 }
@@ -75,7 +71,7 @@ const listByMonthAllTurnos = (mesQuery, anioQuery) => {
     let dato
     if (!mesQuery && !anioQuery) {
       dato = {
-        date: getDateNow(),
+        date: new Date(),
         listAllTurnos: {
           maniana: getListTurnoByMesForGroup('Mañana', mesNow, anioNow),
           tarde: getListTurnoByMesForGroup('Tarde', mesNow, anioNow),
@@ -85,7 +81,7 @@ const listByMonthAllTurnos = (mesQuery, anioQuery) => {
       }
     } else {
       dato = {
-        date: getDateNow(),
+        date: new Date(),
         listAllTurnos: {
           maniana: getListTurnoByMesForGroup('Mañana', mesQuery, anioQuery),
           tarde: getListTurnoByMesForGroup('Tarde', mesQuery, anioQuery),

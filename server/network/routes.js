@@ -5,7 +5,7 @@ const queryListTurnos = require('../components/consultaTurno/network')
 
 const routes = (server) => {
   server.use('/login', login)
-  server.use('/query', queryListTurnos)
+  server.use('/getDate', queryListTurnos)
 }
 
 module.exports = routes
