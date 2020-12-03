@@ -24,6 +24,7 @@ Traer elementos del DOM para insertar datos del backend
 */
 let userDb
 let dateDB
+
 let nameUser = document.getElementsByClassName('name-user')
 let fechaNow = document.getElementById('print-fecha')
 
