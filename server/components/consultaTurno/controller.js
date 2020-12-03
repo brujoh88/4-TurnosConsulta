@@ -66,12 +66,16 @@ const queryTurnoByDay = (turno, day) => {
   return allTurnos[referenciaTurno]
 }
 
-const listByMonthAllTurnos = (mesQuery, anioQuery) => {
+const listByMonthAllTurnos = (mesQuery, anioQuery, turnoQuery) => {
   return new Promise((resolve, reject) => {
     let dato
     if (!mesQuery && !anioQuery) {
       dato = {
         date: new Date(),
+        inDayWork: queryTurnoByDay(
+          turnoQuery,
+          new Date(anioNow, mesNow, diaNow)
+        ),
         listAllTurnos: {
           maniana: getListTurnoByMesForGroup('Mañana', mesNow, anioNow),
           tarde: getListTurnoByMesForGroup('Tarde', mesNow, anioNow),

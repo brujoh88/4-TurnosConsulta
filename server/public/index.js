@@ -53,12 +53,6 @@ buttonLogin.addEventListener('click', () => {
           page2.classList.remove('ocultar')
           userDb = data
           imprimirDatosUser(userDb)
-          fetch('http://127.0.0.1:3000/getDate')
-            .then((response) => response.json())
-            .then((data) => {
-              dateDB = data
-              imprimirDatosDate(dateDB)
-            })
         }
       })
       .catch((err) => console.log(err))
@@ -74,8 +68,23 @@ buttonLogin.addEventListener('click', () => {
 const imprimirDatosUser = (user) => {
   let name = user.body.name
   let legajo = user.body.legajo
+  let turno = user.body.turno
   nameUser[0].insertAdjacentHTML('beforeend', `${name} - ${legajo}`)
   nameUser[1].insertAdjacentHTML('beforeend', name)
+  fetch('http://127.0.0.1:3000/getDate', {
+    headers: { 'Content-Type': 'application/json' },
+    method: 'POST',
+    body: JSON.stringify({
+      mes: '',
+      anio: '',
+      turno: turno,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      dateDB = data
+      imprimirDatosDate(dateDB)
+    })
 }
 const imprimirDatosDate = (date) => {
   let fecha = new Date(date.body.date)
