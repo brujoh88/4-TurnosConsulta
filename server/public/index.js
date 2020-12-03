@@ -28,6 +28,7 @@ let dateDB
 let nameUser = document.getElementsByClassName('name-user')
 let fechaNow = document.getElementById('print-fecha')
 let dayInWork = document.getElementsByClassName('day-in-work')
+let tabla = document.getElementById('tabla')
 
 /*
 ========================
@@ -97,4 +98,38 @@ const imprimirDatosDate = (date) => {
   diasParaFranco = date.body.inDayWork.diaEnTurno
   dayInWork[0].insertAdjacentHTML('beforeend', `${comoTrabajo}`)
   dayInWork[1].insertAdjacentHTML('beforeend', `${diasParaFranco}`)
+
+  //Tabla
+  for (let i = 0; i < date.body.listAllDaysOnMes.length; i++) {
+    let fecha = new Date(date.body.listAllDaysOnMes[i])
+    let dia = fecha.getDate()
+    let mes = fecha.getMonth()
+    let anio = fecha.getFullYear()
+    let turnoManiana = date.body.listAllTurnos.maniana[i]
+    let turnoTarde = date.body.listAllTurnos.tarde[i]
+    let turnoNoche = date.body.listAllTurnos.noche[i]
+    let turnoFranco = date.body.listAllTurnos.franco[i]
+
+    tabla.insertAdjacentHTML(
+      'beforeend',
+
+      `<tr>
+          <td>
+              ${dia}/${mes + 1}/${anio}
+          </td>
+        <td>
+        ${turnoManiana}
+        </td>
+        <td>
+        ${turnoTarde}
+        </td>
+        <td>
+        ${turnoNoche}
+        </td>
+        <td>
+        ${turnoFranco}
+        </td>
+        </tr>`
+    )
+  }
 }
