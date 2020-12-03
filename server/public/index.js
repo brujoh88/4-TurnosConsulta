@@ -5,12 +5,27 @@ let page2 = document.getElementById('page-2')
 let page3 = document.getElementById('page-3')
 let page4 = document.getElementById('page-4')
 
+const listMesNombre = [
+  'Enero',
+  'Febrero',
+  'Marzo',
+  'Abril',
+  'Mayo',
+  'Junio',
+  'Julio',
+  'Agosto',
+  'Septiembre',
+  'Octubre',
+  'Noviembre',
+  'Diciembre',
+]
 /*
 Traer elementos del DOM para insertar datos del backend
 */
 let userDb
-let dataDB
+let dateDB
 let nameUser = document.getElementsByClassName('name-user')
+let fechaNow = document.getElementById('print-fecha')
 
 /*
 ========================
@@ -36,12 +51,13 @@ buttonLogin.addEventListener('click', () => {
           page1.classList.add('ocultar')
           page2.classList.remove('ocultar')
           userDb = data
+          imprimirDatosUser(userDb)
           fetch('http://127.0.0.1:3000/getDate')
             .then((response) => response.json())
             .then((data) => {
-              dataDB = data
+              dateDB = data
+              imprimirDatosDate(dateDB)
             })
-          imprimirDatosUser(userDb)
         }
       })
       .catch((err) => console.log(err))
@@ -54,9 +70,16 @@ buttonLogin.addEventListener('click', () => {
 ========================
 */
 
-const imprimirDatosUser = (data) => {
-  let name = data.body.name
-  let legajo = data.body.legajo
+const imprimirDatosUser = (user) => {
+  let name = user.body.name
+  let legajo = user.body.legajo
   nameUser[0].insertAdjacentHTML('beforeend', `${name} - ${legajo}`)
   nameUser[1].insertAdjacentHTML('beforeend', name)
+}
+const imprimirDatosDate = (date) => {
+  let fecha = new Date(date.body.date)
+  day = fecha.getDate()
+  mes = fecha.getMonth()
+  mes = listMesNombre[mes]
+  fechaNow.insertAdjacentHTML('beforeend', `${day} de ${mes}`)
 }
