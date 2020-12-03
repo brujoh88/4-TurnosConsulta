@@ -20,23 +20,18 @@ const getListTurnoByMesForGroup = (turnoOnDay) => {
     listRotacionByGroupB,
     listRotacionByGroupC,
     listRotacionByGroupD
+  const dayOnDayByMes = (contador) => {
+    return new Date(
+      new Date().getFullYear(),
+      new Date().getMonth(),
+      contador + 1
+    )
+  }
   for (let i = 0; i < listPlanillaTurnos.length; i++) {
-    listRotacionByGroupA = queryTurnoByDay(
-      'A',
-      new Date(new Date().getFullYear(), new Date().getMonth(), i + 1)
-    )
-    listRotacionByGroupB = queryTurnoByDay(
-      'B',
-      new Date(new Date().getFullYear(), new Date().getMonth(), i + 1)
-    )
-    listRotacionByGroupC = queryTurnoByDay(
-      'C',
-      new Date(new Date().getFullYear(), new Date().getMonth(), i + 1)
-    )
-    listRotacionByGroupD = queryTurnoByDay(
-      'D',
-      new Date(new Date().getFullYear(), new Date().getMonth(), i + 1)
-    )
+    listRotacionByGroupA = queryTurnoByDay('A', dayOnDayByMes(i))
+    listRotacionByGroupB = queryTurnoByDay('B', dayOnDayByMes(i))
+    listRotacionByGroupC = queryTurnoByDay('C', dayOnDayByMes(i))
+    listRotacionByGroupD = queryTurnoByDay('D', dayOnDayByMes(i))
     if (listRotacionByGroupA.turno == turnoOnDay) {
       listPlanillaTurnos[i] = {
         grup: 'A',
@@ -90,11 +85,23 @@ const queryTurnoByDay = (turno, day) => {
   return allTurnos[referenciaTurno]
 }
 
-const listByMonthAllTurnos = (mes) => {
+const listByMonthAllTurnos = (mes, anio) => {
   return new Promise((resolve, reject) => {
-    if (!mes) {
-      return reject('No envio ningun mes')
+    let dato
+    if (!mes && !anio) {
+      /* return reject('No envio ningun mes') */
+      dato = {
+        date: getDateNow(),
+        listAllTurnos: {
+          maniana: getListTurnoByMesForGroup('Mañana'),
+          tarde: getListTurnoByMesForGroup('Tarde'),
+          noche: getListTurnoByMesForGroup('Noche'),
+          franco: getListTurnoByMesForGroup('Franco'),
+        },
+      }
+    } else {
     }
+    resolve(dato)
   })
 }
 

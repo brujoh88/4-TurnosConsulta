@@ -5,7 +5,7 @@ const controller = require('./controller')
 
 router.get('/', (req, res) => {
   controller
-    .listByMonthAllTurnos()
+    .listByMonthAllTurnos(req.body.mes, req.body.anio)
     .then((element) => response.success(req, res, element, 200))
     .catch((err) => response.error(req, res, err, 400, 'Peticion incorrecta'))
 })
