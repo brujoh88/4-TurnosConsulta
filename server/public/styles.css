@@ -113,6 +113,57 @@ button {
   background-color: var(--powder-blue);
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.6);
 }
+table {
+  border: 1px solid rgb(200, 200, 200);
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+tr {
+  text-align: center;
+}
+
+tr:nth-child(odd) {
+  background: rgb(225, 225, 225);
+}
+
+th {
+  background: rgb(210, 200, 175);
+  border: 1px solid rgb(160, 160, 160);
+  color: rgb(255, 255, 255);
+  padding: 0.8rem;
+}
+
+td {
+  border: 1px solid rgb(160, 160, 160);
+  padding: 0.8rem;
+}
+
+table tr:hover {
+  background: rgb(255, 235, 185);
+}
+
+.table-container {
+  margin: 0 0 1rem;
+  overflow: auto;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/*  Estilos para que las barras de desplazamiento horizontal se vean en los dispositivos IOS */
+
+.table-container::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  border: 3px solid #fff;
+}
 /* --------- pagina 2 ---------- */
 .user-page p,
 span {

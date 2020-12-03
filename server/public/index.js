@@ -117,19 +117,19 @@ const imprimirDatosDate = (date) => {
           <td>
               ${dia}/${mes + 1}/${anio}
           </td>
-        <td>
-        ${turnoManiana}
-        </td>
-        <td>
-        ${turnoTarde}
-        </td>
-        <td>
-        ${turnoNoche}
-        </td>
-        <td>
-        ${turnoFranco}
-        </td>
-        </tr>`
+          <td>
+              ${turnoManiana}
+          </td>
+          <td>
+              ${turnoTarde}
+          </td>
+          <td>
+              ${turnoNoche}
+          </td>
+          <td>
+              ${turnoFranco}
+          </td>
+      </tr>`
     )
   }
 }
