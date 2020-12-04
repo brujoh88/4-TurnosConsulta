@@ -6,14 +6,15 @@
   <title>Consulta de Horarios</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
+<body style="overflow: hidden;">
   <header>
     <img src="./img/schedule.svg" alt="Logo">
     <div>
       <h1 class="name-user"></h1>
     </div>
-    <img src="./img/home2.svg" alt="">
-    
+    <button>
+      <img src="./img/home2.svg" alt="">
+    </button>    
   </header>
   <main>
     <div id="page-1" class="div-main principal-page">
@@ -29,7 +30,7 @@
       <p class="first-p">
         Bienvenido <span class="name-user" ></span> , hoy <span id="print-fecha"></span>, estás de <span class="day-in-work"></span>.        
       </p>
-      <p class="second-p">Días para el franco <span class="day-in-work"></span></p> 
+      <p class="second-p">Días para el franco : <span class="day-in-work"></span></p> 
       <button id="to-page3">Consultar Calendario</button>
       <div class="table-container">
           <table class="tabla">
@@ -41,7 +42,7 @@
                 <th>Franco</th>
               </tr>
           </table>
-      </div>
+        </div>
     </div>
     <div id="page-3" class="div-main ocultar">
       <div class="search-calendary--form">
@@ -54,7 +55,6 @@
       <button id="back-page3">Volver</button>
     </div>
     <div id="page-4" class="div-main ocultar">
-      <div>
         <div class="table-container">
           <table class="tabla">
               <tr class="text-tabla">
@@ -65,8 +65,7 @@
                 <th>Franco</th>
               </tr>
           </table>
-      </div>
-      </div>
+       </div>
       <button id="back-page4">Volver</button>
       <button>Salir</button>
     </div>

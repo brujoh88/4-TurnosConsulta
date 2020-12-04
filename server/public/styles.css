@@ -26,6 +26,7 @@ header {
   min-width: 320px;
   height: 70px;
   padding: 10px 10px;
+  margin-bottom: 10px;
   background-color: var(--headerandfooter);
 }
 
@@ -36,6 +37,17 @@ header img {
 
 header h1 {
   color: var(--honeydew);
+  font-size: 1.8rem;
+}
+
+header button {
+  width: 45px;
+  height: 45px;
+  margin: 0;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 body {
@@ -72,6 +84,18 @@ main {
   align-items: center;
   width: 100%;
   justify-content: center;
+  position: fixed;
+}
+
+.div-main p {
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.tabla {
+  overflow: scroll;
+  height: 100px;
+  width: 100%;
 }
 
 div span {
@@ -85,18 +109,19 @@ div span {
   display: inherit;
   text-align: center;
   margin-bottom: 10px;
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   font-weight: 1rem;
 }
 
 .form-container--date {
   display: flex;
-  width: 200px;
+  width: 100px;
   height: 3rem;
-  margin-left: 7px;
-  border: 0.5px solid var(--honeydew);
+  outline: none;
+  text-align: center;
+  border: 0.6px solid var(--honeydew);
   border-radius: 5px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .form-container button {
@@ -108,10 +133,11 @@ button {
   width: 100px;
   height: 50px;
   font-size: 2rem;
+  outline: none;
   border: 0.2px solid var(--powder-blue);
   border-radius: 5px;
   background-color: var(--powder-blue);
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.6);
 }
 table {
   border: 1px solid rgb(200, 200, 200);
@@ -145,10 +171,11 @@ table tr:hover {
 }
 
 .table-container {
-  margin: 0 0 1rem;
+  margin: 20px 5px 1rem;
   overflow: auto;
   overflow-y: auto;
-  width: 100%;
+  width: 90%;
+  height: 50%;
 }
 
 /*  Estilos para que las barras de desplazamiento horizontal se vean en los dispositivos IOS probando. */
@@ -174,7 +201,7 @@ span {
 }
 
 .second-p {
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 .user-page button {
@@ -201,14 +228,16 @@ input {
   margin-top: 80px;
 }
 /* ----------- pagina 4 -------- */
-.calendary-page {
+#page-4,
+#page-2 {
+  justify-content: start;
 }
 
 /* -------- footer -------- */
 footer {
   position: absolute;
   width: 100%;
-  bottom: 0;
+  bottom: 0px;
   display: flex;
   align-items: center;
   min-width: 320px;
