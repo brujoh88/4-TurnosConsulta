@@ -5,12 +5,14 @@ const anioNow = new Date().getFullYear()
 const dayOnDayByMes = (contador, mes, anio) => {
   return new Date(anio, mes, contador + 1)
 }
+
+//! Le sumo 1 al mes ya que al poner el dia 0 me da la cantidad de dias del mes anterior
 const getDiaEnElMes = (mes, anio) => {
-  return new Date(anio, mes, 0).getDate()
+  return new Date(anio, mes + 1, 0).getDate()
 }
 const getListNameDaysOnMes = (mes, anio) => {
   let listNameDaysOnMes = []
-  listNameDaysOnMes.length = getDiaEnElMes(mes, anio) - 1
+  listNameDaysOnMes.length = getDiaEnElMes(mes, anio)
   for (let i = 0; i < listNameDaysOnMes.length; i++) {
     listNameDaysOnMes[i] = dayOnDayByMes(i, mes, anio)
   }
@@ -18,7 +20,7 @@ const getListNameDaysOnMes = (mes, anio) => {
 }
 const getListTurnoByMesForGroup = (turnoOnDay, mes, anio) => {
   let listPlanillaTurnos = []
-  listPlanillaTurnos.length = getDiaEnElMes(mes, anio) - 1
+  listPlanillaTurnos.length = getDiaEnElMes(mes, anio)
   let listRotacionByGroupA,
     listRotacionByGroupB,
     listRotacionByGroupC,
@@ -81,10 +83,7 @@ const listByMonthAllTurnos = (mesQuery, anioQuery, turnoQuery) => {
       dato = {
         date: new Date(),
         turnoOfUser: turnoQuery,
-        inDayWork: queryTurnoByDay(
-          turnoQuery,
-          new Date(anioNow, mesNow, diaNow)
-        ),
+        inDayWork: queryTurnoByDay(turnoQuery, new Date()),
         listAllTurnos: {
           maniana: getListTurnoByMesForGroup('Mañana', mesNow, anioNow),
           tarde: getListTurnoByMesForGroup('Tarde', mesNow, anioNow),

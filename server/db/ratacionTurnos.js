@@ -21,11 +21,11 @@ const allTurnos = [
   },
   {
     turno: 'Franco',
-    diaEnTurno: 0,
+    diaEnTurno: 6,
   },
   {
     turno: 'Franco',
-    diaEnTurno: 0,
+    diaEnTurno: 6,
   },
   {
     turno: 'Tarde',
@@ -49,7 +49,7 @@ const allTurnos = [
   },
   {
     turno: 'Franco',
-    diaEnTurno: 0,
+    diaEnTurno: 6,
   },
   {
     turno: 'Noche',
@@ -73,11 +73,11 @@ const allTurnos = [
   },
   {
     turno: 'Franco',
-    diaEnTurno: 0,
+    diaEnTurno: 6,
   },
   {
     turno: 'Franco',
-    diaEnTurno: 0,
+    diaEnTurno: 6,
   },
 ]
 module.exports = {
