@@ -74,7 +74,6 @@ main {
 }
 
 .div-main {
-  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -92,7 +91,6 @@ main {
   align-items: center;
   width: 100%;
   justify-content: center;
-  position: fixed;
 }
 
 .div-main p {
@@ -148,9 +146,7 @@ button {
   background-color: var(--powder-blue);
   box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.6);
 }
-/* #botonLegajo {
-  margin-bottom: 250px;
-} */
+
 table {
   border: 1px solid rgb(200, 200, 200);
   border-collapse: collapse;

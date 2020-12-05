@@ -246,7 +246,7 @@ const imprimirDatosDate = (date) => {
   fechaNow.insertAdjacentHTML('beforeend', `${day} de ${mes}`)
   diasParaFranco = date.body.inDayWork.diaEnTurno
   dayInWork[0].insertAdjacentHTML('beforeend', `${comoTrabajo}`)
-  dayInWork[1].insertAdjacentHTML('beforeend', `${6 - diasParaFranco}`)
+  dayInWork[1].insertAdjacentHTML('beforeend', `${6 - diasParaFranco} 😅`)
 
   //Tabla
   imprimirTabla(date, 0, date.body.listAllDaysOnMes.length)
