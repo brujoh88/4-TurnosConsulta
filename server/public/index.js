@@ -9,6 +9,7 @@ let page3 = document.getElementById('page-3')
 let backButtonTopage3 = document.getElementById('back-page3')
 let page4 = document.getElementById('page-4')
 let backButtonTopage4 = document.getElementById('back-page4')
+let tituloMes = document.getElementById('titulo-mes')
 
 const listMesNombre = [
   'Enero',
@@ -44,6 +45,12 @@ Tabla
 const imprimirTabla = (date, fuente, tamanio) => {
   let turnoUsuario = userDb.body.turno
   tabla[fuente].innerHTML = ''
+  tituloMes.innerHTML = ''
+  let fecha = new Date(date.body.listAllDaysOnMes[1])
+  let mes = fecha.getMonth()
+  let anio = fecha.getFullYear()
+  mes = listMesNombre[mes]
+  tituloMes.insertAdjacentHTML('beforeend', `${mes} - ${anio}`)
   tabla[fuente].insertAdjacentHTML(
     'beforeend',
     `

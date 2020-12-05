@@ -206,6 +206,9 @@ table tr:hover {
 .resaltar-turno {
   background-color: #a8dadc;
 }
+.resaltar-turno:hover {
+  background-color: #86afb1;
+}
 /* --------- pagina 2 ---------- */
 .user-page p,
 span {
