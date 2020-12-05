@@ -65,7 +65,7 @@ const imprimirTabla = (date, fuente, tamanio) => {
     tabla[fuente].insertAdjacentHTML(
       'beforeend',
 
-      `<tr>
+      `<tr class="text-tabla">
           <td>
               ${dia}/${mes + 1}/${anio}
           </td>

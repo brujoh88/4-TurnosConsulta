@@ -178,6 +178,10 @@ table tr:hover {
   height: 50%;
 }
 
+.text-tabla {
+  font-size: medium;
+}
+
 /*  Estilos para que las barras de desplazamiento horizontal se vean en los dispositivos IOS probando. */
 
 .table-container::-webkit-scrollbar {
