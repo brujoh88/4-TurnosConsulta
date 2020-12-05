@@ -25,6 +25,7 @@ const listMesNombre = [
   'Diciembre',
 ]
 
+const nombreDiasDeSemana = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
 /*
 Traer elementos del DOM para insertar datos del backend
 */
@@ -46,7 +47,8 @@ const imprimirTabla = (date, fuente, tamanio) => {
     'beforeend',
     `
   <tr class="text-tabla">
-    <th>Dia</th>
+    <th>Día</th>    
+    <th>Fecha</th>
     <th>Mañana</th>
     <th>Tarde</th>
     <th>Noche</th>
@@ -54,6 +56,8 @@ const imprimirTabla = (date, fuente, tamanio) => {
   </tr>`
   )
   for (let i = 0; i < tamanio; i++) {
+    let nameDay = new Date(dateDB.body.listAllDaysOnMes[i])
+    nameDay = nombreDiasDeSemana[nameDay.getUTCDay()]
     let fecha = new Date(date.body.listAllDaysOnMes[i])
     let dia = fecha.getDate()
     let mes = fecha.getMonth()
@@ -66,6 +70,9 @@ const imprimirTabla = (date, fuente, tamanio) => {
       'beforeend',
 
       `<tr class="text-tabla">
+          <td>
+              ${nameDay}
+          </td>
           <td>
               ${dia}/${mes + 1}/${anio}
           </td>

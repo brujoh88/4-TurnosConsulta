@@ -179,7 +179,7 @@ table tr:hover {
 }
 
 .text-tabla {
-  font-size: medium;
+  font-size: larger;
 }
 
 /*  Estilos para que las barras de desplazamiento horizontal se vean en los dispositivos IOS probando. */
