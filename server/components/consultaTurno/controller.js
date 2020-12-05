@@ -65,12 +65,24 @@ const queryTurnoByDay = (turno, day) => {
       referenciaTurno = 16
       break
   }
-  let diferenciaDiaRefAndActual = (day - fechaReferencia) / 1000 / 60 / 60 / 24
-  diferenciaDiaRefAndActual = parseInt(diferenciaDiaRefAndActual, 10)
-  for (let i = 0; i < diferenciaDiaRefAndActual; i++) {
-    referenciaTurno++
-    if (referenciaTurno > 19) {
-      referenciaTurno = 0
+  let diferenciaDiaRefAndActual
+  if (day - fechaReferencia < 0) {
+    diferenciaDiaRefAndActual = (fechaReferencia - day) / 1000 / 60 / 60 / 24
+    diferenciaDiaRefAndActual = parseInt(diferenciaDiaRefAndActual, 10)
+    for (let i = 0; i < diferenciaDiaRefAndActual; i++) {
+      referenciaTurno--
+      if (referenciaTurno == -1) {
+        referenciaTurno = 19
+      }
+    }
+  } else {
+    diferenciaDiaRefAndActual = (day - fechaReferencia) / 1000 / 60 / 60 / 24
+    diferenciaDiaRefAndActual = parseInt(diferenciaDiaRefAndActual, 10)
+    for (let i = 0; i < diferenciaDiaRefAndActual; i++) {
+      referenciaTurno++
+      if (referenciaTurno > 19) {
+        referenciaTurno = 0
+      }
     }
   }
   return allTurnos[referenciaTurno]
