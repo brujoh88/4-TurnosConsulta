@@ -206,6 +206,10 @@ table tr:hover {
   border-radius: 8px;
   border: 3px solid #fff;
 }
+
+.resaltar-turno {
+  background-color: #a8dadc;
+}
 /* --------- pagina 2 ---------- */
 .user-page p,
 span {

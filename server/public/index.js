@@ -42,6 +42,7 @@ Tabla
 ====================================
 */
 const imprimirTabla = (date, fuente, tamanio) => {
+  let turnoUsuario = userDb.body.turno
   tabla[fuente].innerHTML = ''
   tabla[fuente].insertAdjacentHTML(
     'beforeend',
@@ -66,30 +67,116 @@ const imprimirTabla = (date, fuente, tamanio) => {
     let turnoTarde = date.body.listAllTurnos.tarde[i]
     let turnoNoche = date.body.listAllTurnos.noche[i]
     let turnoFranco = date.body.listAllTurnos.franco[i]
-    tabla[fuente].insertAdjacentHTML(
-      'beforeend',
+    switch (turnoUsuario) {
+      case turnoManiana:
+        tabla[fuente].insertAdjacentHTML(
+          'beforeend',
 
-      `<tr class="text-tabla">
-          <td>
-              ${nameDay}
-          </td>
-          <td>
-              ${dia}/${mes + 1}/${anio}
-          </td>
-          <td>
-              ${turnoManiana}
-          </td>
-          <td>
-              ${turnoTarde}
-          </td>
-          <td>
-              ${turnoNoche}
-          </td>
-          <td>
-              ${turnoFranco}
-          </td>
-      </tr>`
-    )
+          `<tr class="text-tabla">
+            <td>
+                ${nameDay}
+            </td>
+            <td>
+                ${dia}/${mes + 1}/${anio}
+            </td>
+            <td class="resaltar-turno">
+                ${turnoManiana}
+            </td>
+            <td>
+                ${turnoTarde}
+            </td>
+            <td>
+                ${turnoNoche}
+            </td>
+            <td>
+                ${turnoFranco}
+            </td>
+        </tr>`
+        )
+        break
+
+      case turnoTarde:
+        tabla[fuente].insertAdjacentHTML(
+          'beforeend',
+
+          `<tr class="text-tabla">
+            <td>
+                ${nameDay}
+            </td>
+            <td>
+                ${dia}/${mes + 1}/${anio}
+            </td>
+            <td>
+                ${turnoManiana}
+            </td>
+            <td class="resaltar-turno">
+                ${turnoTarde}
+            </td>
+            <td>
+                ${turnoNoche}
+            </td>
+            <td>
+                ${turnoFranco}
+            </td>
+        </tr>`
+        )
+
+        break
+      case turnoNoche:
+        tabla[fuente].insertAdjacentHTML(
+          'beforeend',
+
+          `<tr class="text-tabla">
+            <td>
+                ${nameDay}
+            </td>
+            <td>
+                ${dia}/${mes + 1}/${anio}
+            </td>
+            <td>
+                ${turnoManiana}
+            </td>
+            <td>
+                ${turnoTarde}
+            </td>
+            <td class="resaltar-turno">
+                ${turnoNoche}
+            </td>
+            <td>
+                ${turnoFranco}
+            </td>
+        </tr>`
+        )
+
+        break
+      case turnoFranco:
+        tabla[fuente].insertAdjacentHTML(
+          'beforeend',
+
+          `<tr class="text-tabla">
+            <td>
+                ${nameDay}
+            </td>
+            <td>
+                ${dia}/${mes + 1}/${anio}
+            </td>
+            <td>
+                ${turnoManiana}
+            </td>
+            <td>
+                ${turnoTarde}
+            </td>
+            <td>
+                ${turnoNoche}
+            </td>
+            <td class="resaltar-turno">
+                ${turnoFranco}
+            </td>
+        </tr>`
+        )
+
+        break
+    }
   }
 }
 /*
