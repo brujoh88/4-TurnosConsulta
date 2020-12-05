@@ -34,6 +34,9 @@ header img {
   width: 40px;
   height: 43px;
 }
+header img:hover {
+  cursor: pointer;
+}
 
 header h1 {
   color: var(--honeydew);
@@ -48,6 +51,9 @@ header button {
   background-color: transparent;
   border: none;
   box-shadow: none;
+}
+button:hover {
+  cursor: pointer;
 }
 
 body {
@@ -100,9 +106,6 @@ main {
 
 div span {
   color: var(--prussian-blue);
-}
-
-.form-container--legajo {
 }
 
 .form-container--text {
