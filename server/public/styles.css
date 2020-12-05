@@ -7,7 +7,7 @@
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing: content-box;
   margin: 0;
   padding: 0;
 }
@@ -23,9 +23,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 320px;
   height: 70px;
-  padding: 10px 10px;
   margin-bottom: 10px;
   background-color: var(--headerandfooter);
 }
@@ -36,6 +34,7 @@ header img {
 }
 header img:hover {
   cursor: pointer;
+  background-color: rgb(94, 165, 209);
 }
 
 header h1 {
@@ -54,6 +53,7 @@ header button {
 }
 button:hover {
   cursor: pointer;
+  background-color: rgb(94, 165, 209);
 }
 
 body {
@@ -63,6 +63,7 @@ body {
 }
 
 main {
+  overflow: scroll;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -94,7 +95,7 @@ main {
 }
 
 .div-main p {
-  font-size: 2.4rem;
+  font-size: 1.4rem;
   text-align: center;
 }
 
@@ -106,8 +107,13 @@ main {
 
 div span {
   color: var(--prussian-blue);
+  font-size: 1.4rem;
 }
-
+.form-container--legajo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .form-container--text {
   display: inherit;
   text-align: center;
@@ -128,11 +134,11 @@ div span {
 }
 
 .form-container button {
-  margin-top: 100px;
+  margin-top: 15px;
 }
 
 button {
-  margin-top: 15px;
+  margin: 15px;
   width: 100px;
   height: 50px;
   font-size: 2rem;
@@ -142,6 +148,9 @@ button {
   background-color: var(--powder-blue);
   box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.6);
 }
+/* #botonLegajo {
+  margin-bottom: 250px;
+} */
 table {
   border: 1px solid rgb(200, 200, 200);
   border-collapse: collapse;
@@ -161,12 +170,12 @@ th {
   background: rgb(98, 121, 163);
   border: 1px solid rgb(160, 160, 160);
   color: rgb(255, 255, 255);
-  padding: 0.8rem;
+  padding: 0.5rem;
 }
 
 td {
   border: 1px solid rgb(160, 160, 160);
-  padding: 0.8rem;
+  padding: 0.5rem;
 }
 
 table tr:hover {
@@ -175,14 +184,13 @@ table tr:hover {
 
 .table-container {
   margin: 20px 5px 1rem;
-  overflow: auto;
+  overflow: scroll;
   overflow-y: auto;
   width: 90%;
-  height: 50%;
 }
 
 .text-tabla {
-  font-size: larger;
+  font-size: 10px;
 }
 
 /*  Estilos para que las barras de desplazamiento horizontal se vean en los dispositivos IOS probando. */
@@ -205,10 +213,6 @@ span {
   font-weight: 1rem;
   text-align: center;
   color: var(--prussian-blue);
-}
-
-.second-p {
-  padding-top: 30px;
 }
 
 .user-page button {
@@ -242,14 +246,11 @@ input {
 
 /* -------- footer -------- */
 footer {
-  position: absolute;
   width: 100%;
-  bottom: 0px;
   display: flex;
   align-items: center;
   min-width: 320px;
   height: 50px;
-  padding: 10px 10px;
   background-color: var(--headerandfooter);
 }
 
