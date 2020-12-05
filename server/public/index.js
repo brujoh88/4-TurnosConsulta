@@ -25,7 +25,34 @@ const listMesNombre = [
   'Diciembre',
 ]
 
+/*
+Traer elementos del DOM para insertar datos del backend
+*/
+let userDb
+let dateDB
+
+let nameUser = document.getElementsByClassName('name-user')
+let fechaNow = document.getElementById('print-fecha')
+let dayInWork = document.getElementsByClassName('day-in-work')
+let tabla = document.getElementsByClassName('tabla')
+/*
+====================================
+Tabla
+====================================
+*/
 const imprimirTabla = (date, fuente, tamanio) => {
+  tabla[fuente].innerHTML = ''
+  tabla[fuente].insertAdjacentHTML(
+    'beforeend',
+    `
+  <tr class="text-tabla">
+    <th>Dia</th>
+    <th>Mañana</th>
+    <th>Tarde</th>
+    <th>Noche</th>
+    <th>Franco</th>
+  </tr>`
+  )
   for (let i = 0; i < tamanio; i++) {
     let fecha = new Date(date.body.listAllDaysOnMes[i])
     let dia = fecha.getDate()
@@ -58,17 +85,6 @@ const imprimirTabla = (date, fuente, tamanio) => {
     )
   }
 }
-/*
-Traer elementos del DOM para insertar datos del backend
-*/
-let userDb
-let dateDB
-
-let nameUser = document.getElementsByClassName('name-user')
-let fechaNow = document.getElementById('print-fecha')
-let dayInWork = document.getElementsByClassName('day-in-work')
-let tabla = document.getElementsByClassName('tabla')
-
 /*
 ========================
  Logica para pag 1
