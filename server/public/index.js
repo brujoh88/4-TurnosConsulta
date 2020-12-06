@@ -5,6 +5,8 @@ let page2 = document.getElementById('page-2')
 let consultaToPage3 = document.getElementById('to-page3')
 let buttonMesQuerry = document.getElementById('query-button')
 let valueMesYearQuery = document.getElementById('value-mes-year')
+let valueYearQuery = document.getElementById('value-year')
+let opcionQuery = document.getElementById('opciones')
 let page3 = document.getElementById('page-3')
 let backButtonTopage3 = document.getElementById('back-page3')
 let page4 = document.getElementById('page-4')
@@ -193,7 +195,7 @@ const imprimirTabla = (date, fuente, tamanio) => {
 */
 buttonLogin.addEventListener('click', () => {
   if (valueLegajo.value === '') {
-    alert('Ingresa un valor')
+    swal('Ingresa un valor', 'Se requiere legajo 😬', 'warning')
   } else {
     fetch('http://127.0.0.1:3000/login', {
       headers: { 'Content-Type': 'application/json' },
@@ -205,7 +207,7 @@ buttonLogin.addEventListener('click', () => {
       .then((response) => response.json())
       .then((data) => {
         if (!data.body.name) {
-          alert('Legajo no encontrado')
+          swal('Legajo no encontrado', '😟', 'error')
         } else {
           page1.classList.add('ocultar')
           page2.classList.remove('ocultar')
@@ -273,11 +275,11 @@ backButtonTopage4.addEventListener('click', () => {
 })
 
 buttonMesQuerry.addEventListener('click', () => {
-  valor = valueMesYearQuery.value
-  if (valor == '') {
+  valorMesYear = valueMesYearQuery.value
+  if (valorMesYear == '') {
     alert('Debe completar un dato')
   } else {
-    fecha = valor + '-1'
+    fecha = valorMesYear + '-1'
     fecha = new Date(fecha)
     fetch('http://127.0.0.1:3000/getDate', {
       headers: { 'Content-Type': 'application/json' },
@@ -295,5 +297,24 @@ buttonMesQuerry.addEventListener('click', () => {
         page4.classList.remove('ocultar')
         imprimirTabla(data, 1, dateDB.body.listAllDaysOnMes.length)
       })
+  }
+})
+
+/*
+========================
+ Logica para pag 3 (parte)
+========================
+*/
+
+opcionQuery.addEventListener('change', () => {
+  let desicion = opcionQuery.value
+  if (desicion == 'mes') {
+    valueYearQuery.setAttribute('disabled', 'false')
+    valueYearQuery.value = ''
+    valueMesYearQuery.removeAttribute('disabled')
+  } else if (desicion == 'anio') {
+    valueMesYearQuery.setAttribute('disabled', 'false')
+    valueMesYearQuery.value = ''
+    valueYearQuery.removeAttribute('disabled')
   }
 })

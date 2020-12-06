@@ -1,67 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consulta de Horarios</title>
-  <link rel="stylesheet" href="./styles.css">
-</head>
-<body style="overflow: hidden;">
-  <header>
-    <img src="./img/schedule.svg" alt="Logo">
-   
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consulta de Horarios</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body style="overflow: hidden">
+    <header>
+      <img src="./img/schedule.svg" alt="Logo" />
+
       <h1 class="name-user"></h1>
-  
-    <button>
-      <img src="./img/home2.svg" alt="">
-    </button>    
-  </header>
-  <main>
-    <div id="page-1" class="div-main principal-page">
-      <div id="formularioPrincipal" class="form-container">
-        <label class="form-container--legajo" for="legajo">
-          <span class="form-container--text">Cronograma Inspeccion general</span>
-          <input placeholder="Ingrese legajo" class="form-container--date" type="text" name="legajo" id="valorLegajo">
-        </label>
-        <button id="botonLegajo" class="button">Entrar</button>
+
+      <button>
+        <img src="./img/home2.svg" alt="" />
+      </button>
+    </header>
+    <main>
+      <div id="page-1" class="div-main principal-page">
+        <div id="formularioPrincipal" class="form-container">
+          <label class="form-container--legajo" for="legajo">
+            <span class="form-container--text"
+              >Cronograma Inspeccion general</span
+            >
+            <input
+              placeholder="Ingrese legajo"
+              class="form-container--date"
+              type="number"
+              name="legajo"
+              id="valorLegajo"
+            />
+          </label>
+          <button id="botonLegajo" class="button">Entrar</button>
+        </div>
       </div>
-    </div>
-    <div id="page-2" class="div-main ocultar">
-      <p class="first-p">
-        Bienvenido <span class="name-user" ></span> , hoy <span id="print-fecha"></span>, estás de <span class="day-in-work"></span>.        
-      </p>
-      <p class="second-p">Días para el franco : <span class="day-in-work"></span></p>      
+      <div id="page-2" class="div-main ocultar">
+        <p class="first-p">
+          Bienvenido <span class="name-user"></span> , hoy
+          <span id="print-fecha"></span>, estás de
+          <span class="day-in-work"></span>.
+        </p>
+        <p class="second-p">
+          Días para el franco : <span class="day-in-work"></span>
+        </p>
         <div class="table-container">
           <table class="tabla">
-              <!-- Zona de la tabla -->
+            <!-- Zona de la tabla -->
           </table>
         </div>
-      <button id="to-page3">Consultar Calendario</button>
-    </div>
-    <div id="page-3" class="div-main ocultar">
-      <div class="search-calendary--form">
-        <label for="mes">
-          <span>Tiempo: </span>
-          <input type="month" name="mes" id="value-mes-year">
-        </label>
-        <button id="query-button">Buscar</button>
+        <button id="to-page3">Consultar Calendario</button>
       </div>
-      <button id="back-page3">Volver</button>
-    </div>
-    <div id="page-4" class="div-main ocultar">
-      <h2 id="titulo-mes"></h2>
+      <div id="page-3" class="div-main ocultar">
+        <div class="search-calendary--form">
+          <label for="opciones">
+            <span>Un mes o año completo</span>
+            <select name="opciones" id="opciones">
+              <option value="mensaje">...</option>
+              <option value="mes">Mes</option>
+              <option value="anio">Año</option>
+            </select>
+          </label>
+          <label for="mes">
+            <input
+              disabled="false"
+              type="month"
+              name="mes"
+              id="value-mes-year"
+            />
+          </label>
+          <label for="anio">
+            <input
+              disabled="false"
+              type="number"
+              placeholder="YYYY"
+              min="2000"
+              max="2100"
+              id="value-year"
+            />
+          </label>
+          <button id="query-button">Buscar</button>
+        </div>
+        <button id="back-page3">Volver</button>
+      </div>
+      <div id="page-4" class="div-main ocultar">
+        <h2 id="titulo-mes"></h2>
         <div class="table-container">
           <table class="tabla">
-              <tr class="text-tabla">              
-              </tr>
+            <tr class="text-tabla"></tr>
           </table>
-       </div>
-      <button id="back-page4">Volver</button>
+        </div>
+        <button id="back-page4">Volver</button>
       </div>
     </main>
-  <footer>
-    <p>Create by ...</p>
-  </footer>
-  <script src="./index.js"></script>
-</body>
+    <footer>
+      <p>Create by ...</p>
+    </footer>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
 </html>
