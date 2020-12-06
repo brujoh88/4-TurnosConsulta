@@ -336,5 +336,8 @@ opcionQuery.addEventListener('change', () => {
     valueYearQuery.removeAttribute('disabled')
     valueYearQuery.classList.add('resaltar-opcion')
     valueMesYearQuery.classList.remove('resaltar-opcion')
+  } else {
+    valueMesYearQuery.classList.remove('resaltar-opcion')
+    valueYearQuery.classList.remove('resaltar-opcion')
   }
 })
