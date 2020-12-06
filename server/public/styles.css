@@ -61,10 +61,11 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: scroll;
 }
 
 main {
-  overflow: scroll;
+  overflow-y: scroll;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,6 +76,7 @@ main {
 
 .div-main {
   width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,6 +92,7 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 100%;
   justify-content: center;
 }
 
@@ -99,8 +102,7 @@ main {
 }
 
 .tabla {
-  overflow: scroll;
-  height: 100px;
+  height: auto;
   width: 100%;
 }
 
@@ -180,8 +182,6 @@ table tr:hover {
 
 .table-container {
   margin: 20px 5px 1rem;
-  overflow: scroll;
-  overflow-y: auto;
   width: 90%;
 }
 
@@ -189,7 +189,7 @@ table tr:hover {
   font-size: 10px;
 }
 
-/*  Estilos para que las barras de desplazamiento horizontal se vean en los dispositivos IOS probando. */
+/*  Estilos para que las barras de desplazamiento horizontal se vean en los dispositivos IOS. */
 
 .table-container::-webkit-scrollbar {
   -webkit-appearance: none;
@@ -252,7 +252,6 @@ footer {
   width: 100%;
   display: flex;
   align-items: center;
-
   height: 50px;
   background-color: var(--headerandfooter);
 }
