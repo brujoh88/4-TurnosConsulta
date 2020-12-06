@@ -12,6 +12,7 @@ let backButtonTopage3 = document.getElementById('back-page3')
 let page4 = document.getElementById('page-4')
 let backButtonTopage4 = document.getElementById('back-page4')
 let tituloMes = document.getElementById('titulo-mes')
+const emojis = ['vacio', '😭', '😫', '😓', '😒', '😌', '😁🎉']
 
 const listMesNombre = [
   'Enero',
@@ -255,7 +256,10 @@ const imprimirDatosDate = (date) => {
   fechaNow.insertAdjacentHTML('beforeend', `${day} de ${mes}`)
   diasParaFranco = date.body.inDayWork.diaEnTurno
   dayInWork[0].insertAdjacentHTML('beforeend', `${comoTrabajo}`)
-  dayInWork[1].insertAdjacentHTML('beforeend', `${6 - diasParaFranco} 😅`)
+  dayInWork[1].insertAdjacentHTML(
+    'beforeend',
+    `${6 - diasParaFranco} ${emojis[diasParaFranco]}`
+  )
 
   //Tabla
   imprimirTabla(date, 0, date.body.listAllDaysOnMes.length)
