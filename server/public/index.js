@@ -279,28 +279,40 @@ backButtonTopage4.addEventListener('click', () => {
 })
 
 buttonMesQuerry.addEventListener('click', () => {
-  valorMesYear = valueMesYearQuery.value
-  if (valorMesYear == '') {
-    alert('Debe completar un dato')
-  } else {
-    fecha = valorMesYear + '-1'
-    fecha = new Date(fecha)
-    fetch('http://127.0.0.1:3000/getDate', {
-      headers: { 'Content-Type': 'application/json' },
-      method: 'POST',
-      body: JSON.stringify({
-        mes: fecha.getMonth(),
-        anio: fecha.getFullYear(),
-        turno: userDb.body.turno,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        dateDB = data
-        page3.classList.add('ocultar')
-        page4.classList.remove('ocultar')
-        imprimirTabla(data, 1, dateDB.body.listAllDaysOnMes.length)
+  if (opcionQuery.value == 'mes') {
+    valorMesYear = valueMesYearQuery.value
+    if (valorMesYear == '') {
+      swal('Faltan datos', 'Complete con el mes deseado', 'info')
+    } else {
+      fecha = valorMesYear + '-1'
+      fecha = new Date(fecha)
+      fetch('http://127.0.0.1:3000/getDate', {
+        headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        body: JSON.stringify({
+          mes: fecha.getMonth(),
+          anio: fecha.getFullYear(),
+          turno: userDb.body.turno,
+        }),
       })
+        .then((response) => response.json())
+        .then((data) => {
+          dateDB = data
+          page3.classList.add('ocultar')
+          page4.classList.remove('ocultar')
+          imprimirTabla(data, 1, dateDB.body.listAllDaysOnMes.length)
+        })
+    }
+  }
+  if (opcionQuery.value == 'anio') {
+    valorYear = valueYearQuery.value
+    if (valorYear == '') {
+      swal('Faltan datos', 'Complete con el año deseado', 'info')
+    }
+  } else {
+  }
+  if (opcionQuery.value == '') {
+    swal('Elija una opcion', 'Mes o Año', 'warning')
   }
 })
 
@@ -316,9 +328,13 @@ opcionQuery.addEventListener('change', () => {
     valueYearQuery.setAttribute('disabled', 'false')
     valueYearQuery.value = ''
     valueMesYearQuery.removeAttribute('disabled')
+    valueMesYearQuery.classList.add('resaltar-opcion')
+    valueYearQuery.classList.remove('resaltar-opcion')
   } else if (desicion == 'anio') {
     valueMesYearQuery.setAttribute('disabled', 'false')
     valueMesYearQuery.value = ''
     valueYearQuery.removeAttribute('disabled')
+    valueYearQuery.classList.add('resaltar-opcion')
+    valueMesYearQuery.classList.remove('resaltar-opcion')
   }
 })

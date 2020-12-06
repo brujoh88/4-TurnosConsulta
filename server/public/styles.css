@@ -241,6 +241,12 @@ input {
 .search-calendary--form button {
   margin-top: 80px;
 }
+.resaltar-opcion {
+  background-color: #a8dadc;
+}
+select {
+  margin: 25px;
+}
 /* ----------- pagina 4 -------- */
 #page-4,
 #page-2 {
