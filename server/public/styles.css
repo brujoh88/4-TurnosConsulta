@@ -26,13 +26,14 @@ header {
   background-color: var(--headerandfooter);
   padding: 10px;
 }
+
 div#header-opcion {
   display: flex;
   justify-content: space-between;
 }
 header img {
-  width: 40px;
-  height: 43px;
+  width: 30px;
+  height: 30px;
 }
 header img:hover {
   cursor: pointer;
@@ -42,20 +43,24 @@ header img:hover {
 header h1 {
   color: var(--honeydew);
   font-size: 1.9rem;
+  width: 100%;
   display: flex;
   justify-content: center;
+  vertical-align: middle;
   margin-top: 10px;
 }
 
-header button {
-  width: 45px;
-  height: 45px;
-  margin: 0;
-  outline: none;
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
+.header-principal--text {
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 20px;
+  color: black;
+  font-weight: bold;
 }
+
 button:hover {
   cursor: pointer;
   background-color: rgb(94, 165, 209);
@@ -118,13 +123,7 @@ div span {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.form-container--text {
-  display: flex;
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 2.6rem;
-  font-weight: 1rem;
+  margin-bottom: 20px;
 }
 
 .form-container--date {
@@ -217,7 +216,6 @@ table tr:hover {
 .user-page p,
 p span {
   font-size: 1.8rem;
-  font-weight: 1rem;
   text-align: center;
   color: var(--prussian-blue);
 }
@@ -247,15 +245,6 @@ p span {
   color: var(--prussian-blue);
 }
 
-.search-calendary--form label {
-  margin-bottom: 20px;
-}
-
-.search-calendary--form span,
-input {
-  vertical-align: middle;
-  text-align: center;
-}
 .resaltar-opcion {
   background-color: #a8dadc;
 }
@@ -281,4 +270,5 @@ footer {
 footer p {
   color: var(--honeydew);
   font-size: 1.2rem;
+  padding-left: 5px;
 }
