@@ -41,10 +41,14 @@ header img:hover {
 
 header h1 {
   color: var(--honeydew);
+<<<<<<< HEAD
+  font-size: 1.9rem;
+=======
   font-size: 1.8rem;
   display: flex;
   justify-content: center;
   margin-top: 10px;
+>>>>>>> 0364fa08a7d5cbd087324264a4674eb0e30eced5
 }
 
 header button {
@@ -120,7 +124,7 @@ div span {
   align-items: center;
 }
 .form-container--text {
-  display: inherit;
+  display: flex;
   text-align: center;
   margin-bottom: 10px;
   font-size: 2.6rem;
@@ -129,8 +133,8 @@ div span {
 
 .form-container--date {
   display: flex;
-  width: 100px;
-  height: 3rem;
+  width: 90px;
+  height: 2.5rem;
   outline: none;
   text-align: center;
   border: 0.6px solid var(--honeydew);
@@ -215,15 +219,19 @@ table tr:hover {
 }
 /* --------- pagina 2 ---------- */
 .user-page p,
-span {
-  font-size: 2.4rem;
+p span {
+  font-size: 1.8rem;
   font-weight: 1rem;
   text-align: center;
   color: var(--prussian-blue);
 }
 
-.user-page button {
-  margin-top: 120px;
+.user-page p span {
+  color: black;
+}
+
+.second-p {
+  margin-top: 15px;
 }
 
 /* ------ pagina 3 -------- */
@@ -232,6 +240,15 @@ span {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.search-calendary--form h2,
+.calendary-form h2 {
+  font-size: 1.9rem;
+  text-align: center;
+  color: var(--prussian-blue);
 }
 
 .search-calendary--form label {
@@ -241,9 +258,7 @@ span {
 .search-calendary--form span,
 input {
   vertical-align: middle;
-}
-.search-calendary--form button {
-  margin-top: 80px;
+  text-align: center;
 }
 .resaltar-opcion {
   background-color: #a8dadc;
