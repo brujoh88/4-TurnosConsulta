@@ -20,15 +20,16 @@ html {
 /* ----- header ----- */
 header {
   position: relative;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 70px;
   margin-bottom: 10px;
   background-color: var(--headerandfooter);
   padding: 10px;
 }
-
+div#header-opcion {
+  display: flex;
+  justify-content: space-between;
+}
 header img {
   width: 40px;
   height: 43px;
@@ -40,7 +41,14 @@ header img:hover {
 
 header h1 {
   color: var(--honeydew);
+<<<<<<< HEAD
   font-size: 1.9rem;
+=======
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+>>>>>>> 0364fa08a7d5cbd087324264a4674eb0e30eced5
 }
 
 header button {

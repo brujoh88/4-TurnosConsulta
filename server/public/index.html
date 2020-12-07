@@ -8,13 +8,22 @@
   </head>
   <body style="overflow: hidden">
     <header>
-      <img src="./img/schedule.svg" alt="Logo" />
-
+      <div id="header-opcion">
+        <img src="./img/home2.svg" alt="home" class="ocultar" id="to-page2" />
+        <img
+          id="to-page3"
+          src="./img/schedule.svg"
+          alt="search"
+          class="ocultar"
+        />
+        <img
+          src="./img/log-out.svg"
+          alt="log-out"
+          class="ocultar"
+          id="to-page1"
+        />
+      </div>
       <h1 class="name-user"></h1>
-
-      <button>
-        <img src="./img/home2.svg" alt="" />
-      </button>
     </header>
     <main>
       <div id="page-1" class="div-main principal-page">
@@ -46,7 +55,6 @@
             <!-- Zona de la tabla -->
           </table>
         </div>
-        <button id="to-page3">Consultar Calendario</button>
       </div>
       <div id="page-3" class="div-main ocultar">
         <div class="search-calendary--form">
@@ -59,7 +67,7 @@
 
           <label for="mes">
             <input
-              disabled="false"
+              class="ocultar"
               type="month"
               name="mes"
               id="value-mes-year"
@@ -67,7 +75,7 @@
           </label>
           <label for="anio">
             <input
-              disabled="false"
+              class="ocultar"
               type="number"
               placeholder="YYYY"
               min="2000"
@@ -75,8 +83,12 @@
               id="value-year"
             />
           </label>
+<<<<<<< HEAD
           <button id="query-button">Buscar</button>
           <button id="back-page3">Volver</button>
+=======
+          <button id="query-button">Confirmar</button>
+>>>>>>> 0364fa08a7d5cbd087324264a4674eb0e30eced5
         </div>
       </div>
       <div id="page-4" class="div-main calendary-form ocultar">

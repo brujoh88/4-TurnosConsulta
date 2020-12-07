@@ -1,8 +1,10 @@
 let valueLegajo = document.getElementById('valorLegajo')
 let buttonLogin = document.getElementById('botonLegajo')
 let page1 = document.getElementById('page-1')
+let homeButton = document.getElementById('to-page2')
+let searchButton = document.getElementById('to-page3')
+let logOutButton = document.getElementById('to-page1')
 let page2 = document.getElementById('page-2')
-let consultaToPage3 = document.getElementById('to-page3')
 let buttonMesQuerry = document.getElementById('query-button')
 let valueMesYearQuery = document.getElementById('value-mes-year')
 let valueYearQuery = document.getElementById('value-year')
@@ -213,6 +215,9 @@ buttonLogin.addEventListener('click', () => {
         } else {
           page1.classList.add('ocultar')
           page2.classList.remove('ocultar')
+          homeButton.classList.remove('ocultar')
+          searchButton.classList.remove('ocultar')
+          logOutButton.classList.remove('ocultar')
           userDb = data
           imprimirDatosUser(userDb)
         }
@@ -265,7 +270,7 @@ const imprimirDatosDate = (date) => {
   //Tabla
   imprimirTabla(date, 0, date.body.listAllTurnos.listAllDaysOnMes.length)
 }
-consultaToPage3.addEventListener('click', () => {
+searchButton.addEventListener('click', () => {
   page2.classList.add('ocultar')
   page3.classList.remove('ocultar')
 })
@@ -330,21 +335,23 @@ buttonMesQuerry.addEventListener('click', () => {
 opcionQuery.addEventListener('change', () => {
   let desicion = opcionQuery.value
   if (desicion == 'mes') {
-    valueYearQuery.setAttribute('disabled', 'false')
+    valueYearQuery.classList.add('ocultar')
     valueYearQuery.value = ''
-    valueMesYearQuery.removeAttribute('disabled')
+    valueMesYearQuery.classList.remove('ocultar')
     valueMesYearQuery.classList.add('resaltar-opcion')
     valueYearQuery.classList.remove('resaltar-opcion')
   } else if (desicion == 'anio') {
-    valueMesYearQuery.setAttribute('disabled', 'false')
+    valueMesYearQuery.classList.add('ocultar')
     valueMesYearQuery.value = ''
-    valueYearQuery.removeAttribute('disabled')
+    valueYearQuery.classList.remove('ocultar')
     valueYearQuery.classList.add('resaltar-opcion')
     valueMesYearQuery.classList.remove('resaltar-opcion')
   } else {
+    valueMesYearQuery.classList.add('ocultar')
     valueMesYearQuery.classList.remove('resaltar-opcion')
     valueMesYearQuery.value = ''
     valueYearQuery.classList.remove('resaltar-opcion')
+    valueYearQuery.classList.add('ocultar')
     valueYearQuery.value = ''
   }
 })
