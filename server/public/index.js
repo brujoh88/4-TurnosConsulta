@@ -282,6 +282,19 @@ searchButton.addEventListener('click', () => {
   page3.classList.remove('ocultar')
   page4.classList.add('ocultar')
 })
+logOutButton.addEventListener('click', () => {
+  swal({
+    title: 'Seguro que desea salir?',
+    dangerMode: true,
+    buttons: true,
+  }).then((eleccion) => {
+    if (eleccion) {
+      swal('Cerrado exitosamente', {
+        icon: 'success',
+      })
+    }
+  })
+})
 
 backButtonTopage4.addEventListener('click', () => {
   page4.classList.add('ocultar')
