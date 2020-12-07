@@ -272,12 +272,15 @@ const imprimirDatosDate = (date) => {
 }
 homeButton.addEventListener('click', () => {
   page1.classList.add('ocultar')
-  page3.classList.add('ocultar')
   page2.classList.remove('ocultar')
+  page3.classList.add('ocultar')
+  page4.classList.add('ocultar')
 })
 searchButton.addEventListener('click', () => {
+  page1.classList.add('ocultar')
   page2.classList.add('ocultar')
   page3.classList.remove('ocultar')
+  page4.classList.add('ocultar')
 })
 
 backButtonTopage4.addEventListener('click', () => {
