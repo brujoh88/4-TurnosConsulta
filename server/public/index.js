@@ -32,6 +32,43 @@ const listMesNombre = [
 ]
 
 const nombreDiasDeSemana = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+
+/*
+==========================
+On Load Page
+==========================
+*/
+const tokenDecoded = function parseJwt(token) {
+  var base64Url = token.split('.')[1]
+  var base64 = base64Url.replace('-', '+').replace('_', '/')
+  return JSON.parse(window.atob(base64))
+}
+window.onload = () => {
+  let cacheDate = localStorage.getItem('token')
+  if (cacheDate) {
+    let dato = tokenDecoded(cacheDate)
+    userDb = {
+      error: '',
+      body: dato,
+    }
+
+    page1.classList.add('ocultar')
+    page2.classList.remove('ocultar')
+    homeButton.classList.remove('ocultar')
+    searchButton.classList.remove('ocultar')
+    logOutButton.classList.remove('ocultar')
+    let userCache = {
+      error: '',
+      body: {
+        legajo: dato.legajo,
+        name: dato.name,
+        turno: dato.turno,
+      },
+    }
+
+    imprimirDatosUser(userCache)
+  }
+}
 /*
 Traer elementos del DOM para insertar datos del backend
 */
@@ -219,6 +256,7 @@ buttonLogin.addEventListener('click', () => {
           searchButton.classList.remove('ocultar')
           logOutButton.classList.remove('ocultar')
           userDb = data
+          localStorage.setItem('token', userDb.body.token)
           imprimirDatosUser(userDb)
         }
       })
@@ -289,9 +327,15 @@ logOutButton.addEventListener('click', () => {
     buttons: true,
   }).then((eleccion) => {
     if (eleccion) {
+      localStorage.clear()
       swal('Cerrado exitosamente', {
         icon: 'success',
       })
+
+      page1.classList.remove('ocultar')
+      page2.classList.add('ocultar')
+      page3.classList.add('ocultar')
+      page4.classList.add('ocultar')
     }
   })
 })
