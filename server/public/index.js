@@ -278,6 +278,8 @@ const imprimirDatosUser = (user) => {
   let name = user.body.name
   let legajo = user.body.legajo
   let turno = user.body.turno
+  nameUser[0].innerHTML = ''
+  nameUser[1].innerHTML = ''
   nameUser[0].insertAdjacentHTML('beforeend', `${name} - ${legajo}`)
   nameUser[1].insertAdjacentHTML('beforeend', name)
   fetch('http://127.0.0.1:3000/getDate', {
@@ -301,8 +303,11 @@ const imprimirDatosDate = (date) => {
   day = fecha.getDate()
   mes = fecha.getMonth()
   mes = listMesNombre[mes]
+  fechaNow.innerHTML = ''
   fechaNow.insertAdjacentHTML('beforeend', `${day} de ${mes}`)
   diasParaFranco = date.body.inDayWork.diaEnTurno
+  dayInWork[0].innerHTML = ''
+  dayInWork[1].innerHTML = ''
   dayInWork[0].insertAdjacentHTML('beforeend', `${comoTrabajo}`)
   dayInWork[1].insertAdjacentHTML(
     'beforeend',
