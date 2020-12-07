@@ -49,7 +49,8 @@ const imprimirTabla = (date, fuente, tamanio) => {
   let turnoUsuario = userDb.body.turno
   tabla[fuente].innerHTML = ''
   tituloMes.innerHTML = ''
-  let fecha = new Date(date.body.listAllDaysOnMes[1])
+
+  let fecha = new Date(date.body.listAllTurnos.listAllDaysOnMes[1])
   let mes = fecha.getMonth()
   let anio = fecha.getFullYear()
   mes = listMesNombre[mes]
@@ -67,9 +68,9 @@ const imprimirTabla = (date, fuente, tamanio) => {
   </tr>`
   )
   for (let i = 0; i < tamanio; i++) {
-    let nameDay = new Date(dateDB.body.listAllDaysOnMes[i])
+    let nameDay = new Date(dateDB.body.listAllTurnos.listAllDaysOnMes[i])
     nameDay = nombreDiasDeSemana[nameDay.getUTCDay()]
-    let fecha = new Date(date.body.listAllDaysOnMes[i])
+    let fecha = new Date(date.body.listAllTurnos.listAllDaysOnMes[i])
     let dia = fecha.getDate()
     let mes = fecha.getMonth()
     let anio = fecha.getFullYear()
@@ -236,8 +237,8 @@ const imprimirDatosUser = (user) => {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',
     body: JSON.stringify({
-      mes: '',
-      anio: '',
+      mes: new Date().getMonth(),
+      anio: new Date().getFullYear(),
       turno: turno,
     }),
   })
@@ -262,7 +263,7 @@ const imprimirDatosDate = (date) => {
   )
 
   //Tabla
-  imprimirTabla(date, 0, date.body.listAllDaysOnMes.length)
+  imprimirTabla(date, 0, date.body.listAllTurnos.listAllDaysOnMes.length)
 }
 consultaToPage3.addEventListener('click', () => {
   page2.classList.add('ocultar')
@@ -300,7 +301,11 @@ buttonMesQuerry.addEventListener('click', () => {
           dateDB = data
           page3.classList.add('ocultar')
           page4.classList.remove('ocultar')
-          imprimirTabla(data, 1, dateDB.body.listAllDaysOnMes.length)
+          imprimirTabla(
+            data,
+            1,
+            dateDB.body.listAllTurnos.listAllDaysOnMes.length
+          )
         })
     }
   }
@@ -337,7 +342,11 @@ opcionQuery.addEventListener('change', () => {
     valueYearQuery.classList.add('resaltar-opcion')
     valueMesYearQuery.classList.remove('resaltar-opcion')
   } else {
+    valueMesYearQuery.setAttribute('disabled', 'false')
     valueMesYearQuery.classList.remove('resaltar-opcion')
+    valueMesYearQuery.value = ''
     valueYearQuery.classList.remove('resaltar-opcion')
+    valueYearQuery.setAttribute('disabled', 'false')
+    valueYearQuery.value = ''
   }
 })
