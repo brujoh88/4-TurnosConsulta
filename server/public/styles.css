@@ -153,7 +153,6 @@ table {
   border: 1px solid rgb(200, 200, 200);
   border-collapse: collapse;
   font-size: 0.9rem;
-  width: 100%;
 }
 
 tr {
@@ -183,6 +182,7 @@ table tr:hover {
 .table-container {
   margin: 20px 5px 1rem;
   width: 90%;
+  height: 100%;
 }
 
 .text-tabla {
@@ -251,6 +251,7 @@ select {
 #page-4,
 #page-2 {
   justify-content: start;
+  height: auto;
 }
 
 /* -------- footer -------- */
