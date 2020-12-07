@@ -91,31 +91,17 @@ const queryTurnoByDay = (turno, day) => {
 const listByMonthAllTurnos = (mesQuery, anioQuery, turnoQuery) => {
   return new Promise((resolve, reject) => {
     let dato
-    if (!mesQuery && !anioQuery) {
-      dato = {
-        date: new Date(),
-        turnoOfUser: turnoQuery,
-        inDayWork: queryTurnoByDay(turnoQuery, new Date()),
-        listAllTurnos: {
-          maniana: getListTurnoByMesForGroup('Mañana', mesNow, anioNow),
-          tarde: getListTurnoByMesForGroup('Tarde', mesNow, anioNow),
-          noche: getListTurnoByMesForGroup('Noche', mesNow, anioNow),
-          franco: getListTurnoByMesForGroup('Franco', mesNow, anioNow),
-        },
-        listAllDaysOnMes: getListNameDaysOnMes(mesNow, anioNow),
-      }
-    } else {
-      dato = {
-        date: new Date(),
-        turnoOfUser: turnoQuery,
-        listAllTurnos: {
-          maniana: getListTurnoByMesForGroup('Mañana', mesQuery, anioQuery),
-          tarde: getListTurnoByMesForGroup('Tarde', mesQuery, anioQuery),
-          noche: getListTurnoByMesForGroup('Noche', mesQuery, anioQuery),
-          franco: getListTurnoByMesForGroup('Franco', mesQuery, anioQuery),
-        },
+    dato = {
+      date: new Date(),
+      turnoOfUser: turnoQuery,
+      inDayWork: queryTurnoByDay(turnoQuery, new Date()),
+      listAllTurnos: {
+        maniana: getListTurnoByMesForGroup('Mañana', mesQuery, anioQuery),
+        tarde: getListTurnoByMesForGroup('Tarde', mesQuery, anioQuery),
+        noche: getListTurnoByMesForGroup('Noche', mesQuery, anioQuery),
+        franco: getListTurnoByMesForGroup('Franco', mesQuery, anioQuery),
         listAllDaysOnMes: getListNameDaysOnMes(mesQuery, anioQuery),
-      }
+      },
     }
     resolve(dato)
   })
