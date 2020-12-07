@@ -65,8 +65,11 @@ window.onload = () => {
         turno: dato.turno,
       },
     }
-
+    nameUser[0].classList.remove('ocultar')
     imprimirDatosUser(userCache)
+  } else {
+    page1.classList.remove('ocultar')
+    nameUser[0].classList.add('ocultar')
   }
 }
 /*
@@ -255,6 +258,7 @@ buttonLogin.addEventListener('click', () => {
           homeButton.classList.remove('ocultar')
           searchButton.classList.remove('ocultar')
           logOutButton.classList.remove('ocultar')
+          nameUser[0].classList.remove('ocultar')
           userDb = data
           localStorage.setItem('token', userDb.body.token)
           imprimirDatosUser(userDb)
@@ -336,6 +340,11 @@ logOutButton.addEventListener('click', () => {
       page2.classList.add('ocultar')
       page3.classList.add('ocultar')
       page4.classList.add('ocultar')
+      nameUser[0].classList.add('ocultar')
+      homeButton.classList.add('ocultar')
+      searchButton.classList.add('ocultar')
+      logOutButton.classList.add('ocultar')
+      valueLegajo.value = ''
     }
   })
 })
@@ -379,14 +388,18 @@ buttonMesQuerry.addEventListener('click', () => {
     valorYear = valueYearQuery.value
     if (valorYear == '') {
       swal('Faltan datos', 'Complete con el año deseado', 'info')
+    } else {
+      if (!/\d{4}/.test(valorYear)) {
+        swal('Años validos', 'Min 2000 Max 2100 ', 'error')
+      } else {
+        console.log('good')
+      }
     }
-  } else {
   }
   if (opcionQuery.value == '') {
     swal('Elija una opcion', 'Mes o Año', 'warning')
   }
 })
-
 /*
 ========================
  Logica para pag 3 (parte)
