@@ -19,10 +19,8 @@
     <main>
       <div id="page-1" class="div-main principal-page">
         <div id="formularioPrincipal" class="form-container">
+          <span class="form-container--text">Cronograma Inspeccion general</span>
           <label class="form-container--legajo" for="legajo">
-            <span class="form-container--text"
-              >Cronograma Inspeccion general</span
-            >
             <input
               placeholder="Ingrese legajo"
               class="form-container--date"
@@ -34,7 +32,7 @@
           <button id="botonLegajo" class="button">Entrar</button>
         </div>
       </div>
-      <div id="page-2" class="div-main ocultar">
+      <div id="page-2" class="div-main user-page ocultar">
         <p class="first-p">
           Bienvenido <span class="name-user"></span> , hoy
           <span id="print-fecha"></span>, estás de
@@ -53,7 +51,7 @@
       <div id="page-3" class="div-main ocultar">
         <div class="search-calendary--form">
           <h2>Consultar por un mes o año completo</h2>
-          <select name="opciones" id="opciones">
+          <select name="opciones" id="opciones" class="options">
             <option value="">Elija una opcion</option>
             <option value="mes">Mes</option>
             <option value="anio">Año</option>
@@ -78,10 +76,10 @@
             />
           </label>
           <button id="query-button">Buscar</button>
+          <button id="back-page3">Volver</button>
         </div>
-        <button id="back-page3">Volver</button>
       </div>
-      <div id="page-4" class="div-main ocultar">
+      <div id="page-4" class="div-main calendary-form ocultar">
         <h2 id="titulo-mes"></h2>
         <div class="table-container">
           <table class="tabla">
