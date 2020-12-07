@@ -270,15 +270,16 @@ const imprimirDatosDate = (date) => {
   //Tabla
   imprimirTabla(date, 0, date.body.listAllTurnos.listAllDaysOnMes.length)
 }
+homeButton.addEventListener('click', () => {
+  page1.classList.add('ocultar')
+  page3.classList.add('ocultar')
+  page2.classList.remove('ocultar')
+})
 searchButton.addEventListener('click', () => {
   page2.classList.add('ocultar')
   page3.classList.remove('ocultar')
 })
 
-backButtonTopage3.addEventListener('click', () => {
-  page3.classList.add('ocultar')
-  page2.classList.remove('ocultar')
-})
 backButtonTopage4.addEventListener('click', () => {
   page4.classList.add('ocultar')
   page3.classList.remove('ocultar')
