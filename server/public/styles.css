@@ -41,14 +41,10 @@ header img:hover {
 
 header h1 {
   color: var(--honeydew);
-<<<<<<< HEAD
   font-size: 1.9rem;
-=======
-  font-size: 1.8rem;
   display: flex;
   justify-content: center;
   margin-top: 10px;
->>>>>>> 0364fa08a7d5cbd087324264a4674eb0e30eced5
 }
 
 header button {
