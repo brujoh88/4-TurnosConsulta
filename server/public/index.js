@@ -330,23 +330,23 @@ buttonMesQuerry.addEventListener('click', () => {
 opcionQuery.addEventListener('change', () => {
   let desicion = opcionQuery.value
   if (desicion == 'mes') {
-    valueYearQuery.setAttribute('disabled', 'false')
+    valueYearQuery.classList.add('ocultar')
     valueYearQuery.value = ''
-    valueMesYearQuery.removeAttribute('disabled')
+    valueMesYearQuery.classList.remove('ocultar')
     valueMesYearQuery.classList.add('resaltar-opcion')
     valueYearQuery.classList.remove('resaltar-opcion')
   } else if (desicion == 'anio') {
-    valueMesYearQuery.setAttribute('disabled', 'false')
+    valueMesYearQuery.classList.add('ocultar')
     valueMesYearQuery.value = ''
-    valueYearQuery.removeAttribute('disabled')
+    valueYearQuery.classList.remove('ocultar')
     valueYearQuery.classList.add('resaltar-opcion')
     valueMesYearQuery.classList.remove('resaltar-opcion')
   } else {
-    valueMesYearQuery.setAttribute('disabled', 'false')
+    valueMesYearQuery.classList.add('ocultar')
     valueMesYearQuery.classList.remove('resaltar-opcion')
     valueMesYearQuery.value = ''
     valueYearQuery.classList.remove('resaltar-opcion')
-    valueYearQuery.setAttribute('disabled', 'false')
+    valueYearQuery.classList.add('ocultar')
     valueYearQuery.value = ''
   }
 })
