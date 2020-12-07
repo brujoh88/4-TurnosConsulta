@@ -1,8 +1,10 @@
 let valueLegajo = document.getElementById('valorLegajo')
 let buttonLogin = document.getElementById('botonLegajo')
 let page1 = document.getElementById('page-1')
+let homeButton = document.getElementById('to-page2')
+let searchButton = document.getElementById('to-page3')
+let logOutButton = document.getElementById('to-page1')
 let page2 = document.getElementById('page-2')
-let consultaToPage3 = document.getElementById('to-page3')
 let buttonMesQuerry = document.getElementById('query-button')
 let valueMesYearQuery = document.getElementById('value-mes-year')
 let valueYearQuery = document.getElementById('value-year')
@@ -213,6 +215,9 @@ buttonLogin.addEventListener('click', () => {
         } else {
           page1.classList.add('ocultar')
           page2.classList.remove('ocultar')
+          homeButton.classList.remove('ocultar')
+          searchButton.classList.remove('ocultar')
+          logOutButton.classList.remove('ocultar')
           userDb = data
           imprimirDatosUser(userDb)
         }
@@ -265,7 +270,7 @@ const imprimirDatosDate = (date) => {
   //Tabla
   imprimirTabla(date, 0, date.body.listAllTurnos.listAllDaysOnMes.length)
 }
-consultaToPage3.addEventListener('click', () => {
+searchButton.addEventListener('click', () => {
   page2.classList.add('ocultar')
   page3.classList.remove('ocultar')
 })
