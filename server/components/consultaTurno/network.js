@@ -5,10 +5,16 @@ const controller = require('./controller')
 
 router.post('/', (req, res) => {
   let dato = req.body
+  /*  if (!dato.mes) {
+    res.json({
+      ok: true,
+    })
+  } else { */
   controller
     .listByMonthAllTurnos(dato.mes, dato.anio, dato.turno)
     .then((element) => response.success(req, res, element, 200))
     .catch((err) => response.error(req, res, err, 400, 'Peticion incorrecta'))
+  /* } */
 })
 
 module.exports = router
