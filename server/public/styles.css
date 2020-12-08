@@ -3,7 +3,7 @@
   --prussian-blue: #1d3557ff;
   --headerandfooter: #457b9dff;
   --powder-blue: #a8dadcff;
-  --honeydew: #f1faeeff;
+  --honeydew: #fff;
 }
 
 * {
@@ -249,7 +249,17 @@ p span {
   background-color: #a8dadc;
 }
 select {
-  margin: 40px 25px 25px 25px;
+  margin: 50px 25px 25px 25px;
+}
+
+.month-selection,
+.year-selection {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.month-selection {
+  width: 13em;
 }
 /* ----------- pagina 4 -------- */
 #page-4,
@@ -263,12 +273,13 @@ footer {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 50px;
   background-color: var(--headerandfooter);
 }
 
 footer p {
   color: var(--honeydew);
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding-left: 5px;
 }
