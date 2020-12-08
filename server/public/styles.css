@@ -31,7 +31,7 @@ div#header-opcion {
   display: flex;
   justify-content: space-between;
 }
-header img {
+.header-menu img {
   width: 30px;
   height: 30px;
 }
@@ -249,7 +249,7 @@ p span {
   background-color: #a8dadc;
 }
 select {
-  margin: 25px;
+  margin: 40px 25px 25px 25px;
 }
 /* ----------- pagina 4 -------- */
 #page-4,
