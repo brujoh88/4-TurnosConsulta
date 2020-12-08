@@ -207,10 +207,10 @@ table tr:hover {
 }
 
 .resaltar-turno {
-  background-color: #a8dadc;
+  color: red;
 }
-.resaltar-turno:hover {
-  background-color: #86afb1;
+.resaltar-hoy:nth-child(odd) {
+  background-color: #3e9497;
 }
 /* --------- pagina 2 ---------- */
 .user-page p,

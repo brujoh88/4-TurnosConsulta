@@ -1,7 +1,4 @@
 const store = require('./store')
-const diaNow = new Date().getDate()
-const mesNow = new Date().getMonth()
-const anioNow = new Date().getFullYear()
 const dayOnDayByMes = (contador, mes, anio) => {
   return new Date(anio, mes, contador + 1)
 }
@@ -106,7 +103,24 @@ const listByMonthAllTurnos = (mesQuery, anioQuery, turnoQuery) => {
     resolve(dato)
   })
 }
-
+const listByYearAllTurnos = (anioQuery, turnoOfUser) => {
+  let dateYear = {}
+  listByMonthAllTurnos(0, 2021, 'C').then((element) => {
+    dateYear.enero = element
+  })
+  listByMonthAllTurnos(0, 2021, 'C').then((element) => {
+    dateYear.febrero = element
+  })
+  listByMonthAllTurnos(0, 2021, 'C').then((element) => {
+    dateYear.marzo = element
+  })
+  listByMonthAllTurnos(0, 2021, 'C').then((element) => {
+    dateYear.abril = element
+  })
+  listByMonthAllTurnos(0, 2021, 'C').then((element) => {
+    dateYear.mayo = element
+  })
+}
 module.exports = {
   listByMonthAllTurnos,
 }

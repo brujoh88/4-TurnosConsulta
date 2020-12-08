@@ -109,9 +109,12 @@ const imprimirTabla = (date, fuente, tamanio) => {
     <th>Franco</th>
   </tr>`
   )
+  let ancla = false
   for (let i = 0; i < tamanio; i++) {
-    let nameDay = new Date(dateDB.body.listAllTurnos.listAllDaysOnMes[i])
-    nameDay = nombreDiasDeSemana[nameDay.getUTCDay()]
+    let nameDayFormatDate = new Date(
+      dateDB.body.listAllTurnos.listAllDaysOnMes[i]
+    )
+    nameDay = nombreDiasDeSemana[nameDayFormatDate.getUTCDay()]
     let fecha = new Date(date.body.listAllTurnos.listAllDaysOnMes[i])
     let dia = fecha.getDate()
     let mes = fecha.getMonth()
@@ -120,12 +123,20 @@ const imprimirTabla = (date, fuente, tamanio) => {
     let turnoTarde = date.body.listAllTurnos.tarde[i]
     let turnoNoche = date.body.listAllTurnos.noche[i]
     let turnoFranco = date.body.listAllTurnos.franco[i]
+    let resaltarHoy
+    let esHoy =
+      (new Date(dateDB.body.date) - nameDayFormatDate) / 1000 / 60 / 60 / 24
+    esHoy = parseInt(esHoy, 10)
     switch (turnoUsuario) {
       case turnoManiana:
+        if (esHoy === 0 && ancla == false) {
+          resaltarHoy = 'resaltar-hoy'
+          ancla = true
+        }
         tabla[fuente].insertAdjacentHTML(
           'beforeend',
 
-          `<tr class="text-tabla">
+          `<tr class="text-tabla ${resaltarHoy}">
             <td>
                 ${nameDay}
             </td>
@@ -149,10 +160,14 @@ const imprimirTabla = (date, fuente, tamanio) => {
         break
 
       case turnoTarde:
+        if (esHoy === 0 && ancla == false) {
+          resaltarHoy = 'resaltar-hoy'
+          ancla = true
+        }
         tabla[fuente].insertAdjacentHTML(
           'beforeend',
 
-          `<tr class="text-tabla">
+          `<tr class="text-tabla ${resaltarHoy}">
             <td>
                 ${nameDay}
             </td>
@@ -176,10 +191,14 @@ const imprimirTabla = (date, fuente, tamanio) => {
 
         break
       case turnoNoche:
+        if (esHoy === 0 && ancla == false) {
+          resaltarHoy = 'resaltar-hoy'
+          ancla = true
+        }
         tabla[fuente].insertAdjacentHTML(
           'beforeend',
 
-          `<tr class="text-tabla">
+          `<tr class="text-tabla ${resaltarHoy}">
             <td>
                 ${nameDay}
             </td>
@@ -203,10 +222,14 @@ const imprimirTabla = (date, fuente, tamanio) => {
 
         break
       case turnoFranco:
+        if (esHoy === 0 && ancla == false) {
+          resaltarHoy = 'resaltar-hoy'
+          ancla = true
+        }
         tabla[fuente].insertAdjacentHTML(
           'beforeend',
 
-          `<tr class="text-tabla">
+          `<tr class="text-tabla ${resaltarHoy}">
             <td>
                 ${nameDay}
             </td>
