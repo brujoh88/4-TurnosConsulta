@@ -104,23 +104,84 @@ const listByMonthAllTurnos = (mesQuery, anioQuery, turnoQuery) => {
   })
 }
 const listByYearAllTurnos = (anioQuery, turnoOfUser) => {
-  let dateYear = {}
-  listByMonthAllTurnos(0, 2021, 'C').then((element) => {
-    dateYear.enero = element
+  let dateYear = []
+  let list
+
+  list = new Promise((resolve, reject) => {
+    listByMonthAllTurnos(0, anioQuery, turnoOfUser).then((element) => {
+      dateYear[0] = element
+    })
+    resolve(dateYear)
   })
-  listByMonthAllTurnos(0, 2021, 'C').then((element) => {
-    dateYear.febrero = element
+  new Promise((resolve, reject) => {
+    listByMonthAllTurnos(1, anioQuery, turnoOfUser).then((element) => {
+      dateYear[1] = element
+    })
+    resolve(dateYear)
   })
-  listByMonthAllTurnos(0, 2021, 'C').then((element) => {
-    dateYear.marzo = element
+  new Promise((resolve, reject) => {
+    listByMonthAllTurnos(2, anioQuery, turnoOfUser).then((element) => {
+      dateYear[2] = element
+    })
+    resolve(dateYear)
   })
-  listByMonthAllTurnos(0, 2021, 'C').then((element) => {
-    dateYear.abril = element
+  new Promise((resolve, reject) => {
+    listByMonthAllTurnos(3, anioQuery, turnoOfUser).then((element) => {
+      dateYear[3] = element
+    })
+    resolve(dateYear)
   })
-  listByMonthAllTurnos(0, 2021, 'C').then((element) => {
-    dateYear.mayo = element
+  new Promise((resolve, reject) => {
+    listByMonthAllTurnos(4, anioQuery, turnoOfUser).then((element) => {
+      dateYear[4] = element
+    })
+    resolve(dateYear)
   })
+  new Promise((resolve, reject) => {
+    listByMonthAllTurnos(5, anioQuery, turnoOfUser).then((element) => {
+      dateYear[5] = element
+    })
+    resolve(dateYear)
+  })
+  new Promise((resolve, reject) => {
+    listByMonthAllTurnos(6, anioQuery, turnoOfUser).then((element) => {
+      dateYear[6] = element
+    })
+    resolve(dateYear)
+  })
+  new Promise((resolve, reject) => {
+    listByMonthAllTurnos(7, anioQuery, turnoOfUser).then((element) => {
+      dateYear[7] = element
+    })
+    resolve(dateYear)
+  })
+  new Promise((resolve, reject) => {
+    listByMonthAllTurnos(8, anioQuery, turnoOfUser).then((element) => {
+      dateYear[8] = element
+    })
+    resolve(dateYear)
+  })
+  new Promise((resolve, reject) => {
+    listByMonthAllTurnos(9, anioQuery, turnoOfUser).then((element) => {
+      dateYear[9] = element
+    })
+    resolve(dateYear)
+  })
+  new Promise((resolve, reject) => {
+    listByMonthAllTurnos(10, anioQuery, turnoOfUser).then((element) => {
+      dateYear[10] = element
+    })
+    resolve(dateYear)
+  })
+  new Promise((resolve, reject) => {
+    listByMonthAllTurnos(11, anioQuery, turnoOfUser).then((element) => {
+      dateYear[11] = element
+    })
+    resolve(dateYear)
+  })
+  return Promise.all([list]).then((element) => element[0])
 }
 module.exports = {
   listByMonthAllTurnos,
+  listByYearAllTurnos,
 }
