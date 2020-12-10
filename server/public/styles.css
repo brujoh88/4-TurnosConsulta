@@ -22,7 +22,6 @@ header {
   position: relative;
   align-items: center;
   height: 70px;
-  margin-bottom: 10px;
   background-color: var(--headerandfooter);
   padding: 10px;
 }
@@ -155,7 +154,6 @@ button {
 table {
   border: 1px solid rgb(200, 200, 200);
   border-collapse: collapse;
-  font-size: 0.9rem;
 }
 
 tr {
@@ -183,23 +181,20 @@ table tr:hover {
 }
 
 .table-container {
-  margin: 20px 5px 1rem;
-  width: 90%;
+  margin: 5px 5px;
   height: 100%;
 }
 
 .text-tabla {
-  font-size: 10px;
+  font-size: 1.2rem;
 }
 .titulo-mes {
   background-color: #b69a4e;
-  position: -webkit-sticky;
   position: sticky;
   top: -1px;
 }
 .perseguir {
-  background-color: #1d3557ff;
-  position: -webkit-sticky;
+  background-color: var(--powder-blue);
   position: sticky;
   top: 20px;
 }
@@ -229,6 +224,7 @@ table tr:hover {
 p span {
   font-size: 1.8rem;
   text-align: center;
+  margin-top: 10px;
   color: var(--prussian-blue);
 }
 
