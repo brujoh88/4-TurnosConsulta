@@ -193,6 +193,15 @@ table tr:hover {
 }
 .titulo-mes {
   background-color: #b69a4e;
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+}
+.perseguir {
+  background-color: #1d3557ff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
 }
 
 /*  Estilos para que las barras de desplazamiento horizontal se vean en los dispositivos IOS. */
@@ -272,11 +281,12 @@ select {
 }
 
 #back-page4 {
+  display: none;
   width: 50px;
   border-radius: 100%;
   position: -webkit-sticky;
   position: sticky;
-  top: 20px;
+  top: 50px;
 }
 /* -------- footer -------- */
 footer {

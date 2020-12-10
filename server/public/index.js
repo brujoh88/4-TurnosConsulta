@@ -155,15 +155,15 @@ const imprimirTabla = (date, fuente) => {
     'beforeend',
     `
   <tr class="text-tabla">  
-    <th colspan = "6" class="titulo-mes">${mes} - ${anio}</th>    
+    <td colspan = "6" class="titulo-mes">${mes} - ${anio}</td>    
   </tr>
   <tr class="text-tabla">
-    <th>Día</th>    
-    <th>Fecha</th>
-    <th>Mañana</th>
-    <th>Tarde</th>
-    <th>Noche</th>
-    <th>Franco</th>
+    <td class=" perseguir">Día</td>    
+    <td class=" perseguir">Fecha</td>
+    <td class=" perseguir">Mañana</td>
+    <td class=" perseguir">Tarde</td>
+    <td class=" perseguir">Noche</td>
+    <td class=" perseguir">Franco</td>
   </tr>`
   )
   let ancla = false
