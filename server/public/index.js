@@ -1,6 +1,10 @@
 let tituloHeader = document.getElementById('header-titulo')
+let opcionLogin = document.getElementById('opcion-ingreso')
+let valueEscuadra = document.getElementById('valorEscuadra')
 let valueLegajo = document.getElementById('valorLegajo')
 let valorPass = document.getElementById('value-pass')
+let checkBoxPass = document.getElementById('checkbox-pass')
+let checkboxText = document.getElementById('checkbox-text-pass')
 let buttonLogin = document.getElementById('botonLegajo')
 let page1 = document.getElementById('page-1')
 let homeButton = document.getElementById('to-page2')
@@ -325,35 +329,48 @@ const imprimirTabla = (date, fuente) => {
  Logica para pag 1
 ========================
 */
-buttonLogin.addEventListener('click', () => {
-  if (valueLegajo.value === '') {
-    swal('Ingresa un valor', 'Se requiere legajo 😬', 'warning')
+
+opcionLogin.addEventListener('change', () => {
+  let desicion = opcionLogin.value
+  if (desicion == 'legajo-password') {
+    valueEscuadra.classList.add('ocultar')
+    valueEscuadra.classList.remove('resaltar-opcion')
+    valueEscuadra.value = ''
+    valorLegajo.classList.remove('ocultar')
+    valorLegajo.classList.add('resaltar-opcion')
+    valorPass.classList.remove('ocultar')
+    valorPass.classList.add('resaltar-opcion')
+    checkBoxPass.classList.remove('ocultar')
+    checkboxText.classList.remove('ocultar')
+  } else if (desicion == 'escuadra') {
+    valorLegajo.classList.add('ocultar')
+    valorLegajo.value = ''
+    valueEscuadra.classList.remove('ocultar')
+    valueEscuadra.classList.add('resaltar-opcion')
+    valorLegajo.classList.remove('resaltar-opcion')
+    valorPass.classList.add('ocultar')
+    valorPass.classList.remove('resaltar-opcion')
+    checkBoxPass.classList.add('ocultar')
+    checkboxText.classList.add('ocultar')
   } else {
-    fetch('http://127.0.0.1:3000/login', {
-      headers: { 'Content-Type': 'application/json' },
-      method: 'POST',
-      body: JSON.stringify({
-        legajo: valueLegajo.value,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (!data.body.name) {
-          swal('Legajo no encontrado', '😟', 'error')
-        } else {
-          tituloHeader.classList.add('ocultar')
-          page1.classList.add('ocultar')
-          page2.classList.remove('ocultar')
-          homeButton.classList.remove('ocultar')
-          searchButton.classList.remove('ocultar')
-          logOutButton.classList.remove('ocultar')
-          nameUser[0].classList.remove('ocultar')
-          userDb = data
-          localStorage.setItem('token', userDb.body.token)
-          imprimirDatosUser(userDb)
-        }
-      })
-      .catch((err) => console.log(err))
+    valorLegajo.classList.add('ocultar')
+    valorLegajo.classList.remove('resaltar-opcion')
+    valorLegajo.value = ''
+    valueEscuadra.classList.remove('resaltar-opcion')
+    valueEscuadra.classList.add('ocultar')
+    valueEscuadra.value = ''
+    valorPass.classList.remove('resaltar-opcion')
+    valorPass.classList.add('ocultar')
+    checkBoxPass.classList.add('ocultar')
+    checkboxText.classList.add('ocultar')
+  }
+})
+
+buttonLogin.addEventListener('click', () => {
+  if (opcionLogin.value == 'legajo-password') {
+    logeoLegajoAndPass()
+  } else if (opcionLogin.value == 'escuadra') {
+    logeoEscuadra()
   }
 })
 
@@ -440,6 +457,7 @@ logOutButton.addEventListener('click', () => {
       searchButton.classList.add('ocultar')
       logOutButton.classList.add('ocultar')
       valueLegajo.value = ''
+      valorPass.value = ''
     }
   })
 })
@@ -527,3 +545,68 @@ opcionQuery.addEventListener('change', () => {
     valueYearQuery.value = ''
   }
 })
+const logeoLegajoAndPass = () => {
+  if (valueLegajo.value === '' || valorPass.value === '') {
+    swal('Datos incompletos', 'Se requiere legajo y contraseña😬', 'warning')
+  } else {
+    fetch('http://127.0.0.1:3000/login', {
+      headers: { 'Content-Type': 'application/json' },
+      method: 'POST',
+      body: JSON.stringify({
+        legajo: valueLegajo.value,
+        password: valorPass.value,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data.body.name) {
+          swal('Datos incorrectos', '😟', 'error')
+        } else {
+          tituloHeader.classList.add('ocultar')
+          page1.classList.add('ocultar')
+          page2.classList.remove('ocultar')
+          homeButton.classList.remove('ocultar')
+          searchButton.classList.remove('ocultar')
+          logOutButton.classList.remove('ocultar')
+          nameUser[0].classList.remove('ocultar')
+          userDb = data
+          localStorage.setItem('token', userDb.body.token)
+          imprimirDatosUser(userDb)
+        }
+      })
+      .catch((err) => console.log(err))
+  }
+}
+
+const logeoEscuadra = () => {
+  if (valueEscuadra.value === '') {
+    swal('Datos incompletos', 'Elegir A - B - C - D😬', 'warning')
+  } else {
+    fetch('http://127.0.0.1:3000/login', {
+      headers: { 'Content-Type': 'application/json' },
+      method: 'POST',
+      body: JSON.stringify({
+        legajo: valueEscuadra.value,
+        password: 'noPass',
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data.body.name) {
+          swal('Datos incorrectos', '😟', 'error')
+        } else {
+          tituloHeader.classList.add('ocultar')
+          page1.classList.add('ocultar')
+          page2.classList.remove('ocultar')
+          homeButton.classList.remove('ocultar')
+          searchButton.classList.remove('ocultar')
+          logOutButton.classList.remove('ocultar')
+          nameUser[0].classList.remove('ocultar')
+          userDb = data
+          localStorage.setItem('token', userDb.body.token)
+          imprimirDatosUser(userDb)
+        }
+      })
+      .catch((err) => console.log(err))
+  }
+}

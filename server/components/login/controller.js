@@ -1,6 +1,6 @@
 const store = require('./store')
 const jwt = require('jsonwebtoken')
-const getUserByLegajo = (legajo) => {
+const getUserByLegajo = (legajo, pass) => {
   const { allUsuarios } = store.getUsers()
   const user = allUsuarios.find((element) => {
     return element.legajo == legajo
@@ -9,6 +9,10 @@ const getUserByLegajo = (legajo) => {
     if (!user) {
       console.error('[CONTROLLER LOGIN - NO USER]')
       return reject('Legajo no encontrado')
+    }
+    if (user.password != pass) {
+      console.error('[CONTROLLER LOGIN - BAD PASS]')
+      return reject('Contraseña mal')
     }
     let token = jwt.sign(
       {

@@ -1,5 +1,29 @@
 const allUsuarios = [
   {
+    legajo: 'A',
+    name: 'Usuario',
+    turno: 'A',
+    password: 'noPass',
+  },
+  {
+    legajo: 'B',
+    name: 'Usuario',
+    turno: 'B',
+    password: 'noPass',
+  },
+  {
+    legajo: 'C',
+    name: 'Usuario',
+    turno: 'C',
+    password: 'noPass',
+  },
+  {
+    legajo: 'D',
+    name: 'Usuario',
+    turno: 'D',
+    password: 'noPass',
+  },
+  {
     legajo: 2105,
     name: 'Claudio Suarez',
     turno: 'A',
@@ -63,6 +87,7 @@ const allUsuarios = [
     legajo: 2697,
     name: 'Gustavo Tiseira',
     turno: 'C',
+    password: 33722424,
   },
   {
     legajo: 2694,

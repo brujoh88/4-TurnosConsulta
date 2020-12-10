@@ -45,27 +45,39 @@
     <main>
       <div id="page-1" class="div-main principal-page ocultar">
         <div id="formularioPrincipal" class="form-container">
-          <span class="explicacion-page1">
-            <h2>
-              Legajo y contraseña o bien solo por escuadra a la que pertenece
-              (A/B/C o D) sin contraseña
-            </h2>
-          </span>
+          <select name="opcion-ingreso" id="opcion-ingreso" class="options">
+            <option value="">Elija la forma de ingresar</option>
+            <option value="legajo-password">Legajo y Contraseña</option>
+            <option value="escuadra">Escuadra</option>
+          </select>
           <label class="form-container--legajo" for="legajo">
             <input
-              placeholder="Legajo/Escuadra"
-              class="form-container--date"
+              placeholder="A - B - C - D"
               type="text"
+              name="escuadra"
+              id="valorEscuadra"
+              class="ocultar"
+            />
+            <input
+              placeholder="Legajo"
+              class="ocultar"
+              type="number"
               name="legajo"
               id="valorLegajo"
             />
             <input
               id="value-pass"
               type="password"
-              class="form-container--date"
+              class="ocultar"
               placeholder="Password"
             />
-            <input type="checkbox" onclick="verPassword()" />Ver Password
+            <input
+              id="checkbox-pass"
+              type="checkbox"
+              onclick="verPassword()"
+              class="ocultar"
+            />
+            <p id="checkbox-text-pass" class="ocultar">Ver Password</p>
           </label>
           <button id="botonLegajo" class="button">Entrar</button>
         </div>
