@@ -169,7 +169,7 @@ const imprimirTabla = (date, fuente) => {
   let ancla = false
   for (let i = 0; i < tamanio; i++) {
     let nameDayFormatDate = new Date(
-      dateDB.body.listAllTurnos.listAllDaysOnMes[i]
+      date.body.listAllTurnos.listAllDaysOnMes[i]
     )
     nameDay = nombreDiasDeSemana[nameDayFormatDate.getUTCDay()]
     let fecha = new Date(date.body.listAllTurnos.listAllDaysOnMes[i])
@@ -182,7 +182,7 @@ const imprimirTabla = (date, fuente) => {
     let turnoFranco = date.body.listAllTurnos.franco[i]
     let resaltarHoy
     let esHoy =
-      (new Date(dateDB.body.date) - nameDayFormatDate) / 1000 / 60 / 60 / 24
+      (new Date(date.body.date) - nameDayFormatDate) / 1000 / 60 / 60 / 24
     esHoy = parseInt(esHoy, 10)
     switch (turnoUsuario) {
       case turnoManiana:
