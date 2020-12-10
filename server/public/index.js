@@ -13,7 +13,7 @@ let opcionQuery = document.getElementById('opciones')
 let page3 = document.getElementById('page-3')
 let page4 = document.getElementById('page-4')
 let backButtonTopage4 = document.getElementById('back-page4')
-let tituloMes = document.getElementById('titulo-mes')
+
 const emojis = ['vacio', '😭', '😫', '😓', '😒', '😌', '😁🎉']
 
 const listMesNombre = [
@@ -87,19 +87,76 @@ let tabla = document.getElementsByClassName('tabla')
 Tabla
 ====================================
 */
-const imprimirTabla = (date, fuente, tamanio) => {
-  let turnoUsuario = userDb.body.turno
+
+const imprimirTablaAllYear = (date, fuente) => {
   tabla[fuente].innerHTML = ''
-  tituloMes.innerHTML = ''
+  let dateFormateado0 = {
+    body: date.body[0],
+  }
+  let dateFormateado1 = {
+    body: date.body[1],
+  }
+  let dateFormateado2 = {
+    body: date.body[2],
+  }
+  let dateFormateado3 = {
+    body: date.body[3],
+  }
+  let dateFormateado4 = {
+    body: date.body[4],
+  }
+  let dateFormateado5 = {
+    body: date.body[5],
+  }
+  let dateFormateado6 = {
+    body: date.body[6],
+  }
+  let dateFormateado7 = {
+    body: date.body[7],
+  }
+  let dateFormateado8 = {
+    body: date.body[8],
+  }
+  let dateFormateado9 = {
+    body: date.body[9],
+  }
+  let dateFormateado10 = {
+    body: date.body[10],
+  }
+  let dateFormateado11 = {
+    body: date.body[11],
+  }
+
+  console.log(dateFormateado0)
+  imprimirTabla(dateFormateado0, fuente)
+  imprimirTabla(dateFormateado1, fuente)
+  imprimirTabla(dateFormateado2, fuente)
+  imprimirTabla(dateFormateado3, fuente)
+  imprimirTabla(dateFormateado4, fuente)
+  imprimirTabla(dateFormateado5, fuente)
+  imprimirTabla(dateFormateado6, fuente)
+  imprimirTabla(dateFormateado7, fuente)
+  imprimirTabla(dateFormateado8, fuente)
+  imprimirTabla(dateFormateado9, fuente)
+  imprimirTabla(dateFormateado10, fuente)
+  imprimirTabla(dateFormateado11, fuente)
+}
+const imprimirTabla = (date, fuente) => {
+  page3.classList.add('ocultar')
+  page4.classList.remove('ocultar')
+  let turnoUsuario = userDb.body.turno
+  let tamanio = date.body.listAllTurnos.listAllDaysOnMes.length
 
   let fecha = new Date(date.body.listAllTurnos.listAllDaysOnMes[1])
   let mes = fecha.getMonth()
   let anio = fecha.getFullYear()
   mes = listMesNombre[mes]
-  tituloMes.insertAdjacentHTML('beforeend', `${mes} - ${anio}`)
   tabla[fuente].insertAdjacentHTML(
     'beforeend',
     `
+  <tr class="text-tabla">  
+    <th colspan = "6" class="titulo-mes">${mes} - ${anio}</th>    
+  </tr>
   <tr class="text-tabla">
     <th>Día</th>    
     <th>Fecha</th>
@@ -339,7 +396,8 @@ const imprimirDatosDate = (date) => {
   )
 
   //Tabla
-  imprimirTabla(date, 0, date.body.listAllTurnos.listAllDaysOnMes.length)
+  tabla[0].innerHTML = ''
+  imprimirTabla(date, 0)
 }
 homeButton.addEventListener('click', () => {
   page1.classList.add('ocultar')
@@ -403,13 +461,8 @@ buttonMesQuerry.addEventListener('click', () => {
         .then((response) => response.json())
         .then((data) => {
           dateDB = data
-          page3.classList.add('ocultar')
-          page4.classList.remove('ocultar')
-          imprimirTabla(
-            data,
-            1,
-            dateDB.body.listAllTurnos.listAllDaysOnMes.length
-          )
+          tabla[1].innerHTML = ''
+          imprimirTabla(data, 1)
         })
     }
   }
@@ -421,19 +474,19 @@ buttonMesQuerry.addEventListener('click', () => {
       if (!/\d{4}/.test(valorYear)) {
         swal('Años validos', 'Min 2000 Max 2100 ', 'error')
       } else {
-        /* fetch('http://127.0.0.1:3000/getDate', {
+        fetch('http://127.0.0.1:3000/getDate', {
           headers: { 'Content-Type': 'application/json' },
           method: 'POST',
           body: JSON.stringify({
-            mes: '',
+            mes: 'anioCompleto',
             anio: valorYear,
             turno: userDb.body.turno,
           }),
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data)
-          }) */
+            imprimirTablaAllYear(data, 1)
+          })
       }
     }
   }
