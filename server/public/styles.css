@@ -280,14 +280,6 @@ select {
   height: auto;
 }
 
-#back-page4 {
-  display: none;
-  width: 50px;
-  border-radius: 100%;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 50px;
-}
 /* -------- footer -------- */
 footer {
   width: 100%;

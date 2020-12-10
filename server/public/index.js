@@ -12,7 +12,6 @@ let valueYearQuery = document.getElementById('value-year')
 let opcionQuery = document.getElementById('opciones')
 let page3 = document.getElementById('page-3')
 let page4 = document.getElementById('page-4')
-let backButtonTopage4 = document.getElementById('back-page4')
 
 const emojis = ['vacio', '😭', '😫', '😓', '😒', '😌', '😁🎉']
 
@@ -434,11 +433,6 @@ logOutButton.addEventListener('click', () => {
       valueLegajo.value = ''
     }
   })
-})
-
-backButtonTopage4.addEventListener('click', () => {
-  page4.classList.add('ocultar')
-  page3.classList.remove('ocultar')
 })
 
 buttonMesQuerry.addEventListener('click', () => {
