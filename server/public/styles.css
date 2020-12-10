@@ -181,10 +181,16 @@ table tr:hover {
 }
 
 .table-container {
+  display: inherit;
+  justify-content: center;
   margin: 5px 5px;
   height: 100%;
+  width: 90%;
 }
 
+.tabla {
+  width: 100%;
+}
 .text-tabla {
   font-size: 1.2rem;
 }
