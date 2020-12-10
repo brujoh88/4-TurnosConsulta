@@ -1,5 +1,6 @@
 let tituloHeader = document.getElementById('header-titulo')
 let valueLegajo = document.getElementById('valorLegajo')
+let valorPass = document.getElementById('value-pass')
 let buttonLogin = document.getElementById('botonLegajo')
 let page1 = document.getElementById('page-1')
 let homeButton = document.getElementById('to-page2')
@@ -31,6 +32,14 @@ const listMesNombre = [
 ]
 
 const nombreDiasDeSemana = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+
+function verPassword() {
+  if (valorPass.type === 'password') {
+    valorPass.type = 'text'
+  } else {
+    valorPass.type = 'password'
+  }
+}
 
 /*
 ==========================

@@ -45,27 +45,40 @@
     <main>
       <div id="page-1" class="div-main principal-page ocultar">
         <div id="formularioPrincipal" class="form-container">
+          <span class="explicacion-page1">
+            <h2>
+              Legajo y contraseña o bien solo por escuadra a la que pertenece
+              (A/B/C o D) sin contraseña
+            </h2>
+          </span>
           <label class="form-container--legajo" for="legajo">
             <input
-              placeholder="Ingrese legajo"
+              placeholder="Legajo/Escuadra"
               class="form-container--date"
-              type="number"
+              type="text"
               name="legajo"
               id="valorLegajo"
             />
+            <input
+              id="value-pass"
+              type="password"
+              class="form-container--date"
+              placeholder="Password"
+            />
+            <input type="checkbox" onclick="verPassword()" />Ver Password
           </label>
           <button id="botonLegajo" class="button">Entrar</button>
         </div>
       </div>
       <div id="page-2" class="div-main user-page ocultar">
-         <p class="first-p">
-            Bienvenido <span class="name-user"></span> , hoy
-            <span id="print-fecha"></span>, estás de
-            <span class="day-in-work"></span>.
-          </p>
-          <p class="second-p">
-            Días para el franco : <span class="day-in-work"></span>
-          </p>
+        <p class="first-p">
+          Bienvenido <span class="name-user"></span> , hoy
+          <span id="print-fecha"></span>, estás de
+          <span class="day-in-work"></span>.
+        </p>
+        <p class="second-p">
+          Días para el franco : <span class="day-in-work"></span>
+        </p>
         <div class="table-container">
           <table class="tabla">
             <!-- Zona de la tabla -->
