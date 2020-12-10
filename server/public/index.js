@@ -89,6 +89,7 @@ Tabla
 */
 
 const imprimirTablaAllYear = (date, fuente) => {
+  page4.classList.remove('ocultar')
   tabla[fuente].innerHTML = ''
   let dateFormateado0 = {
     body: date.body[0],
@@ -127,7 +128,6 @@ const imprimirTablaAllYear = (date, fuente) => {
     body: date.body[11],
   }
 
-  console.log(dateFormateado0)
   imprimirTabla(dateFormateado0, fuente)
   imprimirTabla(dateFormateado1, fuente)
   imprimirTabla(dateFormateado2, fuente)
@@ -143,8 +143,8 @@ const imprimirTablaAllYear = (date, fuente) => {
 }
 const imprimirTabla = (date, fuente) => {
   page3.classList.add('ocultar')
-  page4.classList.remove('ocultar')
-  let turnoUsuario = userDb.body.turno
+  /*   page4.classList.remove('ocultar')
+   */ let turnoUsuario = userDb.body.turno
   let tamanio = date.body.listAllTurnos.listAllDaysOnMes.length
 
   let fecha = new Date(date.body.listAllTurnos.listAllDaysOnMes[1])
@@ -442,6 +442,7 @@ backButtonTopage4.addEventListener('click', () => {
 })
 
 buttonMesQuerry.addEventListener('click', () => {
+  page4.classList.remove('ocultar')
   if (opcionQuery.value == 'mes') {
     valorMesYear = valueMesYearQuery.value
     if (valorMesYear == '') {
