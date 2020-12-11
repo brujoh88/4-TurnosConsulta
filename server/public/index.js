@@ -101,6 +101,7 @@ Tabla
 
 const imprimirTablaAllYear = (date, fuente) => {
   page4.classList.remove('ocultar')
+  page3.classList.add('ocultar')
   tabla[fuente].innerHTML = ''
   let dateFormateado0 = {
     body: date.body[0],
