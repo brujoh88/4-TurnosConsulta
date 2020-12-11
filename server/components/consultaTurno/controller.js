@@ -1,6 +1,6 @@
 const store = require('./store')
 const dayOnDayByMes = (contador, mes, anio) => {
-  return new Date(anio, mes, contador + 1)
+  return new Date(anio, mes, contador + 1, 3)
 }
 
 //! Le sumo 1 al mes ya que al poner el dia 0 me da la cantidad de dias del mes anterior
