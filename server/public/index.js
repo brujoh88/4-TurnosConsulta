@@ -375,7 +375,8 @@ buttonLogin.addEventListener('click', () => {
  Logica para pag 2
 ========================
 */
-
+const url = window.location.origin
+console.log(url)
 const imprimirDatosUser = (user) => {
   let name = user.body.name
   let legajo = user.body.legajo
@@ -384,7 +385,7 @@ const imprimirDatosUser = (user) => {
   nameUser[1].innerHTML = ''
   nameUser[0].insertAdjacentHTML('beforeend', `${name} - ${legajo}`)
   nameUser[1].insertAdjacentHTML('beforeend', name)
-  fetch('http://127.0.0.1:3000/getDate', {
+  fetch(`${url}/getDate`, {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',
     body: JSON.stringify({
@@ -467,7 +468,7 @@ buttonMesQuerry.addEventListener('click', () => {
     } else {
       fecha = valorMesYear + '-1'
       fecha = new Date(fecha)
-      fetch('http://127.0.0.1:3000/getDate', {
+      fetch(`${url}/getDate`, {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         body: JSON.stringify({
@@ -492,7 +493,7 @@ buttonMesQuerry.addEventListener('click', () => {
       if (!/\d{4}/.test(valorYear)) {
         swal('Años validos', 'Min 2000 Max 2100 ', 'error')
       } else {
-        fetch('http://127.0.0.1:3000/getDate', {
+        fetch(`${url}/getDate`, {
           headers: { 'Content-Type': 'application/json' },
           method: 'POST',
           body: JSON.stringify({
@@ -545,7 +546,7 @@ const logeoLegajoAndPass = () => {
   if (valueLegajo.value === '' || valorPass.value === '') {
     swal('Datos incompletos', 'Se requiere legajo y contraseña😬', 'warning')
   } else {
-    fetch('http://127.0.0.1:3000/login', {
+    fetch(`${url}/getDate`, {
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
       body: JSON.stringify({
@@ -578,7 +579,7 @@ const logeoEscuadra = () => {
   if (valueEscuadra.value === '') {
     swal('Datos incompletos', 'Elegir A - B - C - D😬', 'warning')
   } else {
-    fetch('http://127.0.0.1:3000/login', {
+    fetch(`${url}/login`, {
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
       body: JSON.stringify({
