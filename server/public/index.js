@@ -546,7 +546,7 @@ const logeoLegajoAndPass = () => {
   if (valueLegajo.value === '' || valorPass.value === '') {
     swal('Datos incompletos', 'Se requiere legajo y contraseña😬', 'warning')
   } else {
-    fetch(`${url}/getDate`, {
+    fetch(`${url}/login`, {
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
       body: JSON.stringify({
