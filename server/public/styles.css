@@ -99,10 +99,6 @@ main {
   flex-direction: column;
 }
 /* ----- pagina 1 ----- */
-.ocultar {
-  display: none;
-}
-
 .form-container {
   display: flex;
   flex-direction: column;
@@ -133,6 +129,9 @@ main {
   background-color: var(--powder-blue);
   border: 0.6px solid var(--honeydew);
   border-radius: 10px;
+}
+.ocultar {
+  display: none;
 }
 .form-container--legajo {
   display: flex;

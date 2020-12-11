@@ -1,4 +1,5 @@
 let tituloHeader = document.getElementById('header-titulo')
+let formContainer = document.getElementById('form-container')
 let opcionLogin = document.getElementById('opcion-ingreso')
 let valueEscuadra = document.getElementById('valorEscuadra')
 let valueLegajo = document.getElementById('valorLegajo')
@@ -333,6 +334,7 @@ const imprimirTabla = (date, fuente) => {
 opcionLogin.addEventListener('change', () => {
   let desicion = opcionLogin.value
   if (desicion == 'legajo-password') {
+    formContainer.classList.remove('ocultar')
     valueEscuadra.classList.add('ocultar')
     valueEscuadra.classList.remove('resaltar-opcion')
     valueEscuadra.value = ''
@@ -343,6 +345,7 @@ opcionLogin.addEventListener('change', () => {
     checkBoxPass.classList.remove('ocultar')
     checkboxText.classList.remove('ocultar')
   } else if (desicion == 'escuadra') {
+    formContainer.classList.remove('ocultar')
     valorLegajo.classList.add('ocultar')
     valorLegajo.value = ''
     valueEscuadra.classList.remove('ocultar')
@@ -353,6 +356,7 @@ opcionLogin.addEventListener('change', () => {
     checkBoxPass.classList.add('ocultar')
     checkboxText.classList.add('ocultar')
   } else {
+    formContainer.classList.add('ocultar')
     valorLegajo.classList.add('ocultar')
     valorLegajo.classList.remove('resaltar-opcion')
     valorLegajo.value = ''
