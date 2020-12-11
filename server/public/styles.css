@@ -99,6 +99,21 @@ main {
   flex-direction: column;
 }
 /* ----- pagina 1 ----- */
+.slide-rotate-hor-t-bck {
+  animation: slide-rotate-hor-t-bck 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    both;
+}
+@keyframes slide-rotate-hor-t-bck {
+  0% {
+    transform: translateY(0) translateZ(0) rotateX(0deg);
+    transform-origin: top center;
+  }
+  100% {
+    transform: translateY(-150px) translateZ(-230px) rotateX(-90deg);
+    transform-origin: top center;
+  }
+}
+
 .form-container {
   display: flex;
   flex-direction: column;

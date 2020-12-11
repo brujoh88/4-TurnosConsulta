@@ -447,6 +447,8 @@ logOutButton.addEventListener('click', () => {
       })
       tituloHeader.classList.remove('ocultar')
       page1.classList.remove('ocultar')
+      opcionLogin.classList.remove('ocultar')
+      formContainer.classList.remove('slide-rotate-hor-t-bck')
       page2.classList.add('ocultar')
       page3.classList.add('ocultar')
       page4.classList.add('ocultar')
@@ -560,13 +562,9 @@ const logeoLegajoAndPass = () => {
         if (!data.body.name) {
           swal('Datos incorrectos', '😟', 'error')
         } else {
-          tituloHeader.classList.add('ocultar')
-          page1.classList.add('ocultar')
-          page2.classList.remove('ocultar')
-          homeButton.classList.remove('ocultar')
-          searchButton.classList.remove('ocultar')
-          logOutButton.classList.remove('ocultar')
-          nameUser[0].classList.remove('ocultar')
+          opcionLogin.classList.add('ocultar')
+          formContainer.classList.add('slide-rotate-hor-t-bck')
+          setTimeout(page1ToPage2, 1000)
           userDb = data
           localStorage.setItem('token', userDb.body.token)
           imprimirDatosUser(userDb)
@@ -574,6 +572,16 @@ const logeoLegajoAndPass = () => {
       })
       .catch((err) => console.log(err))
   }
+}
+
+const page1ToPage2 = () => {
+  tituloHeader.classList.add('ocultar')
+  page1.classList.add('ocultar')
+  page2.classList.remove('ocultar')
+  homeButton.classList.remove('ocultar')
+  searchButton.classList.remove('ocultar')
+  logOutButton.classList.remove('ocultar')
+  nameUser[0].classList.remove('ocultar')
 }
 
 const logeoEscuadra = () => {
@@ -593,13 +601,9 @@ const logeoEscuadra = () => {
         if (!data.body.name) {
           swal('Datos incorrectos', '😟', 'error')
         } else {
-          tituloHeader.classList.add('ocultar')
-          page1.classList.add('ocultar')
-          page2.classList.remove('ocultar')
-          homeButton.classList.remove('ocultar')
-          searchButton.classList.remove('ocultar')
-          logOutButton.classList.remove('ocultar')
-          nameUser[0].classList.remove('ocultar')
+          opcionLogin.classList.add('ocultar')
+          formContainer.classList.add('slide-rotate-hor-t-bck')
+          setTimeout(page1ToPage2, 1000)
           userDb = data
           localStorage.setItem('token', userDb.body.token)
           imprimirDatosUser(userDb)
