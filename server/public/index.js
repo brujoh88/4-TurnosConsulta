@@ -11,6 +11,8 @@ let searchButton = document.getElementById('to-page3')
 let logOutButton = document.getElementById('to-page1')
 let page2 = document.getElementById('page-2')
 let buttonMesQuerry = document.getElementById('query-button')
+let formContainerQuery = document.getElementById('form-container-query')
+let loader = document.getElementById('loader')
 let valueMesYearQuery = document.getElementById('value-mes-year')
 let valueYearQuery = document.getElementById('value-year')
 let opcionQuery = document.getElementById('opciones')
@@ -100,8 +102,6 @@ Tabla
 */
 
 const imprimirTablaAllYear = (date, fuente) => {
-  page4.classList.remove('ocultar')
-  page3.classList.add('ocultar')
   tabla[fuente].innerHTML = ''
   let dateFormateado0 = {
     body: date.body[0],
@@ -154,9 +154,7 @@ const imprimirTablaAllYear = (date, fuente) => {
   imprimirTabla(dateFormateado11, fuente)
 }
 const imprimirTabla = (date, fuente) => {
-  page3.classList.add('ocultar')
-  /*   page4.classList.remove('ocultar')
-   */ let turnoUsuario = userDb.body.turno
+  let turnoUsuario = userDb.body.turno
   let tamanio = date.body.listAllTurnos.listAllDaysOnMes.length
 
   let fecha = new Date(date.body.listAllTurnos.listAllDaysOnMes[1])
@@ -463,7 +461,7 @@ logOutButton.addEventListener('click', () => {
 })
 
 buttonMesQuerry.addEventListener('click', () => {
-  page4.classList.remove('ocultar')
+  formContainerQuery.classList.remove('ocultar')
   if (opcionQuery.value == 'mes') {
     valorMesYear = valueMesYearQuery.value
     if (valorMesYear == '') {
@@ -484,6 +482,9 @@ buttonMesQuerry.addEventListener('click', () => {
         .then((data) => {
           dateDB = data
           tabla[1].innerHTML = ''
+          formContainerQuery.classList.add('ocultar')
+          loader.classList.add('lds-spinner')
+          setTimeout(page3Topage4, 2000)
           imprimirTabla(data, 1)
         })
     }
@@ -507,6 +508,9 @@ buttonMesQuerry.addEventListener('click', () => {
         })
           .then((response) => response.json())
           .then((data) => {
+            formContainerQuery.classList.add('ocultar')
+            loader.classList.add('lds-spinner')
+            setTimeout(page3Topage4, 2000)
             imprimirTablaAllYear(data, 1)
           })
       }
@@ -582,6 +586,12 @@ const page1ToPage2 = () => {
   searchButton.classList.remove('ocultar')
   logOutButton.classList.remove('ocultar')
   nameUser[0].classList.remove('ocultar')
+}
+const page3Topage4 = () => {
+  page3.classList.add('ocultar')
+  formContainerQuery.classList.remove('ocultar')
+  loader.classList.remove('lds-spinner')
+  page4.classList.remove('ocultar')
 }
 
 const logeoEscuadra = () => {
