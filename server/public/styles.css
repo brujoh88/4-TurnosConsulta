@@ -227,7 +227,9 @@ table tr:hover {
 .resaltar-hoy:nth-child(odd) {
   background-color: #3e9497;
 }
-
+.resaltar-hoy:hover:nth-child(odd) {
+  background-color: #6ec2c2;
+}
 .user-page p,
 p span {
   font-size: 1.8rem;
