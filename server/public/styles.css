@@ -12,6 +12,13 @@
   padding: 0;
 }
 
+input,
+select {
+  height: 2.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 html {
   font-size: 62.5%;
   font-family: Arial, Helvetica, sans-serif;
@@ -99,6 +106,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   justify-content: center;
@@ -114,9 +122,16 @@ main {
   width: 100%;
 }
 
-div span {
-  color: var(--prussian-blue);
-  font-size: 1.4rem;
+.form-container--options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 250px;
+  height: 200px;
+  background-color: var(--powder-blue);
+  border: 0.6px solid var(--honeydew);
+  border-radius: 10px;
 }
 .form-container--legajo {
   display: flex;
@@ -125,31 +140,18 @@ div span {
   margin-bottom: 20px;
 }
 
-.form-container--date {
-  display: flex;
-  width: 100px;
-  height: 2.5rem;
+.button {
+  display: block;
+  margin: 0 auto;
+  background-color: white;
+  width: 40px;
+  height: 40px;
   outline: none;
-  text-align: center;
-  border: 0.6px solid var(--honeydew);
   border-radius: 5px;
-  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.5);
-}
-
-.form-container button {
-  margin-top: 15px;
-}
-
-button {
-  margin: 15px;
-  width: 100px;
-  font-size: 2rem;
-  outline: none;
-  border: 0.2px solid var(--powder-blue);
-  border-radius: 5px;
-  background-color: var(--powder-blue);
   box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.6);
 }
+
+/* --------- pagina 2 ---------- */
 
 table {
   border: 1px solid rgb(200, 200, 200);
@@ -225,7 +227,7 @@ table tr:hover {
 .resaltar-hoy:nth-child(odd) {
   background-color: #3e9497;
 }
-/* --------- pagina 2 ---------- */
+
 .user-page p,
 p span {
   font-size: 1.8rem;
@@ -260,7 +262,7 @@ p span {
 }
 
 .resaltar-opcion {
-  background-color: #a8dadc;
+  background-color: white;
 }
 select {
   margin: 50px 25px 25px 25px;
