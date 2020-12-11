@@ -4,7 +4,6 @@ let opcionLogin = document.getElementById('opcion-ingreso')
 let valueEscuadra = document.getElementById('valorEscuadra')
 let valueLegajo = document.getElementById('valorLegajo')
 let valorPass = document.getElementById('value-pass')
-let checkBoxPass = document.getElementById('checkbox-pass')
 let checkboxText = document.getElementById('checkbox-text-pass')
 let buttonLogin = document.getElementById('botonLegajo')
 let page1 = document.getElementById('page-1')
@@ -342,7 +341,6 @@ opcionLogin.addEventListener('change', () => {
     valorLegajo.classList.add('resaltar-opcion')
     valorPass.classList.remove('ocultar')
     valorPass.classList.add('resaltar-opcion')
-    checkBoxPass.classList.remove('ocultar')
     checkboxText.classList.remove('ocultar')
   } else if (desicion == 'escuadra') {
     formContainer.classList.remove('ocultar')
@@ -353,7 +351,6 @@ opcionLogin.addEventListener('change', () => {
     valorLegajo.classList.remove('resaltar-opcion')
     valorPass.classList.add('ocultar')
     valorPass.classList.remove('resaltar-opcion')
-    checkBoxPass.classList.add('ocultar')
     checkboxText.classList.add('ocultar')
   } else {
     formContainer.classList.add('ocultar')
@@ -365,7 +362,6 @@ opcionLogin.addEventListener('change', () => {
     valueEscuadra.value = ''
     valorPass.classList.remove('resaltar-opcion')
     valorPass.classList.add('ocultar')
-    checkBoxPass.classList.add('ocultar')
     checkboxText.classList.add('ocultar')
   }
 })
