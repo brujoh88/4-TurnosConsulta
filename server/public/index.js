@@ -38,14 +38,6 @@ const listMesNombre = [
 
 const nombreDiasDeSemana = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
 
-function verPassword() {
-  if (valorPass.type === 'password') {
-    valorPass.type = 'text'
-  } else {
-    valorPass.type = 'password'
-  }
-}
-
 /*
 ==========================
 On Load Page
@@ -459,7 +451,21 @@ logOutButton.addEventListener('click', () => {
   })
 })
 
+valueMesYearQuery.addEventListener('keyup', (event) => {
+  if (event.key == 'Enter') {
+    confirmarQuerry()
+  }
+})
+
 buttonMesQuerry.addEventListener('click', () => {
+  confirmarQuerry()
+})
+valueYearQuery.addEventListener('keyup', (event) => {
+  if (event.key == 'Enter') {
+    confirmarQuerry()
+  }
+})
+const confirmarQuerry = () => {
   formContainerQuery.classList.remove('ocultar')
   if (opcionQuery.value == 'mes') {
     valorMesYear = valueMesYearQuery.value
@@ -518,7 +524,7 @@ buttonMesQuerry.addEventListener('click', () => {
   if (opcionQuery.value == '') {
     swal('Elija una opcion', 'Mes o Año', 'warning')
   }
-})
+}
 /*
 ========================
  Logica para pag 3 (parte)
