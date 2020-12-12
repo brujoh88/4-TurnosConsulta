@@ -27,7 +27,7 @@ const allUsuarios = [
     legajo: 2105,
     name: 'Claudio Suarez',
     turno: 'A',
-    password: '20143225',
+    password: 20143225,
   },
   /* {
     legajo: 739,
@@ -39,7 +39,7 @@ const allUsuarios = [
     legajo: 2688,
     name: 'Cristian Bartolucci',
     turno: 'A',
-    password: '27474263',
+    password: 27474263,
   },
   /*  {
     legajo: 2739,
@@ -51,7 +51,7 @@ const allUsuarios = [
     legajo: 2740,
     name: 'Matias Gallafent',
     turno: 'A',
-    password: '27085116',
+    password: 27085116,
   },
   /* {
     legajo: 2649,
@@ -63,7 +63,7 @@ const allUsuarios = [
     legajo: 2653,
     name: 'Patricia Marazzi',
     turno: 'B',
-    password: '32307491',
+    password: 32307491,
   },
   /* {
     legajo: 2475,
@@ -75,7 +75,7 @@ const allUsuarios = [
     legajo: 2570,
     name: 'Fernando Leon',
     turno: 'B',
-    password: '34045062',
+    password: 34045062,
   },
   /* {
     legajo: 2693,
@@ -87,7 +87,7 @@ const allUsuarios = [
     legajo: 2692,
     name: 'Roman Tacconi',
     turno: 'B',
-    password: '123',
+    password: 33123522,
   },
   /* {
     legajo: 2695,
@@ -111,13 +111,19 @@ const allUsuarios = [
     legajo: 2285,
     name: 'Laura Gonzalez',
     turno: 'C',
-    password: '23496700',
+    password: 23496700,
   },
   {
-    legajo: 2285,
+    legajo: 2736,
     name: 'Mauro Caceres',
     turno: 'C',
-    password: '30481948',
+    password: 30481948,
+  },
+  {
+    legajo: 2845,
+    name: 'Charly Armanasco',
+    turno: 'C',
+    password: 31065917,
   },
   /* {
     legajo: 2704,
@@ -135,7 +141,7 @@ const allUsuarios = [
     legajo: 2589,
     name: 'Maria Encina',
     turno: 'C',
-    password: '22881616',
+    password: 22881616,
   },
   /* {
     legajo: 2595,
@@ -153,25 +159,25 @@ const allUsuarios = [
     legajo: 2737,
     name: 'Angel Zapata',
     turno: 'D',
-    password: '31383341',
+    password: 31383341,
   },
   {
     legajo: 2591,
     name: 'Mariana Diaz',
     turno: 'D',
-    password: '25724482',
+    password: 25724482,
   },
   {
     legajo: 1544,
     name: 'Claudia Cabrera',
     turno: 'D',
-    password: '17401279',
+    password: 17401279,
   },
   {
     legajo: 2563,
     name: 'Soledad Tisera',
     turno: 'D',
-    password: '30702040',
+    password: 30702040,
   },
 ]
 
