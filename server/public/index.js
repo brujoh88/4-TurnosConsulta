@@ -548,6 +548,16 @@ opcionQuery.addEventListener('change', () => {
     valueYearQuery.value = ''
   }
 })
+valueLegajo.addEventListener('keyup', (event) => {
+  if (event.key == 'Enter') {
+    logeoLegajoAndPass()
+  }
+})
+valorPass.addEventListener('keyup', (event) => {
+  if (event.key == 'Enter') {
+    logeoLegajoAndPass()
+  }
+})
 const logeoLegajoAndPass = () => {
   if (valueLegajo.value === '' || valorPass.value === '') {
     swal('Datos incompletos', 'Se requiere legajo y contraseña😬', 'warning')
