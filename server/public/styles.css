@@ -44,7 +44,6 @@ div#header-opcion {
 }
 header img:hover {
   cursor: pointer;
-  background-color: rgb(94, 165, 209);
 }
 
 header h1 {

@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
-const cors = require('cors')
+/* const cors = require('cors') */
 const router = require('./network/routes')
 const bodyParser = require('body-parser')
 
@@ -9,7 +9,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 //parse application/json=====================
 app.use(bodyParser.json())
-app.use(cors())
+/* app.use(cors()) */
 app.use(express.static(__dirname + '/public'))
 router(app)
 
