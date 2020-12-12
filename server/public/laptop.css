@@ -33,6 +33,10 @@ p span {
   font-size: 1.6rem;
 }
 
+.titulo-mes {
+  font-size: 1.6rem;
+}
+
 .search-calendary--form {
   justify-content: start;
 }

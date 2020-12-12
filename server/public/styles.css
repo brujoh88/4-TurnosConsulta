@@ -1,8 +1,7 @@
 :root {
   /*colores*/
-  --prussian-blue: #1d3557ff;
-  --headerandfooter: #457b9dff;
-  --powder-blue: #a8dadcff;
+  --headerandfooter: rgb(51, 80, 245);
+  --powder-blue: #8eb3f8;
   --honeydew: #fff;
 }
 
@@ -38,10 +37,7 @@ div#header-opcion {
   display: flex;
   justify-content: space-between;
 }
-.header-menu img {
-  width: 30px;
-  height: 30px;
-}
+
 header img:hover {
   cursor: pointer;
 }
@@ -212,9 +208,11 @@ table tr:hover {
   font-size: 1.2rem;
 }
 .titulo-mes {
-  background-color: #b69a4e;
+  background-color: #6498f8;
   position: sticky;
   top: -1px;
+  font-weight: bold;
+  font-size: 1.3rem;
 }
 .perseguir {
   background-color: var(--powder-blue);
@@ -237,20 +235,21 @@ table tr:hover {
 }
 
 .resaltar-turno {
-  color: red;
+  color: rgb(248, 2, 2);
+  font-weight: bold;
 }
 .resaltar-hoy:nth-child(odd) {
-  background-color: #3e9497;
+  background-color: #6498f8;
 }
 .resaltar-hoy:hover:nth-child(odd) {
-  background-color: #6ec2c2;
+  background-color: #76c1ff;
 }
 .user-page p,
 p span {
   font-size: 1.8rem;
   text-align: center;
   margin-top: 10px;
-  color: var(--prussian-blue);
+  color: var(--headerandfooter);
 }
 
 .user-page p span {
