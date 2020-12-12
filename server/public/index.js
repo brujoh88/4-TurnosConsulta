@@ -375,7 +375,6 @@ buttonLogin.addEventListener('click', () => {
 ========================
 */
 const url = window.location.origin
-console.log(url)
 const imprimirDatosUser = (user) => {
   let name = user.body.name
   let legajo = user.body.legajo
