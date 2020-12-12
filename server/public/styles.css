@@ -16,7 +16,21 @@ select {
   height: 2.5rem;
   margin-bottom: 10px;
   text-align-last: center;
+  font-size: 1.5rem;
   border-radius: 10px;
+  outline: none;
+}
+
+select {
+  margin: 50px 25px 25px 25px;
+  background: linear-gradient(180deg, #65bce8 0%, #306485 100%);
+}
+.squad {
+  background: linear-gradient(180deg, #7dccf3 0%, #448cb9 100%);
+}
+
+select:focus {
+  outline: none;
 }
 
 html {
@@ -40,6 +54,8 @@ div#header-opcion {
 
 header img:hover {
   cursor: pointer;
+  background-color: var(--powder-blue);
+  border-radius: 30%;
 }
 
 header h1 {
@@ -156,7 +172,7 @@ main {
   transition: all 0.3s;
   width: 100px;
   height: 40px;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   outline: none;
   border-radius: 10px;
   box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.6);
@@ -277,21 +293,20 @@ p span {
   color: var(--prussian-blue);
 }
 
-.resaltar-opcion {
-  background-color: white;
-}
-select {
-  margin: 50px 25px 25px 25px;
-}
-
 .month-selection,
 .year-selection {
   margin-bottom: 20px;
   text-align: center;
+  outline: none;
 }
 
 .month-selection {
   width: 13em;
+}
+.month-selection:hover,
+.year-selection:hover {
+  cursor: pointer;
+  background-color: var(--powder-blue);
 }
 
 .options button {
