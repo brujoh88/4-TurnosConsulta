@@ -593,7 +593,7 @@ const logeoLegajoAndPass = () => {
         } else {
           opcionLogin.classList.add('ocultar')
           formContainer.classList.add('slide-rotate-hor-t-bck')
-          setTimeout(page1ToPage2, 1000)
+          setTimeout(page1ToPage2, 400)
           userDb = data
           localStorage.setItem('token', userDb.body.token)
           imprimirDatosUser(userDb)
@@ -622,7 +622,7 @@ const logeoEscuadra = () => {
         } else {
           opcionLogin.classList.add('ocultar')
           formContainer.classList.add('slide-rotate-hor-t-bck')
-          setTimeout(page1ToPage2, 1000)
+          setTimeout(page1ToPage2, 400)
           userDb = data
           localStorage.setItem('token', userDb.body.token)
           imprimirDatosUser(userDb)
