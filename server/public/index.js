@@ -439,24 +439,14 @@ logOutButton.addEventListener('click', () => {
       localStorage.clear()
       swal('Cerrado exitosamente', {
         icon: 'success',
+      }).then((eleccion) => {
+        if (eleccion) {
+          page2.classList.add('bounceOut')
+          page3.classList.add('bounceOut')
+          page4.classList.add('bounceOut')
+          setTimeout(pageXToPage1, 1000)
+        }
       })
-      tituloHeader.classList.remove('ocultar')
-      page1.classList.remove('ocultar')
-      opcionLogin.classList.remove('ocultar')
-      formContainer.classList.remove('slide-rotate-hor-t-bck')
-      page2.classList.add('ocultar')
-      page3.classList.add('ocultar')
-      page4.classList.add('ocultar')
-      nameUser[0].classList.add('ocultar')
-      homeButton.classList.add('ocultar')
-      searchButton.classList.add('ocultar')
-      logOutButton.classList.add('ocultar')
-      homeButton.classList.remove('zoomInLeft')
-      searchButton.classList.remove('zoomInDown')
-      logOutButton.classList.remove('zoomInRight')
-      page2.classList.remove('bounceInUp')
-      valueLegajo.value = ''
-      valorPass.value = ''
     }
   })
 })
@@ -650,4 +640,27 @@ const page3Topage4 = () => {
   formContainerQuery.classList.remove('ocultar')
   loader.classList.remove('lds-spinner')
   page4.classList.remove('ocultar')
+}
+
+const pageXToPage1 = () => {
+  page2.classList.remove('bounceOut')
+  page3.classList.remove('bounceOut')
+  page4.classList.remove('bounceOut')
+  tituloHeader.classList.remove('ocultar')
+  page1.classList.remove('ocultar')
+  opcionLogin.classList.remove('ocultar')
+  formContainer.classList.remove('slide-rotate-hor-t-bck')
+  page2.classList.add('ocultar')
+  page3.classList.add('ocultar')
+  page4.classList.add('ocultar')
+  nameUser[0].classList.add('ocultar')
+  homeButton.classList.add('ocultar')
+  searchButton.classList.add('ocultar')
+  logOutButton.classList.add('ocultar')
+  homeButton.classList.remove('zoomInLeft')
+  searchButton.classList.remove('zoomInDown')
+  logOutButton.classList.remove('zoomInRight')
+  page2.classList.remove('bounceInUp')
+  valueLegajo.value = ''
+  valorPass.value = ''
 }
