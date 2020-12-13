@@ -416,12 +416,14 @@ const imprimirDatosDate = (date) => {
 homeButton.addEventListener('click', () => {
   searchButton.classList.remove('marcador-seccion')
   homeButton.classList.add('marcador-seccion')
+  page2.classList.add('bounceInLeft')
   page1.classList.add('ocultar')
   page2.classList.remove('ocultar')
   page3.classList.add('ocultar')
   page4.classList.add('ocultar')
 })
 searchButton.addEventListener('click', () => {
+  page3.classList.add('bounceInRight')
   homeButton.classList.remove('marcador-seccion')
   searchButton.classList.add('marcador-seccion')
   page1.classList.add('ocultar')
@@ -441,6 +443,8 @@ logOutButton.addEventListener('click', () => {
         icon: 'success',
       }).then((eleccion) => {
         if (eleccion) {
+          page2.classList.remove('bounceInLeft')
+          page3.classList.remove('bounceInRight')
           page2.classList.add('bounceOut')
           page3.classList.add('bounceOut')
           page4.classList.add('bounceOut')
