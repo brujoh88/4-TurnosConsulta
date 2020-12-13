@@ -46,7 +46,7 @@ const getListTurnoByMesForGroup = (turnoOnDay, mes, anio) => {
 
 const queryTurnoByDay = (turno, day) => {
   const { allTurnos } = store.getListTurno()
-  const fechaReferencia = new Date(2020, 00, 01)
+  const fechaReferencia = new Date(2020, 00, 01, 3)
   let referenciaTurno
   switch (turno) {
     case 'A':
