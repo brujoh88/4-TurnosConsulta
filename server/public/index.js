@@ -451,6 +451,10 @@ logOutButton.addEventListener('click', () => {
       homeButton.classList.add('ocultar')
       searchButton.classList.add('ocultar')
       logOutButton.classList.add('ocultar')
+      homeButton.classList.remove('zoomInLeft')
+      searchButton.classList.remove('zoomInDown')
+      logOutButton.classList.remove('zoomInRight')
+      page2.classList.remove('bounceInUp')
       valueLegajo.value = ''
       valorPass.value = ''
     }
@@ -599,23 +603,6 @@ const logeoLegajoAndPass = () => {
   }
 }
 
-const page1ToPage2 = () => {
-  tituloHeader.classList.add('ocultar')
-  page1.classList.add('ocultar')
-  page2.classList.remove('ocultar')
-  homeButton.classList.remove('ocultar')
-  homeButton.classList.add('marcador-seccion')
-  searchButton.classList.remove('ocultar')
-  logOutButton.classList.remove('ocultar')
-  nameUser[0].classList.remove('ocultar')
-}
-const page3Topage4 = () => {
-  page3.classList.add('ocultar')
-  formContainerQuery.classList.remove('ocultar')
-  loader.classList.remove('lds-spinner')
-  page4.classList.remove('ocultar')
-}
-
 const logeoEscuadra = () => {
   if (valueEscuadra.value === '') {
     swal('Datos incompletos', 'Elegir A - B - C - D😬', 'warning')
@@ -643,4 +630,24 @@ const logeoEscuadra = () => {
       })
       .catch((err) => console.log(err))
   }
+}
+const page1ToPage2 = () => {
+  tituloHeader.classList.add('ocultar')
+  page1.classList.add('ocultar')
+  page2.classList.remove('ocultar')
+  page2.classList.add('bounceInUp')
+  homeButton.classList.remove('ocultar')
+  homeButton.classList.add('marcador-seccion')
+  searchButton.classList.remove('ocultar')
+  logOutButton.classList.remove('ocultar')
+  homeButton.classList.add('zoomInLeft')
+  searchButton.classList.add('zoomInDown')
+  logOutButton.classList.add('zoomInRight')
+  nameUser[0].classList.remove('ocultar')
+}
+const page3Topage4 = () => {
+  page3.classList.add('ocultar')
+  formContainerQuery.classList.remove('ocultar')
+  loader.classList.remove('lds-spinner')
+  page4.classList.remove('ocultar')
 }
