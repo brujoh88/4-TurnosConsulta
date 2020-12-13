@@ -131,12 +131,12 @@ const allUsuarios = [
     turno: 'C',
     password: '123',
   }, */
-  /* {
+  {
     legajo: 2589,
     name: 'Sandra Chaparro',
     turno: 'C',
-    password: '123',
-  }, */
+    password: 24635721,
+  },
   {
     legajo: 2589,
     name: 'Maria Encina',
