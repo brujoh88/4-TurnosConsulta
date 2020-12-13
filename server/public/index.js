@@ -1,27 +1,27 @@
-'use strict'
+let tituloHeader = document.getElementById('header-titulo')
+let formContainer = document.getElementById('form-container')
+let opcionLogin = document.getElementById('opcion-ingreso')
+let valueEscuadra = document.getElementById('valorEscuadra')
+let valueLegajo = document.getElementById('valorLegajo')
+let valorPass = document.getElementById('value-pass')
+let buttonLogin = document.getElementById('botonLegajo')
+let page1 = document.getElementById('page-1')
+let homeButton = document.getElementById('to-page2')
+let searchButton = document.getElementById('to-page3')
+let logOutButton = document.getElementById('to-page1')
+let page2 = document.getElementById('page-2')
+let buttonMesQuerry = document.getElementById('query-button')
+let formContainerQuery = document.getElementById('form-container-query')
+let loader = document.getElementById('loader')
+let valueMesYearQuery = document.getElementById('value-mes-year')
+let valueYearQuery = document.getElementById('value-year')
+let opcionQuery = document.getElementById('opciones')
+let page3 = document.getElementById('page-3')
+let page4 = document.getElementById('page-4')
 
-var tituloHeader = document.getElementById('header-titulo')
-var formContainer = document.getElementById('form-container')
-var opcionLogin = document.getElementById('opcion-ingreso')
-var valueEscuadra = document.getElementById('valorEscuadra')
-var valueLegajo = document.getElementById('valorLegajo')
-var valorPass = document.getElementById('value-pass')
-var buttonLogin = document.getElementById('botonLegajo')
-var page1 = document.getElementById('page-1')
-var homeButton = document.getElementById('to-page2')
-var searchButton = document.getElementById('to-page3')
-var logOutButton = document.getElementById('to-page1')
-var page2 = document.getElementById('page-2')
-var buttonMesQuerry = document.getElementById('query-button')
-var formContainerQuery = document.getElementById('form-container-query')
-var loader = document.getElementById('loader')
-var valueMesYearQuery = document.getElementById('value-mes-year')
-var valueYearQuery = document.getElementById('value-year')
-var opcionQuery = document.getElementById('opciones')
-var page3 = document.getElementById('page-3')
-var page4 = document.getElementById('page-4')
-var emojis = ['vacio', '😭', '😫', '😓', '😒', '😌', '😁🎉']
-var listMesNombre = [
+const emojis = ['vacio', '😭', '😫', '😓', '😒', '😌', '😁🎉']
+
+const listMesNombre = [
   'Enero',
   'Febrero',
   'Marzo',
@@ -35,24 +35,23 @@ var listMesNombre = [
   'Noviembre',
   'Diciembre',
 ]
-var nombreDiasDeSemana = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+
+const nombreDiasDeSemana = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+
 /*
 ==========================
 On Load Page
 ==========================
 */
-
-var tokenDecoded = function parseJwt(token) {
+const tokenDecoded = function parseJwt(token) {
   var base64Url = token.split('.')[1]
   var base64 = base64Url.replace('-', '+').replace('_', '/')
   return JSON.parse(window.atob(base64))
 }
-
-window.onload = function () {
-  var cacheDate = localStorage.getItem('token')
-
+window.onload = () => {
+  let cacheDate = localStorage.getItem('token')
   if (cacheDate) {
-    var dato = tokenDecoded(cacheDate)
+    let dato = tokenDecoded(cacheDate)
     userDb = {
       error: '',
       body: dato,
@@ -65,7 +64,7 @@ window.onload = function () {
     homeButton.classList.add('marcador-seccion')
     searchButton.classList.remove('ocultar')
     logOutButton.classList.remove('ocultar')
-    var userCache = {
+    let userCache = {
       error: '',
       body: {
         legajo: dato.legajo,
@@ -83,57 +82,58 @@ window.onload = function () {
 /*
 Traer elementos del DOM para insertar datos del backend
 */
+let userDb
+let dateDB
 
-var userDb
-var dateDB
-var nameUser = document.getElementsByClassName('name-user')
-var fechaNow = document.getElementById('print-fecha')
-var dayInWork = document.getElementsByClassName('day-in-work')
-var tabla = document.getElementsByClassName('tabla')
+let nameUser = document.getElementsByClassName('name-user')
+let fechaNow = document.getElementById('print-fecha')
+let dayInWork = document.getElementsByClassName('day-in-work')
+let tabla = document.getElementsByClassName('tabla')
 /*
 ====================================
 Tabla
 ====================================
 */
 
-var imprimirTablaAllYear = function imprimirTablaAllYear(date, fuente) {
+const imprimirTablaAllYear = (date, fuente) => {
   tabla[fuente].innerHTML = ''
-  var dateFormateado0 = {
+  let dateFormateado0 = {
     body: date.body[0],
   }
-  var dateFormateado1 = {
+  let dateFormateado1 = {
     body: date.body[1],
   }
-  var dateFormateado2 = {
+  let dateFormateado2 = {
     body: date.body[2],
   }
-  var dateFormateado3 = {
+  let dateFormateado3 = {
     body: date.body[3],
   }
-  var dateFormateado4 = {
+  let dateFormateado4 = {
     body: date.body[4],
   }
-  var dateFormateado5 = {
+  let dateFormateado5 = {
     body: date.body[5],
   }
-  var dateFormateado6 = {
+  let dateFormateado6 = {
     body: date.body[6],
   }
-  var dateFormateado7 = {
+  let dateFormateado7 = {
     body: date.body[7],
   }
-  var dateFormateado8 = {
+  let dateFormateado8 = {
     body: date.body[8],
   }
-  var dateFormateado9 = {
+  let dateFormateado9 = {
     body: date.body[9],
   }
-  var dateFormateado10 = {
+  let dateFormateado10 = {
     body: date.body[10],
   }
-  var dateFormateado11 = {
+  let dateFormateado11 = {
     body: date.body[11],
   }
+
   imprimirTabla(dateFormateado0, fuente)
   imprimirTabla(dateFormateado1, fuente)
   imprimirTabla(dateFormateado2, fuente)
@@ -147,75 +147,76 @@ var imprimirTablaAllYear = function imprimirTablaAllYear(date, fuente) {
   imprimirTabla(dateFormateado10, fuente)
   imprimirTabla(dateFormateado11, fuente)
 }
+const imprimirTabla = (date, fuente) => {
+  let turnoUsuario = userDb.body.turno
+  let tamanio = date.body.listAllTurnos.listAllDaysOnMes.length
 
-var imprimirTabla = function imprimirTabla(date, fuente) {
-  var turnoUsuario = userDb.body.turno
-  var tamanio = date.body.listAllTurnos.listAllDaysOnMes.length
-  var fecha = new Date(date.body.listAllTurnos.listAllDaysOnMes[1])
-  var mes = fecha.getMonth()
-  var anio = fecha.getFullYear()
+  let fecha = new Date(date.body.listAllTurnos.listAllDaysOnMes[1])
+  let mes = fecha.getMonth()
+  let anio = fecha.getFullYear()
   mes = listMesNombre[mes]
   tabla[fuente].insertAdjacentHTML(
     'beforeend',
-    '\n  <tr class="text-tabla">  \n    <td colspan = "6" class="titulo-mes">' +
-      mes +
-      ' - ' +
-      anio +
-      '</td>    \n  </tr>\n  <tr class="text-tabla">\n    <td class=" perseguir">D\xEDa</td>    \n    <td class=" perseguir">Fecha</td>\n    <td class=" perseguir">Ma\xF1ana</td>\n    <td class=" perseguir">Tarde</td>\n    <td class=" perseguir">Noche</td>\n    <td class=" perseguir">Franco</td>\n  </tr>'
+    `
+  <tr class="text-tabla">  
+    <td colspan = "6" class="titulo-mes">${mes} - ${anio}</td>    
+  </tr>
+  <tr class="text-tabla">
+    <td class=" perseguir">Día</td>    
+    <td class=" perseguir">Fecha</td>
+    <td class=" perseguir">Mañana</td>
+    <td class=" perseguir">Tarde</td>
+    <td class=" perseguir">Noche</td>
+    <td class=" perseguir">Franco</td>
+  </tr>`
   )
-  var ancla = false
-
-  for (var i = 0; i < tamanio; i++) {
-    var nameDayFormatDate = new Date(
+  let ancla = false
+  for (let i = 0; i < tamanio; i++) {
+    let nameDayFormatDate = new Date(
       date.body.listAllTurnos.listAllDaysOnMes[i]
     )
-    var nameDay = nombreDiasDeSemana[nameDayFormatDate.getUTCDay()]
-
-    var _fecha = new Date(date.body.listAllTurnos.listAllDaysOnMes[i])
-
-    var dia = _fecha.getDate()
-
-    var _mes = _fecha.getMonth()
-
-    var _anio = _fecha.getFullYear()
-
-    var turnoManiana = date.body.listAllTurnos.maniana[i]
-    var turnoTarde = date.body.listAllTurnos.tarde[i]
-    var turnoNoche = date.body.listAllTurnos.noche[i]
-    var turnoFranco = date.body.listAllTurnos.franco[i]
-    var resaltarHoy = void 0
-    var esHoy =
+    nameDay = nombreDiasDeSemana[nameDayFormatDate.getUTCDay()]
+    let fecha = new Date(date.body.listAllTurnos.listAllDaysOnMes[i])
+    let dia = fecha.getDate()
+    let mes = fecha.getMonth()
+    let anio = fecha.getFullYear()
+    let turnoManiana = date.body.listAllTurnos.maniana[i]
+    let turnoTarde = date.body.listAllTurnos.tarde[i]
+    let turnoNoche = date.body.listAllTurnos.noche[i]
+    let turnoFranco = date.body.listAllTurnos.franco[i]
+    let resaltarHoy
+    let esHoy =
       (new Date(date.body.date) - nameDayFormatDate) / 1000 / 60 / 60 / 24
     esHoy = parseInt(esHoy, 10)
-
     switch (turnoUsuario) {
       case turnoManiana:
         if (esHoy === 0 && ancla == false) {
           resaltarHoy = 'resaltar-hoy'
           ancla = true
         }
-
         tabla[fuente].insertAdjacentHTML(
           'beforeend',
-          '<tr class="text-tabla ' +
-            resaltarHoy +
-            '">\n            <td>\n                ' +
-            nameDay +
-            '\n            </td>\n            <td>\n                ' +
-            dia +
-            '/' +
-            (_mes + 1) +
-            '/' +
-            _anio +
-            '\n            </td>\n            <td class="resaltar-turno">\n                ' +
-            turnoManiana +
-            '\n            </td>\n            <td>\n                ' +
-            turnoTarde +
-            '\n            </td>\n            <td>\n                ' +
-            turnoNoche +
-            '\n            </td>\n            <td>\n                ' +
-            turnoFranco +
-            '\n            </td>\n        </tr>'
+
+          `<tr class="text-tabla ${resaltarHoy}">
+            <td>
+                ${nameDay}
+            </td>
+            <td>
+                ${dia}/${mes + 1}/${anio}
+            </td>
+            <td class="resaltar-turno">
+                ${turnoManiana}
+            </td>
+            <td>
+                ${turnoTarde}
+            </td>
+            <td>
+                ${turnoNoche}
+            </td>
+            <td>
+                ${turnoFranco}
+            </td>
+        </tr>`
         )
         break
 
@@ -224,89 +225,93 @@ var imprimirTabla = function imprimirTabla(date, fuente) {
           resaltarHoy = 'resaltar-hoy'
           ancla = true
         }
-
         tabla[fuente].insertAdjacentHTML(
           'beforeend',
-          '<tr class="text-tabla ' +
-            resaltarHoy +
-            '">\n            <td>\n                ' +
-            nameDay +
-            '\n            </td>\n            <td>\n                ' +
-            dia +
-            '/' +
-            (_mes + 1) +
-            '/' +
-            _anio +
-            '\n            </td>\n            <td>\n                ' +
-            turnoManiana +
-            '\n            </td>\n            <td class="resaltar-turno">\n                ' +
-            turnoTarde +
-            '\n            </td>\n            <td>\n                ' +
-            turnoNoche +
-            '\n            </td>\n            <td>\n                ' +
-            turnoFranco +
-            '\n            </td>\n        </tr>'
-        )
-        break
 
+          `<tr class="text-tabla ${resaltarHoy}">
+            <td>
+                ${nameDay}
+            </td>
+            <td>
+                ${dia}/${mes + 1}/${anio}
+            </td>
+            <td>
+                ${turnoManiana}
+            </td>
+            <td class="resaltar-turno">
+                ${turnoTarde}
+            </td>
+            <td>
+                ${turnoNoche}
+            </td>
+            <td>
+                ${turnoFranco}
+            </td>
+        </tr>`
+        )
+
+        break
       case turnoNoche:
         if (esHoy === 0 && ancla == false) {
           resaltarHoy = 'resaltar-hoy'
           ancla = true
         }
-
         tabla[fuente].insertAdjacentHTML(
           'beforeend',
-          '<tr class="text-tabla ' +
-            resaltarHoy +
-            '">\n            <td>\n                ' +
-            nameDay +
-            '\n            </td>\n            <td>\n                ' +
-            dia +
-            '/' +
-            (_mes + 1) +
-            '/' +
-            _anio +
-            '\n            </td>\n            <td>\n                ' +
-            turnoManiana +
-            '\n            </td>\n            <td>\n                ' +
-            turnoTarde +
-            '\n            </td>\n            <td class="resaltar-turno">\n                ' +
-            turnoNoche +
-            '\n            </td>\n            <td>\n                ' +
-            turnoFranco +
-            '\n            </td>\n        </tr>'
-        )
-        break
 
+          `<tr class="text-tabla ${resaltarHoy}">
+            <td>
+                ${nameDay}
+            </td>
+            <td>
+                ${dia}/${mes + 1}/${anio}
+            </td>
+            <td>
+                ${turnoManiana}
+            </td>
+            <td>
+                ${turnoTarde}
+            </td>
+            <td class="resaltar-turno">
+                ${turnoNoche}
+            </td>
+            <td>
+                ${turnoFranco}
+            </td>
+        </tr>`
+        )
+
+        break
       case turnoFranco:
         if (esHoy === 0 && ancla == false) {
           resaltarHoy = 'resaltar-hoy'
           ancla = true
         }
-
         tabla[fuente].insertAdjacentHTML(
           'beforeend',
-          '<tr class="text-tabla ' +
-            resaltarHoy +
-            '">\n            <td>\n                ' +
-            nameDay +
-            '\n            </td>\n            <td>\n                ' +
-            dia +
-            '/' +
-            (_mes + 1) +
-            '/' +
-            _anio +
-            '\n            </td>\n            <td>\n                ' +
-            turnoManiana +
-            '\n            </td>\n            <td>\n                ' +
-            turnoTarde +
-            '\n            </td>\n            <td>\n                ' +
-            turnoNoche +
-            '\n            </td>\n            <td class="resaltar-turno">\n                ' +
-            turnoFranco +
-            '\n            </td>\n        </tr>'
+
+          `<tr class="text-tabla ${resaltarHoy}">
+            <td>
+                ${nameDay}
+            </td>
+            <td>
+                ${dia}/${mes + 1}/${anio}
+            </td>
+            <td>
+                ${turnoManiana}
+            </td>
+            <td>
+                ${turnoTarde}
+            </td>
+            <td>
+                ${turnoNoche}
+            </td>
+            <td class="resaltar-turno">
+                ${turnoFranco}
+            </td>
+        </tr>`
         )
+
         break
     }
   }
@@ -317,9 +322,8 @@ var imprimirTabla = function imprimirTabla(date, fuente) {
 ========================
 */
 
-opcionLogin.addEventListener('change', function () {
-  var desicion = opcionLogin.value
-
+opcionLogin.addEventListener('change', () => {
+  let desicion = opcionLogin.value
   if (desicion == 'legajo-password') {
     formContainer.classList.remove('ocultar')
     valueEscuadra.classList.add('ocultar')
@@ -350,33 +354,31 @@ opcionLogin.addEventListener('change', function () {
     valorPass.classList.add('ocultar')
   }
 })
-buttonLogin.addEventListener('click', function () {
+
+buttonLogin.addEventListener('click', () => {
   if (opcionLogin.value == 'legajo-password') {
     logeoLegajoAndPass()
   } else if (opcionLogin.value == 'escuadra') {
     logeoEscuadra()
   }
 })
+
 /*
 ========================
  Logica para pag 2
 ========================
 */
-
-var url = window.location.origin
-
-var imprimirDatosUser = function imprimirDatosUser(user) {
-  var name = user.body.name
-  var legajo = user.body.legajo
-  var turno = user.body.turno
+const url = window.location.origin
+const imprimirDatosUser = (user) => {
+  let name = user.body.name
+  let legajo = user.body.legajo
+  let turno = user.body.turno
   nameUser[0].innerHTML = ''
   nameUser[1].innerHTML = ''
-  nameUser[0].insertAdjacentHTML('beforeend', name + ' - ' + legajo)
+  nameUser[0].insertAdjacentHTML('beforeend', `${name} - ${legajo}`)
   nameUser[1].insertAdjacentHTML('beforeend', name)
-  fetch(url + '/getDate', {
-    headers: {
-      'Content-Type': 'application/json',
-    },
+  fetch(`${url}/getDate`, {
+    headers: { 'Content-Type': 'application/json' },
     method: 'POST',
     body: JSON.stringify({
       mes: new Date().getMonth(),
@@ -384,37 +386,34 @@ var imprimirDatosUser = function imprimirDatosUser(user) {
       turno: turno,
     }),
   })
-    .then(function (response) {
-      return response.json()
-    })
-    .then(function (data) {
+    .then((response) => response.json())
+    .then((data) => {
       dateDB = data
       imprimirDatosDate(dateDB)
     })
 }
-
-var imprimirDatosDate = function imprimirDatosDate(date) {
-  var comoTrabajo = date.body.inDayWork.turno
-  var fecha = new Date(date.body.date)
-  var day = fecha.getDate()
-  var mes = fecha.getMonth()
+const imprimirDatosDate = (date) => {
+  comoTrabajo = date.body.inDayWork.turno
+  let fecha = new Date(date.body.date)
+  day = fecha.getDate()
+  mes = fecha.getMonth()
   mes = listMesNombre[mes]
   fechaNow.innerHTML = ''
-  fechaNow.insertAdjacentHTML('beforeend', day + ' de ' + mes)
-  var diasParaFranco = date.body.inDayWork.diaEnTurno
+  fechaNow.insertAdjacentHTML('beforeend', `${day} de ${mes}`)
+  diasParaFranco = date.body.inDayWork.diaEnTurno
   dayInWork[0].innerHTML = ''
   dayInWork[1].innerHTML = ''
-  dayInWork[0].insertAdjacentHTML('beforeend', '' + comoTrabajo)
+  dayInWork[0].insertAdjacentHTML('beforeend', `${comoTrabajo}`)
   dayInWork[1].insertAdjacentHTML(
     'beforeend',
-    6 - diasParaFranco + ' ' + emojis[diasParaFranco]
-  ) //Tabla
+    `${6 - diasParaFranco} ${emojis[diasParaFranco]}`
+  )
 
+  //Tabla
   tabla[0].innerHTML = ''
   imprimirTabla(date, 0)
 }
-
-homeButton.addEventListener('click', function () {
+homeButton.addEventListener('click', () => {
   searchButton.classList.remove('marcador-seccion')
   homeButton.classList.add('marcador-seccion')
   page2.classList.add('bounceInLeft')
@@ -423,7 +422,7 @@ homeButton.addEventListener('click', function () {
   page3.classList.add('ocultar')
   page4.classList.add('ocultar')
 })
-searchButton.addEventListener('click', function () {
+searchButton.addEventListener('click', () => {
   page3.classList.add('bounceInRight')
   homeButton.classList.remove('marcador-seccion')
   searchButton.classList.add('marcador-seccion')
@@ -432,17 +431,17 @@ searchButton.addEventListener('click', function () {
   page3.classList.remove('ocultar')
   page4.classList.add('ocultar')
 })
-logOutButton.addEventListener('click', function () {
+logOutButton.addEventListener('click', () => {
   swal({
     title: 'Seguro que desea salir?',
     dangerMode: true,
     buttons: true,
-  }).then(function (eleccion) {
+  }).then((eleccion) => {
     if (eleccion) {
       localStorage.clear()
       swal('Cerrado exitosamente', {
         icon: 'success',
-      }).then(function (eleccion) {
+      }).then((eleccion) => {
         if (eleccion) {
           page2.classList.remove('bounceInLeft')
           page3.classList.remove('bounceInRight')
@@ -455,35 +454,32 @@ logOutButton.addEventListener('click', function () {
     }
   })
 })
-valueMesYearQuery.addEventListener('keyup', function (event) {
+
+valueMesYearQuery.addEventListener('keyup', (event) => {
   if (event.key == 'Enter') {
     confirmarQuerry()
   }
 })
-buttonMesQuerry.addEventListener('click', function () {
+
+buttonMesQuerry.addEventListener('click', () => {
   confirmarQuerry()
 })
-valueYearQuery.addEventListener('keyup', function (event) {
+valueYearQuery.addEventListener('keyup', (event) => {
   if (event.key == 'Enter') {
     confirmarQuerry()
   }
 })
-
-var confirmarQuerry = function confirmarQuerry() {
+const confirmarQuerry = () => {
   formContainerQuery.classList.remove('ocultar')
-
   if (opcionQuery.value == 'mes') {
-    var valorMesYear = valueMesYearQuery.value
-
+    valorMesYear = valueMesYearQuery.value
     if (valorMesYear == '') {
       swal('Faltan datos', 'Complete con el mes deseado', 'info')
     } else {
-      var fecha = valorMesYear + '-1'
+      fecha = valorMesYear + '-1'
       fecha = new Date(fecha)
-      fetch(url + '/getDate', {
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      fetch(`${url}/getDate`, {
+        headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         body: JSON.stringify({
           mes: fecha.getMonth(),
@@ -491,10 +487,8 @@ var confirmarQuerry = function confirmarQuerry() {
           turno: userDb.body.turno,
         }),
       })
-        .then(function (response) {
-          return response.json()
-        })
-        .then(function (data) {
+        .then((response) => response.json())
+        .then((data) => {
           dateDB = data
           tabla[1].innerHTML = ''
           formContainerQuery.classList.add('ocultar')
@@ -504,20 +498,16 @@ var confirmarQuerry = function confirmarQuerry() {
         })
     }
   }
-
   if (opcionQuery.value == 'anio') {
-    var valorYear = valueYearQuery.value
-
+    valorYear = valueYearQuery.value
     if (valorYear == '') {
       swal('Faltan datos', 'Complete con el año deseado', 'info')
     } else {
       if (valorYear > 2100 || valorYear < 2000) {
         swal('Años validos', 'Min 2000 Max 2100 ', 'error')
       } else {
-        fetch(url + '/getDate', {
-          headers: {
-            'Content-Type': 'application/json',
-          },
+        fetch(`${url}/getDate`, {
+          headers: { 'Content-Type': 'application/json' },
           method: 'POST',
           body: JSON.stringify({
             mes: 'anioCompleto',
@@ -525,10 +515,8 @@ var confirmarQuerry = function confirmarQuerry() {
             turno: userDb.body.turno,
           }),
         })
-          .then(function (response) {
-            return response.json()
-          })
-          .then(function (data) {
+          .then((response) => response.json())
+          .then((data) => {
             formContainerQuery.classList.add('ocultar')
             loader.classList.add('lds-spinner')
             setTimeout(page3Topage4, 2000)
@@ -537,7 +525,6 @@ var confirmarQuerry = function confirmarQuerry() {
       }
     }
   }
-
   if (opcionQuery.value == '') {
     swal('Elija una opcion', 'Mes o Año', 'warning')
   }
@@ -548,9 +535,8 @@ var confirmarQuerry = function confirmarQuerry() {
 ========================
 */
 
-opcionQuery.addEventListener('change', function () {
-  var desicion = opcionQuery.value
-
+opcionQuery.addEventListener('change', () => {
+  let desicion = opcionQuery.value
   if (desicion == 'mes') {
     valueYearQuery.classList.add('ocultar')
     valueYearQuery.value = ''
@@ -572,35 +558,30 @@ opcionQuery.addEventListener('change', function () {
     valueYearQuery.value = ''
   }
 })
-valueLegajo.addEventListener('keyup', function (event) {
+valueLegajo.addEventListener('keyup', (event) => {
   if (event.key == 'Enter') {
     logeoLegajoAndPass()
   }
 })
-valorPass.addEventListener('keyup', function (event) {
+valorPass.addEventListener('keyup', (event) => {
   if (event.key == 'Enter') {
     logeoLegajoAndPass()
   }
 })
-
-var logeoLegajoAndPass = function logeoLegajoAndPass() {
+const logeoLegajoAndPass = () => {
   if (valueLegajo.value === '' || valorPass.value === '') {
     swal('Datos incompletos', 'Se requiere legajo y contraseña😬', 'warning')
   } else {
-    fetch(url + '/login', {
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    fetch(`${url}/login`, {
+      headers: { 'Content-Type': 'application/json' },
       method: 'POST',
       body: JSON.stringify({
         legajo: valueLegajo.value,
         password: valorPass.value,
       }),
     })
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (data) {
+      .then((response) => response.json())
+      .then((data) => {
         if (!data.body.name) {
           swal('Datos incorrectos', '😟', 'error')
         } else {
@@ -612,30 +593,24 @@ var logeoLegajoAndPass = function logeoLegajoAndPass() {
           imprimirDatosUser(userDb)
         }
       })
-      .catch(function (err) {
-        return console.log(err)
-      })
+      .catch((err) => console.log(err))
   }
 }
 
-var logeoEscuadra = function logeoEscuadra() {
+const logeoEscuadra = () => {
   if (valueEscuadra.value === '') {
     swal('Datos incompletos', 'Elegir A - B - C - D😬', 'warning')
   } else {
-    fetch(url + '/login', {
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    fetch(`${url}/login`, {
+      headers: { 'Content-Type': 'application/json' },
       method: 'POST',
       body: JSON.stringify({
         legajo: valueEscuadra.value,
         password: 'noPass',
       }),
     })
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (data) {
+      .then((response) => response.json())
+      .then((data) => {
         if (!data.body.name) {
           swal('Datos incorrectos', '😟', 'error')
         } else {
@@ -647,13 +622,10 @@ var logeoEscuadra = function logeoEscuadra() {
           imprimirDatosUser(userDb)
         }
       })
-      .catch(function (err) {
-        return console.log(err)
-      })
+      .catch((err) => console.log(err))
   }
 }
-
-var page1ToPage2 = function page1ToPage2() {
+const page1ToPage2 = () => {
   tituloHeader.classList.add('ocultar')
   page1.classList.add('ocultar')
   page2.classList.remove('ocultar')
@@ -667,15 +639,14 @@ var page1ToPage2 = function page1ToPage2() {
   logOutButton.classList.add('zoomInRight')
   nameUser[0].classList.remove('ocultar')
 }
-
-var page3Topage4 = function page3Topage4() {
+const page3Topage4 = () => {
   page3.classList.add('ocultar')
   formContainerQuery.classList.remove('ocultar')
   loader.classList.remove('lds-spinner')
   page4.classList.remove('ocultar')
 }
 
-var pageXToPage1 = function pageXToPage1() {
+const pageXToPage1 = () => {
   page2.classList.remove('bounceOut')
   page3.classList.remove('bounceOut')
   page4.classList.remove('bounceOut')
