@@ -13,10 +13,10 @@
 
 input,
 select {
-  height: 2.5rem;
+  height: 2.7rem;
   margin-bottom: 10px;
   text-align-last: center;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   border-radius: 10px;
   outline: none;
 }
@@ -25,8 +25,15 @@ select {
   margin: 50px 25px 25px 25px;
   background: linear-gradient(180deg, #65bce8 0%, #306485 100%);
 }
+
 .squad {
   background: linear-gradient(180deg, #7dccf3 0%, #448cb9 100%);
+  width: 180px;
+  margin-top: 40px;
+}
+
+select:hover {
+  cursor: pointer;
 }
 
 select:focus {
@@ -79,6 +86,10 @@ header h1 {
   font-weight: bold;
 }
 
+.header-menu img:hover {
+  cursor: pointer;
+}
+
 button:hover {
   cursor: pointer;
   background: linear-gradient(180deg, #65bce8 0%, #306485 100%);
@@ -101,6 +112,7 @@ main {
   width: 100%;
   height: 100%;
 }
+/* ----- pagina 1 ----- */
 
 .div-main {
   width: 100%;
@@ -110,7 +122,7 @@ main {
   justify-content: center;
   flex-direction: column;
 }
-/* ----- pagina 1 ----- */
+
 .slide-rotate-hor-t-bck {
   animation: slide-rotate-hor-t-bck 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
     both;
@@ -193,20 +205,13 @@ tr:nth-child(odd) {
   background: rgb(225, 225, 225);
 }
 
-th {
-  background: rgb(98, 121, 163);
-  border: 1px solid rgb(160, 160, 160);
-  color: rgb(255, 255, 255);
-  padding: 0.5rem;
-}
-
 td {
   border: 1px solid rgb(160, 160, 160);
   padding: 0.5rem;
 }
 
 table tr:hover {
-  background: rgb(255, 235, 185);
+  background: rgb(207, 237, 252);
 }
 
 .table-container {
@@ -298,6 +303,7 @@ p span {
 .year-selection {
   margin-bottom: 20px;
   text-align: center;
+  text-align-last: center;
   outline: none;
 }
 
@@ -348,9 +354,18 @@ footer {
   background-color: var(--headerandfooter);
 }
 
+.contact {
+  color: white;
+  font-weight: bold;
+}
+
+.contact:hover {
+  cursor: pointer;
+}
+
 footer p {
   color: var(--honeydew);
-  font-size: 1rem;
+  font-size: 1.1rem;
   padding-left: 5px;
 }
 .lds-spinner {
