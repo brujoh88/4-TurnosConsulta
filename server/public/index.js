@@ -18,6 +18,10 @@ let valueYearQuery = document.getElementById('value-year')
 let opcionQuery = document.getElementById('opciones')
 let page3 = document.getElementById('page-3')
 let page4 = document.getElementById('page-4')
+/* 
+====================================================================
+let menuAllMeses = document.getElementById('menu-all-meses') 
+====================================================================*/
 
 const emojis = ['vacio', '😭', '😫', '😓', '😒', '😌', '😁🎉']
 
@@ -60,6 +64,8 @@ window.onload = () => {
     page1.classList.add('ocultar')
     page2.classList.remove('ocultar')
     homeButton.classList.remove('ocultar')
+    searchButton.classList.remove('marcador-seccion')
+    homeButton.classList.add('marcador-seccion')
     searchButton.classList.remove('ocultar')
     logOutButton.classList.remove('ocultar')
     let userCache = {
@@ -144,8 +150,10 @@ const imprimirTablaAllYear = (date, fuente) => {
   imprimirTabla(dateFormateado9, fuente)
   imprimirTabla(dateFormateado10, fuente)
   imprimirTabla(dateFormateado11, fuente)
+  menuAllMeses.classList.remove('ocultar')
 }
 const imprimirTabla = (date, fuente) => {
+  menuAllMeses.classList.add('ocultar')
   let turnoUsuario = userDb.body.turno
   let tamanio = date.body.listAllTurnos.listAllDaysOnMes.length
 
@@ -157,7 +165,7 @@ const imprimirTabla = (date, fuente) => {
     'beforeend',
     `
   <tr class="text-tabla">  
-    <td colspan = "6" class="titulo-mes">${mes} - ${anio}</td>    
+    <td id="${mes}" colspan = "6" class="titulo-mes">${mes} - ${anio}</td>    
   </tr>
   <tr class="text-tabla">
     <td class=" perseguir">Día</td>    
@@ -412,12 +420,16 @@ const imprimirDatosDate = (date) => {
   imprimirTabla(date, 0)
 }
 homeButton.addEventListener('click', () => {
+  searchButton.classList.remove('marcador-seccion')
+  homeButton.classList.add('marcador-seccion')
   page1.classList.add('ocultar')
   page2.classList.remove('ocultar')
   page3.classList.add('ocultar')
   page4.classList.add('ocultar')
 })
 searchButton.addEventListener('click', () => {
+  homeButton.classList.remove('marcador-seccion')
+  searchButton.classList.add('marcador-seccion')
   page1.classList.add('ocultar')
   page2.classList.add('ocultar')
   page3.classList.remove('ocultar')
@@ -598,6 +610,7 @@ const page1ToPage2 = () => {
   page1.classList.add('ocultar')
   page2.classList.remove('ocultar')
   homeButton.classList.remove('ocultar')
+  homeButton.classList.add('marcador-seccion')
   searchButton.classList.remove('ocultar')
   logOutButton.classList.remove('ocultar')
   nameUser[0].classList.remove('ocultar')

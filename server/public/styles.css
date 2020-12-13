@@ -52,7 +52,7 @@ div#header-opcion {
   justify-content: space-between;
 }
 
-header img:hover {
+.marcador-seccion {
   cursor: pointer;
   background-color: var(--powder-blue);
   border-radius: 30%;
@@ -212,6 +212,7 @@ table tr:hover {
 .table-container {
   display: inherit;
   justify-content: center;
+  flex-direction: column;
   margin: 5px 5px;
   height: 100%;
   width: 90%;
@@ -318,6 +319,24 @@ p span {
   justify-content: start;
   height: auto;
 }
+/*
+==================================
+==================================
+==================================
+#menu-all-meses {
+  padding: 0;
+  margin-top: 25px;
+  display: flex;
+}
+#menu-all-meses li {
+  display: inline;
+}
+ul#menu-all-meses {
+  padding: 0;
+  display: flex;
+  margin: 10px;
+  align-self: center;
+} */
 
 /* -------- footer -------- */
 footer {
