@@ -138,7 +138,7 @@ const allUsuarios = [
     password: 24635721,
   },
   {
-    legajo: 2589,
+    legajo: 2543,
     name: 'Maria Encina',
     turno: 'C',
     password: 22881616,
