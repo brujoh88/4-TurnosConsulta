@@ -53,18 +53,22 @@
       <div id="page-1" class="div-main principal-page ocultar">
         <div id="formularioPrincipal" class="form-container">
           <select name="opcion-ingreso" id="opcion-ingreso" class="options">
-            <option value="">Elija la forma de ingresar</option>
-            <option value="legajo-password">Legajo y Contraseña</option>
-            <option value="escuadra">Escuadra</option>
+            <option class="select-opcion" value="">
+              Elija la forma de ingresar
+            </option>
+            <option class="select-opcion" value="legajo-password">
+              Legajo y Contraseña
+            </option>
+            <option class="select-opcion" value="escuadra">Escuadra</option>
           </select>
           <div class="ocultar form-container--options" id="form-container">
             <label class="form-container--legajo" for="legajo">
-              <select name="" id="valorEscuadra" class="ocultar options squad">
-                <option value="">Elegir escuadra</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
+              <select name="" id="valorEscuadra" class="ocultar options">
+                <option class="select-opcion" value="">Elegir escuadra</option>
+                <option class="select-opcion" value="A">A</option>
+                <option class="select-opcion" value="B">B</option>
+                <option class="select-opcion" value="C">C</option>
+                <option class="select-opcion" value="D">D</option>
               </select>
               <input
                 placeholder="Legajo"
@@ -117,9 +121,9 @@
         <div id="form-container-query" class="search-calendary--form">
           <h2>Consultar por un mes o año completo</h2>
           <select name="opciones" id="opciones" class="options choose-calendar">
-            <option value="">Elija una opcion</option>
-            <option value="mes">Mes</option>
-            <option value="anio">Año</option>
+            <option class="select-opcion" value="">Elija una opcion</option>
+            <option class="select-opcion" value="mes">Mes</option>
+            <option class="select-opcion" value="anio">Año</option>
           </select>
 
           <label for="mes">

@@ -24,13 +24,11 @@ select {
 select {
   margin: 50px 25px 25px 25px;
   height: 50px;
-  background: linear-gradient(180deg, #7dccf3 0%, #448cb9 100%);
+  color: white;
+  background: linear-gradient(180deg, #224a73 0%, #0f2c45 100%);
 }
-
-.squad {
-  background: linear-gradient(180deg, #7dccf3 0%, #448cb9 100%);
-  width: 180px;
-  margin-top: 40px;
+.select-opcion {
+  color: black;
 }
 
 select:hover {
@@ -96,7 +94,7 @@ header h1 {
 
 button:hover {
   cursor: pointer;
-  background: linear-gradient(180deg, #65bce8 0%, #306485 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #1e446a 100%);
   transition: all 0.3s;
 }
 
@@ -169,8 +167,7 @@ main {
   align-content: center;
   width: 250px;
   height: 200px;
-  background-color: var(--powder-blue);
-  border: 0.6px solid var(--honeydew);
+  border: solid 1px #224a73;
   border-radius: 10px;
 }
 
