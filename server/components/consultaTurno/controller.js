@@ -91,7 +91,15 @@ const listByMonthAllTurnos = (mesQuery, anioQuery, turnoQuery) => {
     dato = {
       date: new Date(),
       turnoOfUser: turnoQuery,
-      inDayWork: queryTurnoByDay(turnoQuery, new Date()),
+      inDayWork: queryTurnoByDay(
+        turnoQuery,
+        new Date(
+          new Date().getFullYear(),
+          new Date().getMonth(),
+          new Date().getDate(),
+          3
+        )
+      ),
       listAllTurnos: {
         maniana: getListTurnoByMesForGroup('Mañana', mesQuery, anioQuery),
         tarde: getListTurnoByMesForGroup('Tarde', mesQuery, anioQuery),
