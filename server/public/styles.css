@@ -325,24 +325,6 @@ p span {
   justify-content: start;
   height: auto;
 }
-/*
-==================================
-==================================
-==================================
-#menu-all-meses {
-  padding: 0;
-  margin-top: 25px;
-  display: flex;
-}
-#menu-all-meses li {
-  display: inline;
-}
-ul#menu-all-meses {
-  padding: 0;
-  display: flex;
-  margin: 10px;
-  align-self: center;
-} */
 
 /* -------- footer -------- */
 footer {

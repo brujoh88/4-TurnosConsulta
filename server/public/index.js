@@ -18,10 +18,6 @@ let valueYearQuery = document.getElementById('value-year')
 let opcionQuery = document.getElementById('opciones')
 let page3 = document.getElementById('page-3')
 let page4 = document.getElementById('page-4')
-/* 
-====================================================================
-let menuAllMeses = document.getElementById('menu-all-meses') 
-====================================================================*/
 
 const emojis = ['vacio', '😭', '😫', '😓', '😒', '😌', '😁🎉']
 
@@ -150,10 +146,8 @@ const imprimirTablaAllYear = (date, fuente) => {
   imprimirTabla(dateFormateado9, fuente)
   imprimirTabla(dateFormateado10, fuente)
   imprimirTabla(dateFormateado11, fuente)
-  menuAllMeses.classList.remove('ocultar')
 }
 const imprimirTabla = (date, fuente) => {
-  /* menuAllMeses.classList.add('ocultar') */
   let turnoUsuario = userDb.body.turno
   let tamanio = date.body.listAllTurnos.listAllDaysOnMes.length
 
@@ -165,7 +159,7 @@ const imprimirTabla = (date, fuente) => {
     'beforeend',
     `
   <tr class="text-tabla">  
-    <td id="${mes}" colspan = "6" class="titulo-mes">${mes} - ${anio}</td>    
+    <td colspan = "6" class="titulo-mes">${mes} - ${anio}</td>    
   </tr>
   <tr class="text-tabla">
     <td class=" perseguir">Día</td>    
@@ -511,7 +505,7 @@ const confirmarQuerry = () => {
     if (valorYear == '') {
       swal('Faltan datos', 'Complete con el año deseado', 'info')
     } else {
-      if (!/\d{4}/.test(valorYear)) {
+      if (valorYear > 2100 || valorYear < 2000) {
         swal('Años validos', 'Min 2000 Max 2100 ', 'error')
       } else {
         fetch(`${url}/getDate`, {
