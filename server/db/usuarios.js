@@ -179,6 +179,12 @@ const allUsuarios = [
     turno: 'D',
     password: 30702040,
   },
+  {
+    legajo: 2648,
+    name: 'Leila Rupp',
+    turno: 'D',
+    password: 34045324,
+  },
 ]
 
 module.exports = {

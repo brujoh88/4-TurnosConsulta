@@ -10,7 +10,7 @@ let homeButton = document.getElementById('to-page2')
 let searchButton = document.getElementById('to-page3')
 let logOutButton = document.getElementById('to-page1')
 let page2 = document.getElementById('page-2')
-let buttonMesQuerry = document.getElementById('query-button')
+let buttonQuerry = document.getElementById('query-button')
 let formContainerQuery = document.getElementById('form-container-query')
 let loader = document.getElementById('loader')
 let valueMesYearQuery = document.getElementById('value-mes-year')
@@ -96,6 +96,7 @@ Tabla
 */
 
 const imprimirTablaAllYear = (date, fuente) => {
+  console.log(date)
   tabla[fuente].innerHTML = ''
   let dateFormateado0 = {
     body: date.body[0],
@@ -461,7 +462,7 @@ valueMesYearQuery.addEventListener('keyup', (event) => {
   }
 })
 
-buttonMesQuerry.addEventListener('click', () => {
+buttonQuerry.addEventListener('click', () => {
   confirmarQuerry()
 })
 valueYearQuery.addEventListener('keyup', (event) => {
