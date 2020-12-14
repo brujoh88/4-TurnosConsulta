@@ -1,4 +1,5 @@
 const store = require('./store')
+const jwt = require('jsonwebtoken')
 const dayOnDayByMes = (contador, mes, anio) => {
   return new Date(anio, mes, contador + 1, 3)
 }
@@ -100,6 +101,20 @@ const listByMonthAllTurnos = (mesQuery, anioQuery, turnoQuery) => {
         listAllDaysOnMes: getListNameDaysOnMes(mesQuery, anioQuery),
       },
     }
+    /*     let backup = jwt.sign(
+      {
+        date: dato.date,
+        turnoOfUser: dato.turnoOfUser,
+        inDayWork: dato.inDayWork,
+        maniana: dato.listAllTurnos.maniana,
+        tarde: dato.listAllTurnos.tarde,
+        noche: dato.listAllTurnos.noche,
+        franco: dato.listAllTurnos.franco,
+        listAllDaysOnMes: dato.listAllTurnos.listAllDaysOnMes,
+      },
+      'semilla-secret'
+    )
+    dato.backup = backup */
     resolve(dato)
   })
 }
