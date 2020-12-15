@@ -449,6 +449,7 @@ logOutButton.addEventListener('click', () => {
           page2.classList.add('bounceOut')
           page3.classList.add('bounceOut')
           page4.classList.add('bounceOut')
+          searchButton.classList.remove('marcador-seccion')
           setTimeout(pageXToPage1, 1000)
         }
       })
