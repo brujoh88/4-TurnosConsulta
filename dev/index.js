@@ -467,9 +467,11 @@ logOutButton.addEventListener('click', () => {
         if (eleccion) {
           page2.classList.remove('bounceInLeft')
           page3.classList.remove('bounceInRight')
+          page4.classList.remove('bounceInRight')
           page2.classList.add('bounceOut')
           page3.classList.add('bounceOut')
           page4.classList.add('bounceOut')
+          tieneTablaConsulta = false
           searchButton.classList.remove('marcador-seccion')
           setTimeout(pageXToPage1, 1000)
         }
