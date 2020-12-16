@@ -656,7 +656,7 @@ const page1ToPage2 = () => {
   page2.classList.remove('ocultar')
   page3.classList.add('ocultar')
   page4.classList.add('ocultar')
-  page2.classList.add('bounceInUp')
+  /* page2.classList.add('bounceInUp') */
   homeButton.classList.remove('ocultar')
   homeButton.classList.add('marcador-seccion')
   searchButton.classList.remove('ocultar')
