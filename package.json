@@ -5,7 +5,9 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode development",
+    "produccion": "webpack --mode production",
+    "watch": "webpack --watch --mode development"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,11 @@
     "chalk": "^4.1.0"
   },
   "devDependencies": {
-    
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.10.2",
+    "webpack-cli": "^4.2.0"
   },
   "bugs": {
     "url": "https://github.com/brujoh88/4-TurnosConsulta/issues"
