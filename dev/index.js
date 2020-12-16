@@ -497,7 +497,7 @@ const confirmarQuerry = () => {
   if (opcionQuery.value == 'mes') {
     valorMesYear = valueMesYearQuery.value
     if (valorMesYear == '') {
-      swal('Faltan datos', 'Complete con el mes deseado', 'info')
+      swal('Faltan datos', 'Complete con el mes deseado', 'warning')
     } else {
       fecha = valorMesYear + '-1'
       fecha = new Date(fecha)
@@ -524,7 +524,7 @@ const confirmarQuerry = () => {
   if (opcionQuery.value == 'anio') {
     valorYear = valueYearQuery.value
     if (valorYear == '') {
-      swal('Faltan datos', 'Complete con el año deseado', 'info')
+      swal('Faltan datos', 'Complete con el año deseado', 'warning')
     } else {
       if (valorYear > 2100 || valorYear < 2000) {
         swal('Años validos', 'Min 2000 Max 2100 ', 'error')
