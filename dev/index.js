@@ -18,6 +18,8 @@ let valueYearQuery = document.getElementById('value-year')
 let opcionQuery = document.getElementById('opciones')
 let page3 = document.getElementById('page-3')
 let page4 = document.getElementById('page-4')
+let NewQuery = document.getElementById('nueva-consulta')
+let tieneTablaConsulta = false
 
 const emojis = ['vacio', '😭', '😫', '😓', '😒', '😌', '😁🎉']
 
@@ -96,7 +98,6 @@ Tabla
 */
 
 const imprimirTablaAllYear = (date, fuente) => {
-  console.log(date)
   tabla[fuente].innerHTML = ''
   let dateFormateado0 = {
     body: date.body[0],
@@ -424,13 +425,33 @@ homeButton.addEventListener('click', () => {
   page4.classList.add('ocultar')
 })
 searchButton.addEventListener('click', () => {
-  page3.classList.add('bounceInRight')
-  homeButton.classList.remove('marcador-seccion')
-  searchButton.classList.add('marcador-seccion')
-  page1.classList.add('ocultar')
-  page2.classList.add('ocultar')
-  page3.classList.remove('ocultar')
-  page4.classList.add('ocultar')
+  if(tieneTablaConsulta == true){
+    page4.classList.add('bounceInRight')
+    page3Topage4()
+  }else{
+    page3.classList.add('bounceInRight')
+    homeButton.classList.remove('marcador-seccion')
+    searchButton.classList.add('marcador-seccion')
+    page1.classList.add('ocultar')
+    page2.classList.add('ocultar')
+    page3.classList.remove('ocultar')
+    page4.classList.add('ocultar')
+  }
+})
+NewQuery.addEventListener('click', ()=>{
+  swal({
+    title: 'Seguro que desea hacer una nueva consulta?',
+    dangerMode: true,
+    buttons: true,
+  }).then((eleccion)=>{
+    if(eleccion){
+      tieneTablaConsulta = false;
+      page3.classList.remove('ocultar')
+      page4.classList.add('ocultar')
+      formContainerQuery.classList.remove('ocultar')
+      loader.classList.remove('lds-spinner')
+    }
+  })
 })
 logOutButton.addEventListener('click', () => {
   swal({
@@ -642,6 +663,10 @@ const page1ToPage2 = () => {
   nameUser[0].classList.remove('ocultar')
 }
 const page3Topage4 = () => {
+  tieneTablaConsulta = true;
+  homeButton.classList.remove('marcador-seccion')
+  searchButton.classList.add('marcador-seccion')
+  page2.classList.add('ocultar')
   page3.classList.add('ocultar')
   formContainerQuery.classList.remove('ocultar')
   loader.classList.remove('lds-spinner')
