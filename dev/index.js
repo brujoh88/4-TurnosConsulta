@@ -52,6 +52,8 @@ const tokenDecoded = function parseJwt(token) {
 }
 window.onload = () => {
   let cacheDate = localStorage.getItem('token')
+  let queryMesCache = localStorage.getItem('mes')
+  let queryAnioCache = localStorage.getItem('anio')
   if (cacheDate) {
     let dato = tokenDecoded(cacheDate)
     userDb = {
@@ -76,6 +78,39 @@ window.onload = () => {
     }
     nameUser[0].classList.remove('ocultar')
     imprimirDatosUser(userCache)
+    if (queryAnioCache) {
+      if (queryMesCache) {
+        fetch(`${url}/getDate`, {
+          headers: { 'Content-Type': 'application/json' },
+          method: 'POST',
+          body: JSON.stringify({
+            mes: queryMesCache,
+            anio: queryAnioCache,
+            turno: userCache.body.turno,
+          }),
+        })
+          .then((response) => response.json())
+          .then((element) => {
+            tieneTablaConsulta = true
+            imprimirTabla(element, 1)
+          })
+      }
+
+      fetch(`${url}/getDate`, {
+        headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        body: JSON.stringify({
+          mes: 'anioCompleto',
+          anio: queryAnioCache,
+          turno: userCache.body.turno,
+        }),
+      })
+        .then((response) => response.json())
+        .then((element) => {
+          tieneTablaConsulta = true
+          imprimirTablaAllYear(element, 1)
+        })
+    }
   } else {
     page1.classList.remove('ocultar')
     nameUser[0].classList.add('ocultar')
@@ -150,6 +185,7 @@ const imprimirTablaAllYear = (date, fuente) => {
   imprimirTabla(dateFormateado11, fuente)
 }
 const imprimirTabla = (date, fuente) => {
+  console.log(date)
   let turnoUsuario = userDb.body.turno
   let tamanio = date.body.listAllTurnos.listAllDaysOnMes.length
 
@@ -178,7 +214,7 @@ const imprimirTabla = (date, fuente) => {
       date.body.listAllTurnos.listAllDaysOnMes[i]
     )
     nameDay = nombreDiasDeSemana[nameDayFormatDate.getUTCDay()]
-    let fecha = new Date(date.body.listAllTurnos.listAllDaysOnMes[i])
+    let fecha = new Date(nameDayFormatDate)
     let dia = fecha.getDate()
     let mes = fecha.getMonth()
     let anio = fecha.getFullYear()
@@ -425,10 +461,10 @@ homeButton.addEventListener('click', () => {
   page4.classList.add('ocultar')
 })
 searchButton.addEventListener('click', () => {
-  if(tieneTablaConsulta == true){
+  if (tieneTablaConsulta == true) {
     page4.classList.add('bounceInRight')
     page3Topage4()
-  }else{
+  } else {
     page3.classList.add('bounceInRight')
     homeButton.classList.remove('marcador-seccion')
     searchButton.classList.add('marcador-seccion')
@@ -438,14 +474,16 @@ searchButton.addEventListener('click', () => {
     page4.classList.add('ocultar')
   }
 })
-NewQuery.addEventListener('click', ()=>{
+NewQuery.addEventListener('click', () => {
   swal({
     title: 'Seguro que desea hacer una nueva consulta?',
     dangerMode: true,
     buttons: true,
-  }).then((eleccion)=>{
-    if(eleccion){
-      tieneTablaConsulta = false;
+  }).then((eleccion) => {
+    if (eleccion) {
+      tieneTablaConsulta = false
+      localStorage.setItem('mes','')
+      localStorage.setItem('anio','')
       page3.classList.remove('ocultar')
       page4.classList.add('ocultar')
       formContainerQuery.classList.remove('ocultar')
@@ -516,6 +554,11 @@ const confirmarQuerry = () => {
         .then((data) => {
           dateDB = data
           tabla[1].innerHTML = ''
+          let fecha = new Date(data.body.listAllTurnos.listAllDaysOnMes[1])
+          let mes = fecha.getMonth()
+          let anio = fecha.getFullYear()
+          localStorage.setItem('mes', mes)
+          localStorage.setItem('anio', anio)
           formContainerQuery.classList.add('ocultar')
           loader.classList.add('lds-spinner')
           setTimeout(page3Topage4, 2000)
@@ -542,6 +585,8 @@ const confirmarQuerry = () => {
         })
           .then((response) => response.json())
           .then((data) => {
+            localStorage.setItem('mes','')
+            localStorage.setItem('anio', valorYear)
             formContainerQuery.classList.add('ocultar')
             loader.classList.add('lds-spinner')
             setTimeout(page3Topage4, 2000)
@@ -667,7 +712,7 @@ const page1ToPage2 = () => {
   nameUser[0].classList.remove('ocultar')
 }
 const page3Topage4 = () => {
-  tieneTablaConsulta = true;
+  tieneTablaConsulta = true
   homeButton.classList.remove('marcador-seccion')
   searchButton.classList.add('marcador-seccion')
   page2.classList.add('ocultar')
