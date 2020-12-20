@@ -149,12 +149,12 @@ const allUsuarios = [
     turno: 'C',
     password: 36792296,
   },
-  /* {
+  {
     legajo: 2691,
     name: 'Javier Carcar',
     turno: 'D',
-    password: '123',
-  }, */
+    password: 32989000,
+  },
   {
     legajo: 2737,
     name: 'Angel Zapata',
