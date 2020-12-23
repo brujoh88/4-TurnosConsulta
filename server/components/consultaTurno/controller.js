@@ -105,82 +105,84 @@ const listByMonthAllTurnos = (mesQuery, anioQuery, turnoQuery) => {
   })
 }
 const listByYearAllTurnos = (anioQuery, turnoOfUser) => {
-  let dateYear = []
-  let list
+  let mes1, mes2, mes3, mes4, mes5, mes6, mes7, mes8, mes9, mes10, mes11, mes12
 
-  list = new Promise((resolve, reject) => {
+  mes1 = new Promise((resolve, reject) => {
     listByMonthAllTurnos(0, anioQuery, turnoOfUser).then((element) => {
-      dateYear[0] = element
+      resolve(element)
     })
-    resolve(dateYear)
   })
-  new Promise((resolve, reject) => {
+  mes2 = new Promise((resolve, reject) => {
     listByMonthAllTurnos(1, anioQuery, turnoOfUser).then((element) => {
-      dateYear[1] = element
+      resolve(element)
     })
-    resolve(dateYear)
   })
-  new Promise((resolve, reject) => {
+
+  mes3 = new Promise((resolve, reject) => {
     listByMonthAllTurnos(2, anioQuery, turnoOfUser).then((element) => {
-      dateYear[2] = element
+      resolve(element)
     })
-    resolve(dateYear)
   })
-  new Promise((resolve, reject) => {
+  mes4 = new Promise((resolve, reject) => {
     listByMonthAllTurnos(3, anioQuery, turnoOfUser).then((element) => {
-      dateYear[3] = element
+      resolve(element)
     })
-    resolve(dateYear)
   })
-  new Promise((resolve, reject) => {
+  mes5 = new Promise((resolve, reject) => {
     listByMonthAllTurnos(4, anioQuery, turnoOfUser).then((element) => {
-      dateYear[4] = element
+      resolve(element)
     })
-    resolve(dateYear)
   })
-  new Promise((resolve, reject) => {
+  mes6 = new Promise((resolve, reject) => {
     listByMonthAllTurnos(5, anioQuery, turnoOfUser).then((element) => {
-      dateYear[5] = element
+      resolve(element)
     })
-    resolve(dateYear)
   })
-  new Promise((resolve, reject) => {
+  mes7 = new Promise((resolve, reject) => {
     listByMonthAllTurnos(6, anioQuery, turnoOfUser).then((element) => {
-      dateYear[6] = element
+      resolve(element)
     })
-    resolve(dateYear)
   })
-  new Promise((resolve, reject) => {
+  mes8 = new Promise((resolve, reject) => {
     listByMonthAllTurnos(7, anioQuery, turnoOfUser).then((element) => {
-      dateYear[7] = element
+      resolve(element)
     })
-    resolve(dateYear)
   })
-  new Promise((resolve, reject) => {
+  mes9 = new Promise((resolve, reject) => {
     listByMonthAllTurnos(8, anioQuery, turnoOfUser).then((element) => {
-      dateYear[8] = element
+      resolve(element)
     })
-    resolve(dateYear)
   })
-  new Promise((resolve, reject) => {
+  mes10 = new Promise((resolve, reject) => {
     listByMonthAllTurnos(9, anioQuery, turnoOfUser).then((element) => {
-      dateYear[9] = element
+      resolve(element)
     })
-    resolve(dateYear)
   })
-  new Promise((resolve, reject) => {
+  mes11 = new Promise((resolve, reject) => {
     listByMonthAllTurnos(10, anioQuery, turnoOfUser).then((element) => {
-      dateYear[10] = element
+      resolve(element)
     })
-    resolve(dateYear)
   })
-  new Promise((resolve, reject) => {
+  mes12 = new Promise((resolve, reject) => {
     listByMonthAllTurnos(11, anioQuery, turnoOfUser).then((element) => {
-      dateYear[11] = element
+      resolve(element)
     })
-    resolve(dateYear)
   })
-  return Promise.all([list]).then((element) => element[0])
+
+  return Promise.all([
+    mes1,
+    mes2,
+    mes3,
+    mes4,
+    mes5,
+    mes6,
+    mes7,
+    mes8,
+    mes9,
+    mes10,
+    mes11,
+    mes12,
+  ]).then((element) => element)
 }
 module.exports = {
   listByMonthAllTurnos,
