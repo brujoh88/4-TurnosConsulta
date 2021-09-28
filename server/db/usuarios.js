@@ -29,6 +29,12 @@ const allUsuarios = [
     turno: 'A',
     password: 20143225,
   },
+  {
+    legajo: 2655,
+    name: 'Gi',
+    turno: 'A',
+    password: 32307475,
+  },
   /* {
     legajo: 739,
     name: 'Fernan Colazo',
