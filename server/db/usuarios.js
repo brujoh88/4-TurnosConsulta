@@ -156,6 +156,12 @@ const allUsuarios = [
     password: 36792296,
   },
   {
+    legajo: 2736,
+    name: 'Mauro Caceres',
+    turno: 'C',
+    password: 30481948,
+  },
+  {
     legajo: 2691,
     name: 'Javier Carcar',
     turno: 'D',
